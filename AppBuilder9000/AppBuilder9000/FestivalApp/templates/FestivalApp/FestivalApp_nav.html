@@ -1,0 +1,13 @@
+<nav class="nav-wrapper">
+    <div class="logo">
+        <a class="navbar-brand" href="/">
+          <img src="/static/images/png-icons/robot4.png">
+        </a>
+    </div>
+    <ul class="menu">
+        <li><a href="{% url 'FestivalApp:festival_home' %}"><i class="fa fa-home" style="font-size:24px"></i></a></li>
+        <li><a href="{% url 'FestivalApp:festivals_bs' %}">Festivals</a></li>
+        <li><a href="{% url 'FestivalApp:create_review' %}">Review</a></li>
+        <li><a href="{% url 'FestivalApp:weather_api' %}">Weather</a></li>
+    </ul>
+</nav>

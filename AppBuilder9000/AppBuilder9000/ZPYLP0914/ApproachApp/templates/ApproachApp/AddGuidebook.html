@@ -1,0 +1,25 @@
+{% extends 'ApproachApp/Base.html' %}
+{% load static %}
+
+<!-- First title but title may change in the future -->
+{% block title %}Approach App{% endblock %}
+
+{% block header %}Add Guidebooks{% endblock %}
+
+{% block body %}
+
+<div class="Home-slideshow">
+    <img src="{% static 'images/LonePeak_cirque.jpg' %}" alt="lone peak cirque">
+</div>
+
+<div id="Create-Form">
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button class="btn draw-border" type="submit" name="CreateNewGuideBook">Create GuideBook</button>
+		</form>
+		<br>
+</div>
+
+
+{% endblock %}

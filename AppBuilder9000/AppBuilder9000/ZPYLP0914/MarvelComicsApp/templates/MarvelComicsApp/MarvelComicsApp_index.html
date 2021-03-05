@@ -1,0 +1,45 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+
+<!--creating a for loop to iterate through our subscribers_list that is defined in the views and giving each iteration a temp variable name of "subscriber"-->
+{% for subscriber in subscribers.object_list %}
+<!--calling predefined css for the details boxes to come from the bottom of the screen-->
+<div class="w3-container w3-center w3-animate-bottom">
+    <div class="index_pad">
+        <!--making each details box link to its individual details page through its primary key-->
+        <a class="index-container" href="{% url 'MarvelComicsAppSubscriberDetail' pk=subscriber.id %}">
+            <h2>
+                <!--grabbing the username for that particular iteration identified through the primary key-->
+                {{ subscriber.sub_username }}
+            </h2>
+            <h5>
+                <!--grabbing the first and last name for that particular iteration and applying the capfirst filter to ensure a uniform look even if the user did not input it that way-->
+                {{ subscriber.sub_fname|capfirst }}
+                {{ subscriber.sub_lname|capfirst }}
+            </h5>
+        </a>
+    </div>
+</div>
+{% endfor %}
+    <!--calling predefined css for the details boxes to come from the left of the screen-->
+    <div class="w3-container w3-center w3-animate-left pagination-container">
+        <!--bootstrap4 pagination class-->
+        <ul class="pagination">
+        <!--if statement that checks to see if there is a previous page, if so then dynamically makes a link to that previous page-->
+        {% if subscribers.has_previous %}
+            <li class="page-link text-dark pagination-border"><a href="?page={{ subscribers.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% for page in subscribers.paginator.page_range %}
+            {% if subscribers.number == page %}
+                <li class="page-item active pagination-border"><a class="page-link text-dark" href="?page={{ page }}">{{ page }}</a></li>
+            {% else %}
+                <li class="page-item pagination-border"><a class="page-link text-dark" href="?page={{ page }}">{{ page }}</a> </li>
+            {% endif %}
+        {% endfor %}
+        {% if subscribers.has_next %}
+            <li class="page-link text-dark pagination-border"><a href="?page={{ subscribers.next_page_number }}">Next</a> </li>
+        {% endif %}
+        </ul>
+    </div>
+{% endblock %}

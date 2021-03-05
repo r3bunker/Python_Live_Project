@@ -1,0 +1,52 @@
+html,body {
+    height: 100%;
+    background-image: url('/static/Images/CovidMain_bgimg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-family: "Times New Roman", Times, serif;
+}
+
+#footer {
+    background-color:white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0.5;
+}
+/* This centers the h1 tag for the header and recolors due to dark background image*/
+h1 {
+    color: #DCDCDC;
+    text-align: center;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+/** For input form **/
+.contactX {
+    color: white;
+    text-align: center;
+    padding-left: 30%;
+    position: absolute;
+}
+
+/** For Table on Testimonial Page **/
+#test_table {
+    color:white;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #DCDCDC;
+}
+
+/** Styling for header specific to db display**/
+th {
+    color: #DCDCDC;
+}
+
+.name_title {
+    color: white;
+}
+
+.request-container {
+    color: #DCDCDC;
+}

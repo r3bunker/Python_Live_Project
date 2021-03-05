@@ -1,0 +1,24 @@
+{% extends 'Acu_Insurance/Acu_Insurance_base.html' %}
+
+{% block title %}Acupuncturists Taking Insurance{% endblock %}
+
+{% block header %}Find an Acupuncturist who takes Your Insurance{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="selected_clinic" align="center">
+    <h3>{{ clinic.clinic_name }}</h3>
+    <h5>{{ clinic.specialty }}</h5>
+    <p>{{ clinic.street_address}}</p>
+    <p>{{ clinic.city_name}} {{ clinic.zip_code }}</p>
+</div>
+<div class="button_container">
+    <center><a href="{% url 'edit' clinic.pk %}"><button type="submit">Edit</button></a></center>
+    <center><a href="{% url 'delete' clinic.pk %}"><button type="submit">Delete</button></a></center>
+</div>
+
+
+
+
+
+{% endblock %}

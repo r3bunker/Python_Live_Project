@@ -1,0 +1,34 @@
+{% extends 'NSW_App/NSW_App_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Nintendo Switch App | Add Game{% endblock %}
+
+{% block page-title %}Nintendo Switch App{% endblock %}
+{% block page-subtitle %}Add Game to User Library{% endblock %}
+
+{% block button1 %}{% endblock %}
+{% block button2 %}{% endblock %}
+{% block button3 %}{% endblock %}
+{% block button4 %}{% endblock %}
+{% block button5 %}{% endblock %}
+
+{% block appcontent %}
+<div>
+    <form class="text-center" method="POST">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            {{ field.label_tag }}<br>
+            {% if field.help_text %}
+            <p>{{ field.help_text|safe }}</p>
+            {% endif %}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <button type="button"><a class="cancel" href="{% url 'UserLibrary' %}">Cancel</a></button>
+        <button type="reset">Reset</button>
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}

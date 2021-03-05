@@ -1,0 +1,16 @@
+{% extends "BookCatalogApp/BCA_base.html" %}
+{% load static %}
+
+{% block title %}Book Catalog Index{% endblock %}
+{% block header %}Book Catalog Delete View{% endblock %}
+
+{% block content %}
+<form method="post">
+    <div>
+        {% csrf_token %}
+        Click YES to confirm
+        <a href="{% url 'BookCatalogApp:book_home' %}">
+            <button type="submit" class="button" value="YES">Cancel</button></a>
+    </div>
+</form>
+{% endblock %}

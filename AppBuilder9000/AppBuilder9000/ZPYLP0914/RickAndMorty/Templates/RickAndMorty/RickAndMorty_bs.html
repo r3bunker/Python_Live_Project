@@ -1,0 +1,43 @@
+{% extends "RickAndMorty/RickAndMorty_base.html" %}
+{% block title %} Biographies {% endblock %}
+{% block page-title %} Biographies {% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'RickAndMorty_home' %}"><button class="button" type="submit"><strong>Home</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'rick_index' %}"><button class="button" type="submit"><strong>Index</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'api_search' %}"><button class="button" type="submit"><strong>Search</strong></button></a>{% endblock %}
+{% block appcontent %}
+<div class="content">
+    <form name="CharacterForm" method="POST" action="" class="base_form">
+        {% csrf_token %}
+        <div>
+            <label for="menu_id">Select A Character: </label>
+            <select id="menu_id" name="character_bio">
+                <option></option>
+                <option value="Rick_Sanchez">Rick Sanchez</option>
+                <option value="Morty_Smith">Morty Smith</option>
+                <option value="Summer_Smith">Summer Smith</option>
+                <option value="Beth_Smith">Beth Smith</option>
+                <option value="Jerry_Smith">Jerry Smith</option>
+            </select>
+            <button class="button" type="submit"><strong>Submit</strong></button>
+        </div>
+    </form>
+    {% if total %}
+    {% for data in total %}
+   <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="{{data.image_src}}" alt="image not found">
+        </div>
+        <div class="card">
+            <div class="card-header">Biography</div>
+            <div class="card-body text-dark">
+                <h1 class="card-title">{{data.bio_text1}}</h1>
+                <h1 class="card-title">{{data.bio_text2}}</h1>
+                <h1 class="card-title">{{data.bio_text3}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-white m-0 p-0">
+  <a class="logo navbar-brand text-white rounded-circle border border-white" href="{% url 'ComicHome' %}">CD</a>
+  <a class="logo-text navbar-brand text-white border-right mr-auto" href="{% url 'ComicHome' %}">Comic Database</a>
+  <button class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link text-white ml-3" href="{% url 'ComicReview' %}">Review</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white ml-3" href="{% url 'ComicReviewIndex' %}">Review Index</a>
+      </li>
+    </ul>
+    <div class="navbar-nav ml-auto">
+      <a class="sign-up nav-item nav-link text-white border border-white" href="{% url 'ComicSignUp' %}">Sign Up</a>
+    </div>
+  </div>
+</nav>

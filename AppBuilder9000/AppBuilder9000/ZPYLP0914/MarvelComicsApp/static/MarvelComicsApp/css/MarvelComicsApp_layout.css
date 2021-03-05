@@ -1,0 +1,135 @@
+body {
+    background-size: cover;
+    background: url("/static/MarvelComicsApp/images/marvelBG.jpg") fixed center;
+    width: 100%;
+    height: 100%;
+}
+
+.create_subscriber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInAnimation ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.form-container {
+    border: 1px solid black;
+    max-width: 49vw;
+    padding: 10px;
+    background-color: whitesmoke;
+    display: inline-block;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn_container:hover {
+    transition: all .5s ease-in-out;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.index_pad {
+    padding: 10px;
+    float: top;
+}
+
+.index-container {
+    border: 3px solid black;
+    min-width: 15vw;
+    max-width: 15vw;
+    padding: 10px;
+    background-color: white;
+    display: block;
+    border-radius: 15px;
+    opacity: 0.85;
+}
+
+.index-container:hover {
+    transition: all .5s ease-in-out;
+    transform: scale(1.05);
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    background-color: #0d0d0d;
+    border-radius: 15px;
+}
+
+h5 {
+    text-align: center;
+}
+
+.detail-container {
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+    min-width: 15vw;
+    max-width: 30vw;
+    padding: 10px;
+    background-color: white;
+    display: block;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.detail-container:hover {
+    transform: scale(1.05);
+    transition: all .5s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+}
+
+.pagination-container {
+    padding-left: 100px
+}
+
+.pagination-border {
+    border: .5px solid black;
+    text-decoration: none;
+}
+
+.hero-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInAnimationHeroCard ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimationHeroCard {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.hero-info-container:hover {
+    transition: all .5s ease-in-out;
+    transform: scale(1.05);
+}
+
+

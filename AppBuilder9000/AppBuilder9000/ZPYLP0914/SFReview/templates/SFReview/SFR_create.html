@@ -1,0 +1,60 @@
+{% extends 'SFReview/SFR_base.html' %}
+{% load staticfiles %}
+<title>Create a Review</title>
+
+{% block header %}Create a new review:{% endblock %}
+
+{% block appcontent %}
+<table>
+<form class="SFR-Form" method="POST" action="{% url 'CreateReview' %}">
+    {% csrf_token %} <!-- Cross Site Request Forgery (csrf_token) protection -->
+
+<div class="Panel">
+        <div class="Form_Opts">
+            <label for="Author">Author:</label>
+            <input type='text' class="form-control" name="Author" placeholder="">
+        </div>
+        <div class="Form_Opts">
+            <label for="Title">Book Title:</label>
+            <input type="text" class="form-control" name="Title" placeholder="">
+        </div>
+        <div class="Form_Opts">
+            <label for="Review">Book Review:</label>
+            <input type="text" class="form-control" name="Review" placeholder="">
+        </div>
+        <div class="Form_Opts">
+            <ul>
+                <p>Please pick your rating:</p> <!--When formatting make left to right row with radio dial and ideally row above with score.-->
+            <label for="Score">1</label>
+            <input type="radio" class="radio" name="Score" value="1">
+                <label for="Score">2</label>
+            <input type="radio" class="radio" name="Score" value="2">
+                                <label for="Score">3</label>
+            <input type="radio" class="radio" name="Score" value="3">
+                                <label for="Score">4</label>
+            <input type="radio" class="radio" name="Score" value="4">
+                                <label for="Score">5</label>
+            <input type="radio" class="radio" name="Score" value="5">
+            </ul>
+        </div>
+   {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+            <div class="alert error_alert">
+                {{ error|escape }}
+            </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+</div>
+</table>
+<div class="frmBtn_container">
+    <input type=submit class="btn" value="Create New Review" name="Save_Item">
+        <!--Saves the entry-->
+    <a href="{% url 'SFReview' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+        <!--Goes back to local home-->
+</div>
+</form>
+
+{% endblock %}

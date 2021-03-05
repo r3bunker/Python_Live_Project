@@ -1,0 +1,22 @@
+<!--
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% block title %} GAME APP | Edit User {% endblock %}
+
+{% block content %}
+<div class="form_container">
+    <div id="user_form">
+        <br>
+        <h3>EDIT USER</h3>
+            <form name="NewUserForm" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button><a style="text-decoration: none;" href="{% url 'UserIndex' %}">Cancel</a></button>
+                <button type="submit"><a style="text-decoration: none;">Submit Edit</a></button>
+            </form>
+        <br>
+    </div>
+</div>
+{% endblock %}
+
+-->

@@ -1,0 +1,236 @@
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Review Details
+----------------------------------------------------------------------------------------------------------------------*/
+.review-details-container {
+    display: block;
+    overflow: hidden;
+    min-width: 45rem;
+    max-width: 45rem;
+    min-height: 25rem;
+    max-height: 25rem;
+    padding: 0;
+    margin: auto;
+    border-radius: 1rem;
+    background-color: white;
+}
+
+.top-row {
+    display: flex;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 3rem;
+    max-height: 3rem;
+    color: white;
+    background-color: firebrick;
+}
+
+.top-row div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top-row .series-column {
+    min-width: 0;
+    padding: 0 1rem;
+    border-right: 0.1rem solid white;
+}
+
+.top-row .issue-column {
+    min-width: 0;
+    padding: 0 1rem;
+}
+
+.top-row .user-column {
+    min-width: 0;
+    padding: 0 1rem;
+    margin-left: auto;
+}
+
+.mid-row-border {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 20rem;
+    max-height: 20rem;
+    background-color: #343a40;
+}
+
+.mid-row{
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 95%;
+    max-width: 95%;
+    min-height: 100%;
+    max-height: 100%;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.mid-row .review-header {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.mid-row .review-column {
+    padding: 0 1rem;
+}
+
+.mid-row .review-spacer {
+    min-height: 6rem;
+    max-height: 6rem;
+}
+
+.bot-row {
+    display: inline-flex;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 2rem;
+    max-height: 2rem;
+    color: white;
+    font-size: 0.7rem;
+    background-color: #343a40;
+}
+
+.bot-row div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bot-row .created-column {
+    min-width: 0;
+    padding: 0 1rem;
+    border-right: 0.1rem solid white;
+}
+
+.bot-row .modified-column {
+    min-width: 0;
+    padding: 0 1rem;
+}
+
+.rating-bubble-container {
+    position: relative;
+}
+
+.rating-bubble-outer {
+    position: absolute;
+    display: flex;
+    height: 10rem;
+    width: 10rem;
+    right: -2rem;
+    bottom: -2rem;
+    border-radius: 50%;
+    background-color: #343a40;
+}
+
+.rating-bubble-inner {
+    height: 8.2rem;
+    width: 8.2rem;
+    margin: auto;
+    padding: 2rem 0.5rem 0 0;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+    background-color: firebrick;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Buttons
+----------------------------------------------------------------------------------------------------------------------*/
+.button-container {
+    padding-top: 0.5rem;
+    text-align: center;
+}
+
+.button-container .review-button {
+    display: inline-block;
+    padding: 0.6rem 3rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+}
+
+.button-container .review-button:hover {
+    background-color: #7f0505;
+}
+
+.button-container #delete-button {
+    padding: 0.6rem 3rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+}
+
+.button-container #delete-button:hover {
+    background-color: #7f0505;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------
+    Modal
+----------------------------------------------------------------------------------------------------------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    width: 40rem;
+    height: 10rem;
+    padding: 2rem 1rem 0rem 1rem;
+    margin: 10rem auto;
+    text-align: center;
+    border: 1px solid #888;
+    background-color: #fefefe;
+}
+
+.confirm-button {
+    display: inline-block;
+    padding: 0.6rem 3rem;
+    margin: 1rem 0;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+}
+
+.confirm-button:hover,
+.confirm-button:focus {
+    background-color: #7f0505;
+}
+
+#close-button {
+    display: inline-block;
+    padding: 0.6rem 3rem;
+    margin: 1rem 0;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+}
+
+#close-button:hover,
+#close-button:focus {
+    background-color: #7f0505;
+}

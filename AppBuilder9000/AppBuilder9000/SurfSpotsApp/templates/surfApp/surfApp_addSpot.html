@@ -1,0 +1,27 @@
+
+
+{% extends "surfApp/surfApp_base.html" %}
+
+{% block class_img %}class="bg2_img"{% endblock %}
+
+{% block title %}Add Surf Spots{% endblock%}
+
+{% block header %}Add Your Favorite Surf Spots{% endblock %}
+
+{% block content %}
+    <div class="add_container">
+        <form method="POST" action="{% url 'AddSpot' %}">
+            <div class="formObject_container">
+                <!-- Cross Site Request Forgery (csrf_token) protection -->
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div class="formBtn_container">
+                <input type="submit" class="btn" value="Add A Surf Spot" name="Save_Item">
+                <a href="{% url 'AddSpot' %}"><button type="button" class="btn" value="Cancel">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

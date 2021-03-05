@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- Css Link-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/CovidUpdate.css' %}">
+    </head>
+    <!--Navigation Bar-->
+    <nav>{% include "CovidUpdateApp/CovidUpdate_Navbar.html" %}</nav>
+    <!--body section-->
+    <body>
+        <h1>{% block header %}{% endblock %}</h1>
+
+        {% block content %}
+
+
+
+
+
+        {% endblock %}
+        <br>
+        <br>
+
+
+    <!--footer section-->
+    <footer id="footer">
+        {% include "CovidUpdateApp/CovidUpdate_Footer.html" %}
+    </footer>
+    </body>
+</html>

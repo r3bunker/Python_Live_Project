@@ -1,0 +1,79 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+<body>
+<h2>List Of All Countries</h2>
+</body>
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+
+<!--result-->
+{% block content %}
+<div class="container center_div">
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead class="thead-light">
+            {% if save_cities %}
+             <h3 class="text-white bg-dark rounded-top mb-0 pt-1">{% if city_name %}Ticket in {{ city_name }}, {{ save_city }}:{% endif %}</h3>
+
+            {% elif city_names %}
+             <h3 class="text-white bg-dark rounded-top mb-2 pt-1 pb-1">Found:</h3>
+            <tr>
+                <th>Save Cities</th>
+                <th></th>
+            </tr>
+            <!-- Creating a landing page -->
+            {% else %}
+             <h3 class="text-primary bg-white rounded-0 mb-0 pt-1 font-weight-bold">YOU WILL LOVE IT</h3>
+             <form method="GET">
+                <div class="input-field">
+                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Central Africa Republic">
+                    <button class="btn btn-primary" type="submit" name="action"><strong>Find Tickets</strong></button>
+                </div>
+            </form>
+             {% endif %}
+            </thead>
+            {% if save_cities %}}
+                <tbody class=" table-dark">
+                {% for c in save_cities %}
+                 <tr>
+                    <td>{{ c.city }}</td>
+                    <td><a href="{% url 'RcanavApp:save_cities_index' c.city c.state %}"><button class="btn btn-danger">City</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+                </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col bg-light">
+                 Pagination
+                <div class="pagination" style="display: inline-flex">
+                    <span class="step-links">
+                        {% if get_cities %}
+                        {% if save_cities.has_previous %}
+                            <a href="?q={{ request.GET.q }}&page=1">&laquo; 1 </a>|
+                            <a href="?q={{ request.GET.q }}&page={{ save_city.previous_page_number }}"> previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ save_cities.number }} of {{ save_cities.paginator.num_pages }}.
+                        </span>
+
+                        {% if save_cities.has_next %}
+                            <a href="?q={{ request.GET.q }}&page={{ save_city.next_page_number }}">next </a>|
+                            <a href="?q={{ request.GET.q }}&page={{ save_city.paginator.num_pages }}"> last &raquo;</a>
+                        {% endif %}
+                        {% endif %}
+                    </span>
+                </div>
+             End Pagination
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

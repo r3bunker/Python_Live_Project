@@ -1,0 +1,113 @@
+
+{% extends 'FishKeepingApp/FishKeeping_Base.html' %}
+
+{% load static %}
+
+{% block title %}Wish List{% endblock %}
+
+{% block styles %}
+
+	<!----------------------------------------------------------------------------------------------------->
+	<!--------- Compiled and Minified CSS ----------------------------------------------------------------->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!----------------------------------------------------------------------------------------------------->
+	<!--------- jQuery Library ---------------------------------------------------------------------------->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!----------------------------------------------------------------------------------------------------->
+	<!--------- Compiled JavaScript ----------------------------------------------------------------------->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!----------------------------------------------------------------------------------------------------->
+	<!--------- JavaScript file from static/JS ------------------------------------------------------------>
+	<script src="{% static 'JS/FishKeeping_LoadMoreButton.js' %}"></script>
+	<!----------------------------------------------------------------------------------------------------->
+
+{% endblock %}
+
+{% block content %}
+
+	<!--------------------------------------->
+	<!----- WISH LIST DATABASE ELEMENTS ----->
+	<!--------------------------------------->
+	<h2 id="top" class="main-h">WISH LIST ITEMS</h2>
+	<div class="WishList-form-container">
+			<form class="account-holder">
+				<label>User:</label>
+				<input type="text" value="{{ account }}" readonly>
+			</form>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">NAME</div>
+				<div class="col-sm-2">TYPE</div>
+				<div class="col-sm-2">IMAGE</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<!-- For each individual fish in list of fish -->
+		{% for f in fish %}
+		<div class="container">
+			<div class="js-selector-div" class="row">
+				<a href="details/{{ f.id }}" class="col-sm-2">{{ f.name }}</a>
+				<a href="details/{{ f.id }}" class="col-sm-2">{{ f.fish_type }}</a>
+				<a href="details/{{ f.id }}" class="col-sm-2"><img src="{{f.image}}" style="width:50px; height:50px;"></a>
+			</div>
+		</div>
+		<!-- End "for f in fish" loop -->
+		{% endfor %}
+		<!--------------------------------------->
+		<!--- END WISH LIST DATABASE ELEMENTS --->
+		<!--------------------------------------->
+
+		<br><br>
+
+		<!---------------------->
+		<!-- LOAD MORE BUTTON -->
+		<!---------------------->
+		<div>
+			<a href="#" class="js-selector-a" id="loadMore">Load More</a>
+			<p class="totop">
+				<a class="js-selector-a" href="#top">Back to top</a>
+			</p>
+		</div>
+		<!---------------------->
+		<!--- END L M BUTTON --->
+		<!---------------------->
+	</div>
+{% endblock %}
+
+
+<!--
+Old Wish List Database Elements:
+
+
+	<h2 id="top" class="main-h">WISH LIST ITEMS</h2>
+	<div class="WishList-form-container">
+			<form class="account-holder">
+				<label>User:</label>
+				<input type="text" value="{{ account }}" readonly>
+			</form>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">TYPE</div>
+				<div class="col-sm-2">NAME</div>
+				<div class="col-sm-2">NOTES</div>
+				<div class="col-sm-2">BUDGET</div>
+				<div class="col-sm-2">IMAGE</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		{% for f in fish %}
+		<div href="details/{{ fish.id }}" class="container">
+			<div class="js-selector-div" class="row">
+				<div class="col-sm-2">{{ f.fish_type }}</div>
+				<div class="col-sm-2">{{ f.name }}</div>
+				<div class="col-sm-2">{{ f.notes|linebreaks }}</div>
+				<div class="col-sm-2">{{ f.budget }}</div>
+				<div class="col-sm-2"><a href="{{f.image}}" target="_blank"><img src="{{f.image}}" style="width:50px; height:50px;"></a></div>
+			</div>
+		</div>
+		{% endfor %}
+-->

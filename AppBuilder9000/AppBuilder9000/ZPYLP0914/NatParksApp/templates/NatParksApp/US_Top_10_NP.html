@@ -1,0 +1,114 @@
+{% extends 'NatParksApp/NatParksApp_base.html' %}
+{% load staticfiles %}
+
+<!--bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!--header-->
+{% block header %}
+US Top 10 Most Visited National Parks.
+<div class="container">
+  <div class="button">
+    <button type="button" onclick="location.href='park_reviews';" class="btn btn-info btn-sm">Write a Review</button>
+    <button type="button" onclick="location.href='read_reviews';" class="btn btn-secondary btn-sm">Read Arches National Park Reviews</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="album">
+  <div class="row row-cols-1 row-cols-md-5">
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/ArchesNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Arches National Park</h5>
+          <p class="card-text">Arches National Park, a red-rock area of sandstone formations in eastern Utah, U.S.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/BryceNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Bryce Canyon National Park</h5>
+          <p class="card-text">Bryce Canyon National Park, area of spectacular rock formations in southern Utah, U.S..</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/GlacierNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Glacier National Park, scenic wilderness area in the northern Rocky Mountains in northwestern Montana, U.S.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/GrandCanyonNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Grand Canyon National Park</h5>
+          <p class="card-text">Grand Canyon National Park, vast scenic area of northwestern Arizona in the southwestern United States</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/GrandTetonNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Grand Teton National Park</h5>
+          <p class="card-text">Grand Teton National Park, spectacular glaciated mountain region in northwestern Wyoming, U.S.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/HaleakalaNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Haleakala National Park</h5>
+          <p class="card-text">Haleakala National Park, area centred on Haleakala Crater, south-central Maui island, Hawaii, U.S.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/RockyMountainsNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Rocky Mountains National Park</h5>
+          <p class="card-text">Rocky Mountain National Park is an American national park located in north-central Colorado, within the Front Range of the Rocky Mountains.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/YellowstoneNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Yellowstone National Park</h5>
+          <p class="card-text">Yellowstone National Park, the oldest, one of the largest, and probably the best-known national park in the United States.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/YosemiteNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Yosemite National Park</h5>
+          <p class="card-text">Yosemite National Park is an American national park located in the western Sierra Nevada of Central California U.S.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="../../../static/NatParksApp/images/ZionNationalPark.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Zion National Park</h5>
+          <p class="card-text">Zion National Park, dramatic landscape of colourful deep canyons, high cliffs, mesas, and forested plateaus in southwestern Utah, U.S.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

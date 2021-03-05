@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'Acu_Insurance/css/css.css' %}">
+
+    </head>
+    <body>
+                    <!--    NAVBAR-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'Acu_Insurance' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Latest in Acupuncture</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Find An Acupuncturist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add' %}">Add An Acupuncturist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addInsurance' %}">Add An Insurance to A Clinic</a>
+                </li>
+            </ul>
+        </nav>
+                    <br><br>
+        <div>
+            <header class="header-title">
+                <h1>{% block header %}{% endblock %}</h1>
+            </header>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

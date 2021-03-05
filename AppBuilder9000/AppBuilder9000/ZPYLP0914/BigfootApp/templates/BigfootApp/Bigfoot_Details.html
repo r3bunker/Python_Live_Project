@@ -1,0 +1,30 @@
+{% extends 'BigfootApp/Bigfoot_Base.html' %}
+
+{% block title %}Sasquatch Spotter{% endblock %}
+
+{% block header %}Detailed Report{% endblock %}
+
+{% block content %}
+
+    <fieldset disabled="disabled">
+        <form method="POST">
+            <table>
+                {{ form.as_table }}
+            </table>
+        </form>
+    </fieldset>
+        <div class="frmBtn_container">
+            <div class="frmBtn_container">
+                <button class="btn"><a href="../{{ form.pk }}edit/" class="nav-link">Edit Report</a></button>
+                <button class="btn"><a href="{% url 'encounter_index' %}" class="nav-link">Back to Report Index</a></button>
+            </div>
+        </div>
+
+
+
+{% endblock %}
+
+<!--
+{% url 'encounter_edit' pk=form.pk %}
+../{{ form.pk }}edit/
+-->

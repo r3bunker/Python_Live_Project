@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link to stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/HikingApp.css' %}">
+</head>
+
+<!-- tag for loading and rendering navbar template -->
+<nav>{% include "HikingApp/HikingApp_Navbar.html" %}</nav>
+
+<body>
+    <div class="page_container">
+            <header class="header_title">
+                 <!-- tag for loading and rendering html snippets provided by other template pages -->
+                <h1 class="main_title">{% block header %}{% endblock %}</h1>
+            </header>
+            <!-- tag for loading and rendering html snippets provided by other template pages -->
+            {% block contentA %}{% endblock %}
+        </div>
+</body>
+<!-- tag for loading and rendering footer template -->
+<footer>{% include "HikingApp/HikingApp_Footer.html" %}</footer>
+</html>

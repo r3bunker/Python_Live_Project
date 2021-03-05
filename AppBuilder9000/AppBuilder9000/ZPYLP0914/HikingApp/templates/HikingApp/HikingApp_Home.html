@@ -1,0 +1,18 @@
+<!-- extending block tags from base template -->
+{% extends "HikingApp/HikingApp_Base.html" %}
+
+<!-- block tags associated with base template -->
+{% block title %}Happ{% endblock %}
+
+{% block header %}Welcome to Happ! The Hiking App!{% endblock %}
+
+
+{% block contentA %}
+    <div class="contentA_container">
+        <!-- a clickable link to the survey page -->
+        <div class="survey_container">
+            <h2 class="sub_title-a">Would you like to fill out our poll?</h2>
+            <a href="{% url 'happ_survey' %}" class="active">Go to survey</a>
+        </div>
+    </div>
+{% endblock %}

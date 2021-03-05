@@ -1,0 +1,24 @@
+{% extends 'SFReview/SFR_base.html' %}
+{% load staticfiles %}
+<title>Update Review</title>
+
+{% block header %}Update a previous review: {% endblock %}
+
+{% block appcontent %}
+<!--Editting form specific content-->
+<table>
+<form class="sfr-form" method="POST">
+    {% csrf_token %}
+
+        {{form.as_table}}
+    </table>
+    {{form.non_field_errors}}
+    <input class="btn" type=submit value="Update Review" name="Update_Item">
+    <button class="btn"><a href="{{ form.pk }}../remove">Remove</a></button></a>
+    <button class="btn"><a href="{% url 'SFReview' %}">Cancel</a></button>
+        <!--Saves the entry-->
+    <input class="btn" type=""
+</form>
+
+
+{% endblock %}

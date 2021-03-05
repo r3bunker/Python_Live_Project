@@ -1,0 +1,62 @@
+
+{% extends 'FishKeepingApp/FishKeeping_Base.html' %}
+
+{% load static %}
+
+{% block title %}Wish List Details{% endblock %}
+
+{% block styles %}
+
+	<!--------- Compiled and Minified CSS ----------------------------------------------------------------->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!----------------------------------------------------------------------------------------------------->
+	<!--------- jQuery Library ---------------------------------------------------------------------------->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!----------------------------------------------------------------------------------------------------->
+
+{% endblock %}
+
+{% block content %}
+
+	<!--------------------------------------->
+	<!--------------- DETAILS --------------->
+	<!--------------------------------------->
+	<h2 id="top" class="main-h">Wish List Details</h2>
+	<div class="WishList-form-container">
+			<form class="account-holder">
+				<label>User:</label>
+				<input type="text" value="{{ account }}" readonly>
+			</form>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">TYPE</div>
+				<div class="col-sm-2">NAME</div>
+				<div class="col-sm-2">NOTES</div>
+				<div class="col-sm-2">BUDGET</div>
+				<div class="col-sm-2">IMAGE</div>
+			</div>
+		</div>
+		<br>
+		<br>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">{{ fish_details.fish_type }}</div>
+				<div class="col-sm-2">{{ fish_details.name }}</div>
+				<div class="col-sm-2">{{ fish_details.notes|linebreaks }}</div>
+				<div class="col-sm-2">{{ fish_details.budget }}</div>
+				<div class="col-sm-2"><a href="{{fish_details.image}}" target="_blank"><img src="{{fish_details.image}}" style="width:50px; height:50px;"></a></div>
+			</div>
+		</div>
+
+		<!-- The following line is currently under construction -->
+<!--		<p>Go back to <a href="/FishKeepingApp/ShowWishList/{{account.id}}">your wish list</a>.</p> -->
+		<!--------------------------------------->
+		<!------------- END DETAILS ------------->
+		<!--------------------------------------->
+
+		<br><br>
+
+	</div>
+{% endblock %}

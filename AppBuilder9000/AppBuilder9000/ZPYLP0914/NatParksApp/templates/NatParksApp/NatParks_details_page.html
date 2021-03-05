@@ -1,0 +1,29 @@
+{% extends 'NatParksApp/NatParksApp_base.html' %}
+
+{% block content %}
+    {% for natParksReview in park  %}
+        <div class="w3-card-4">
+            <header class="w3-container">
+                <h5>National Park:{{ natParksReview.park_name }}</h5>
+            </header>
+            <div class="w3-container">
+                <h6>Dates Visited: {{ natParksReview.date_arrived }} {{ natParksReview.date_departed }}</h6>
+            </div>
+            <div class="w3-container">
+                <h6>Park Review: {{ natParksReview.review_park }}</h6>
+            </div>
+            <div>
+                <button class="back" onclick="goBack()">Go Back</button>
+                <script>function goBack() { window.history.back() }</script>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+

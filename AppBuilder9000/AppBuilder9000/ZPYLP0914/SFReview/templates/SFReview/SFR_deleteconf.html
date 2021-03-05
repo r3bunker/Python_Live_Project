@@ -1,0 +1,16 @@
+{% extends "SFReview/SFR_base.html" %}
+{% load staticfiles %}
+{% block title %}Confirm Removal of Review:{% endblock %}
+
+{% block appcontent %}
+
+<form class="sfr-form" method="POST">
+    {% csrf_token %}
+    <h2>Confirm Removal</h2>
+        <p>Are you sure you want to remove this review for {{ item.Title }} from the site?</p>
+
+
+    <input type="submit" value="Yes, Remove it!" class="btn">
+<a href="{% url 'PreviousReview' %}"><button class="btn">No, don't remove.</button></a>
+</form>
+{% endblock %}

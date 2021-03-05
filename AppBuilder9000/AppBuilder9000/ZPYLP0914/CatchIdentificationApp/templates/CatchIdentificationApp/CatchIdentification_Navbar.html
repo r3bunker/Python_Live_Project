@@ -1,0 +1,22 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-sm bg-light sticky-top">
+  <!-- Logo that brings user back to main page of app -->
+  <a class="navbar-brand text-blue" href="{% url 'home' %}"><img src="{% static 'CatchIdentificationApp/images/coolCopy.gif' %}" id="App-Home" alt="AppHomeImg"></a>
+    <!-- Links -->
+  <ul class="navbar-nav ">
+    <li class="nav-item active">
+      <a class="nav-link text-blue" href="#">Wanna See A Fish?</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link text-blue" href="{% url 'BigOne' %}">Log Your Catch</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link text-blue" href="{% url 'ContactForm' %}">Come Fishing With Us</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link text-blue" href="{% url 'searchlog' %}">Catch Index</a>
+    </li>
+  </ul>
+
+</nav>

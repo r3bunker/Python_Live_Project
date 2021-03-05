@@ -1,0 +1,23 @@
+{% extends 'SoccerApp/SoccerApp_base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <style>
+        body {
+             background-image: url("../../static/SoccerApp/images/background.jpg");
+            }
+    </style>
+        <div class="frm_container">
+            <form action="" method="post">
+                {% csrf_token %}
+                <table class="tbl">
+                    {{ form.as_table }}
+                </table>
+                    <input type="submit" value="Submit">
+            </form>
+        </div>
+{% endblock %}
+

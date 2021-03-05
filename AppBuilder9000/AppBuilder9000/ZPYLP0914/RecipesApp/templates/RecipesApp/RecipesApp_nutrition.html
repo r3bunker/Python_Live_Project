@@ -1,0 +1,46 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %}Nutrition{% endblock %}
+
+{% block header %}Basic Nutrition Data{% endblock %}
+
+{% block content %}
+<div class="nutrition-style">
+    <div>
+        {% if paragraph %}
+        <h3 class="nutrition-head">Ensure you have a healthy balanced plate.</h3>
+        <p> <h4 class="nutrition-header">Fruits and Vegetables:</h4>
+            {{ paragraph.veggies }}
+            {% if links %}
+            <br>
+            <a href="{{ links.veggies }}" target="_blank" class="button-book">Click here to learn more!</a>
+            {% endif %}
+        </p>
+        <p> <h4 class="nutrition-header">Healthy Grains:</h4>
+            {{ paragraph.grains }}
+            {% if links %}<br>
+            <a href="{{ links.grains }}" target="_blank" class="button-book">Click here to learn more!</a>
+            {% endif %}
+        </p>
+        <p> <h4 class="nutrition-header">A Protein Source:</h4>
+            {{ paragraph.protein }}
+            {% if links %}<br>
+            <a href="{{ links.protein }}" target="_blank" class="button-book">Click here to learn more!</a>
+            {% endif %}
+        </p>
+        <p> <h4 class="nutrition-header">Healthy Fats:</h4>
+            {{ paragraph.fats }}
+            {% if links %}<br>
+            <a href="{{ links.fats }}" target="_blank" class="button-book">Click here to learn more!</a>
+            {% endif %}
+        </p>
+        <p> <h4 class="nutrition-header">And... Healthy Drinks!</h4>
+            {{ paragraph.drinks }}
+            {% if links %}<br>
+            <a href="{{ links.drinks }}" target="_blank" class="button-book">Click here to learn more!</a>
+            {% endif %}
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

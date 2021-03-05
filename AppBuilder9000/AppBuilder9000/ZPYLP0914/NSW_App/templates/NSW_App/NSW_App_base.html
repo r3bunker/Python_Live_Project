@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Nintendo Switch App{% endblock %}
+
+{% block tab-icon %}<link rel="icon" href="{% static 'NSW_App/images/switch_icon.png' %}"{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'NSW_App/css/NSW_App_layout.css' %}">
+{% endblock %}
+
+{% block pagetop-css %}bg_home{% endblock %}
+
+{% block navbar %}
+    <header>
+        <nav class="nav-wrapper">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    {% block nav-icon %}<img src="{% static 'NSW_App/images/switch_icon.png' %}"{% endblock %}
+                </a>
+            </div>
+            <ul class="menu">
+                <li><a href="{% block home-button %}{% url 'NSWAppHome' %}{% endblock %}">Home</a></li>
+                <li><a href="{% url 'NSWAppAbout' %}">About</a></li>
+                <li><a href="{% url 'NSWNewsSearchAPI' %}">Search Switch News</a></li>
+                <li><a href="{% url 'CurrentGamesIndex' %}">Current Games</a></li>
+                <li><a href="{% url 'FutureGamesIndex' %}">Upcoming Releases</a></li>
+                <li><a href="{% url 'UserLibrary' %}">User Library</a></li>
+            </ul>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block page-title %}Nintendo Switch App{% endblock %}
+{% block page-subtitle %}Your One Stop Switch Shop{% endblock %}
+
+{% block button1 %}{% endblock %}
+{% block button2 %}{% endblock %}
+{% block button3 %}{% endblock %}
+{% block button4 %}{% endblock %}
+{% block button5 %}{% endblock %}
+
+{% block appcontent %}{% endblock %}
+
+{% block footer %}{% include 'NSW_App/NSW_App_footer.html' %}{% endblock %}
+
+{%  block javascript %}{% endblock %}

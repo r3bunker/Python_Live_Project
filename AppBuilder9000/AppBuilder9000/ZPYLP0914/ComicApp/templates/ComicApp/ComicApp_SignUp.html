@@ -1,0 +1,17 @@
+{% extends "ComicApp/ComicApp_Base.html" %}
+
+{% block title %}Sign-Up - Comic Database{% endblock %}
+
+{% block header %}Sign-Up{% endblock %}
+
+{% block content %}
+
+    <form class="sign-up-form" action="{% url 'ComicSignUp' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Create</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+	<head>
+        <title>{% block title %} Catch Of The Database {% endblock %}</title>
+
+	    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'CatchIdentificationApp/CSS/CatchStyle.css' %}">
+	</head>
+    <body style="background-color:ghostwhite;">
+        {% include "CatchIdentificationApp/CatchIdentification_Navbar.html" %}
+
+        <div class="page_container">
+            <header class="header-title">
+                <h1 class="text-center">{% block header %}{% endblock %}</h1>
+		    </header>
+            <img class="img-responsive" src="{% static 'CatchIdentificationApp/images/CatchIdentificationFishing.png' %}" alt="Catch of the Database">
+            {% block content %}{% endblock %}
+        </div>
+
+    </body>
+</html>

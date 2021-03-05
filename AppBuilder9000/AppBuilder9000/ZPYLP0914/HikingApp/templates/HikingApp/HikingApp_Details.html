@@ -1,0 +1,44 @@
+<!-- extending block tags from base template-->
+{% extends "HikingApp/HikingApp_Base.html" %}
+
+<!-- block tags associated with base template -->
+{% block title %}Happ{% endblock %}
+
+{% block header %}Survey Results{% endblock %}
+
+{% block contentA %}
+
+<!-- link to bootstrap styling for the container class -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+<div class="contentA_container">
+    <div class="survey1">
+        <h2>Search Results</h2>
+        <!--  container for search results -->
+        <div class="container">
+            <!-- top horizontal row which includes survey topic headers -->
+            <div class="row">
+                    <div class="col-sm-2">Nick name</div>
+                    <div class="col-sm-2">Favorite type of hike</div>
+                    <div class="col-sm-2">Perfect length of hike</div>
+                    <div class="col-sm-2">Avid hiker</div>
+                    <div class="col-sm-2">Level of health</div>
+            </div>
+            <br>
+            <!-- inclusion of a border between both instances of row class -->
+            <div class="bottom_border"></div>
+            <br>
+            <!-- horizontal row which contain survey result data -->
+            <div class="row">
+                    <!-- columns that includes the value of a specific db field -->
+                    <div class="col-sm-2">{{ detail.nick_name }}</div>
+                    <div class="col-sm-2">{{ detail.favorite_types_of_hikes }}</div>
+                    <div class="col-sm-2">{{ detail.perfect_length_of_hike|linebreaks }}</div>
+                    <div class="col-sm-2">{{ detail.avid_hiker|yesno:"Yes,No" }}</div>
+                    <div class="col-sm-2">{{ detail.how_healthy_are_you }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

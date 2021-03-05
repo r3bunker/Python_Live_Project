@@ -1,0 +1,23 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="flex-container">
+            <form method="post">
+                {% csrf_token %}
+                <!--alert user to confirm deletion of specific residency-->
+                <p>
+                    Are you sure you want to delete {{ city.city }}
+                </p>
+                <button class="primary-light-button" type="submit">Delete</button>
+                <button class="primary-light-button" type="submit">Cancel</button>
+            </form>
+
+        </div>
+    </section>
+{% endblock %}

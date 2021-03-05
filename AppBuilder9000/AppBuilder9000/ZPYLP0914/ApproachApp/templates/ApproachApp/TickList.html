@@ -1,0 +1,47 @@
+{% extends 'ApproachApp/Base.html' %}
+{% load static %}
+
+<!-- First title but title may change in the future -->
+{% block title %}Approach App{% endblock %}
+
+{% block header %}TickList{% endblock %}
+
+{% block body %}
+
+<div class="Home-slideshow">
+    <img src="{% static 'images/LonePeak_cirque.jpg' %}" alt="lone peak cirque">
+</div>
+
+<div id="Create-Form">
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Climb</th>
+				<th>Grade</th>
+				<th>Sent</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for c in Climbs %}
+			<tr>
+				<td><a href="{% url 'ViewClimb' pk=c.pk %}">{{ c.climb_name }}</a></td>
+				<td><a href="{% url 'ViewClimb' pk=c.pk %}">{{ c.climb_grade }}</a></td>
+				<td><a href="{% url 'ViewClimb' pk=c.pk %}">{% if c.sent == False %}
+					Project
+					{% else %}
+					Sent
+					{% endif %}</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{% url 'AddClimb' %}"><button class="btn draw-border" type="button">Create Climb</button></a>
+
+</div>
+
+
+
+{% endblock %}

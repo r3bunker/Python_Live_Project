@@ -1,0 +1,27 @@
+{% extends 'SOS_home/SOS_Base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="index_list">
+        <table class="index_form">
+            <tr>
+                <th>Planet</th>
+                <th>Planet Diameter</th>
+                <th>Planet Mass</th>
+                <th>Planet Area</th>
+                <th>Distance from the Sun</th>
+                <th>Planet Orbit in Days</th>
+                <th>Gravity</th>
+            </tr>
+            <tr>
+                <td>{{ planet.planet_name }}</td>
+                <td>{{ planet.planet_diameter }}</td>
+                <td>{{ planet.planet_mass }}</td>
+                <td>{{ planet.planet_area }}</td>
+                <td>{{ planet.sun_distance }}</td>
+                <td>{{ planet.planet_orbit }}</td>
+                <td>{{ planet.planet_gravity }}</td>
+            </tr>
+            <a href = "{% url 'SOS_PlanetIndex' %}">go back</a>
+        </table>
+{% endblock %}

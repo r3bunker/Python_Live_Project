@@ -1,0 +1,114 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Climbs{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+    <!-- CLIMB DETAILS -->
+    <div class="container p-4 my-3 bg-dark text-white my-5">
+        <div class="card text-white bg-dark mb-4 shadow" style="max-width: 25rem">
+
+            <!-- CARD HEADER -->
+            <div class="card-header shadow">
+                <h4 class="font-weight-bold py-1 text-center">{{ climb.name }}</h4><br>
+                <!-- NAV TABS -->
+                <ul class="nav nav-tabs nav-fill card-header-tabs justify-content-center" id="myTab" role="tablist">
+                    <!--CLIMB DETAILS -->
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Details</a>
+                    </li>
+                    <!-- ATTEMPTS TAB (IS DISABLED IF THERE HAVE BEEN NO ATTEMPTS RECORDED) -->
+                    <li class="nav-item">
+                        <a class="nav-link {% if not attempts %}disabled{% endif %}" id="attempts-tab" data-toggle="tab" href="#attempts" role="tab" aria-controls="attempts" aria-selected="false">Attempts</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--===== CARD BODY =====-->
+            <div class="card-body shadow tab-content" id="myTabContent">
+                <!--===== CLIMB INFO=====-->
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <p>
+                        <span class="font-weight-bold">Name</span><br>
+                        <span>{{ climb.name }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Type</span><br>
+                        <span>{{ climb.type }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Grade</span><br>
+                        <span>{{ climb.grade }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Number of Pitches</span><br>
+                        <span>{{ climb.pitches }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Rock Type</span><br>
+                        <span>{{ climb.rock }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Pitches</span><br>
+                        <span>{{ climb.pitches }}</span>
+                    </p>
+                    <p>
+                        <span class="font-weight-bold">Rock</span><br>
+                        <span>{{ climb.rock }}</span>
+                    </p>
+                </div>
+
+                <!-- BUTTON STACK -->
+                <div class="navbar nav bg-dark nav-fill justify-content">
+                    <a name="ClimbEdit" aria-controls="edit" aria-selected="true" href="{% url 'ClimbEdit' pk=climb.id  %}" role="button" class="btn btn-block btn-secondary shadow">Edit Route</a>
+                    <a name="create_climb" href="{% url 'ClimbCreate' %}" class="btn btn-block btn-secondary shadow">Add Route</a>
+                    <a name="my_sends" href="{% url 'MySends' %}" class="btn btn-block btn-secondary shadow ">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATTEMPT TABLE (IF ATTEMPTS FOR THE CLIMB EXIST) -->
+    <div class="tab-pane fade" id="attempts" role="tabpanel" aria-labelledby="attempts-tab">
+        <h5 class="card-title mt-2">{{ attempt.climb }} Attempts</h5>
+        <h6 class="card-subtitle mb-4 text-muted">Total Attempts: {{ attempt_count }}</h6>
+        <div class="card-text mb-4">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Climb</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Light</th>
+                            <th scope="col">Temperature</th>
+                            <th scope="col">Shoes Worn</th>
+                            <th scope="col">Climb Status</th>
+                            <th scope="col">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for attempt in attempts %}
+                            <a href="{% url 'AttemptDetail' pk=attempt.id %}">
+                                <tr>
+                                    <th class="click-row" scope="row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.climb }}</a></th>
+                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.date }}</a></td>
+                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.light }}</a></td>
+                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.temp }}</a></td>
+                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.shoes }}</a></td>
+                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.notes }}</a></td>
+                                </tr>
+                            </a>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--===== BUTTON - link to create new tracker =====-->
+        <a name="attemptCreate" href="{% url 'Create' %}" class="btn btn-secondary shadow">Add Another Attempt</a>
+    </div>
+
+{% endblock %}

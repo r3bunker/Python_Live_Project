@@ -1,0 +1,30 @@
+{% extends 'Acu_Insurance/Acu_Insurance_base.html' %}
+
+{% block title %}Acupuncturists Taking Insurance{% endblock %}
+
+{% block header %}Hello World, you're at the Acu_Insurance Index{% endblock %}
+
+{% block content %}
+
+
+<div class="form_container" align="center">
+    <br>
+    <h2>List of Clinics</h2>
+        <table style="width:50%">
+            <tr>
+                <th>Clinic Name</th>
+                <th>Specialty</th>
+            </tr>
+
+{% for clinic in clinics %}
+            <tr>
+                <td>{{clinic.clinic_name|title}}</td>
+                <td>{{clinic.specialty|title}}</td>
+                <td><a href="{% url 'details' clinic.pk %}"><button>Select</button></a></td>
+            </tr>
+{% endfor %}
+        </table>
+</div>
+
+
+{% endblock %}

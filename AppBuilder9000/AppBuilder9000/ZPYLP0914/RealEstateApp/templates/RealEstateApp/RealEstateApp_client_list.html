@@ -1,0 +1,21 @@
+{% extends 'RealEstateApp/RealEstateApp_base.html' %}
+
+<!-- database of clients
+        add bootstrap style later(bootstrap) -->
+{% block content %}
+<div class="text-center">
+    <h4>Clients in database</h4>
+        {% for client in clients %}
+        <div class="row">
+            <a class="col-6 offset-3 bg-dark text-white rounded my-2" href="{% url 'client_detail' client.pk %}">
+                <h2 class="h3">{{ client.full_name }}</h2>
+                <p>Email: {{ client.email }}</p>
+            </a>
+        </div>
+        {% endfor %}
+
+</div>
+{% endblock %}
+
+
+

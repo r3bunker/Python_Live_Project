@@ -1,0 +1,40 @@
+{% extends 'NatParksApp/NatParksApp_base.html' %}
+
+
+
+{% block content %}
+    {% load myapp_extras %}
+        <form class="park_selector" method="GET">
+            {{ filtered_natparks.form.as_p }}
+            <input class="retrieve_reviews" type="submit" value="Press">
+        </form>
+
+        {% for natParksReview in parks_page_obj  %}
+            <div class="w3-card-4">
+                <header class="w3-container">
+                    <h5>National Park:<a href="review_details/{{ natParksReview.id }}">{{ natParksReview.park_name }}</a></h5>
+                </header>
+                <div class="w3-container">
+                    <h6>Dates Visited: {{ natParksReview.date_arrived }} {{ natParksReview.date_departed }}</h6>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if parks_page_obj.has_previous%}
+                        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
+                        <a href="{% my_url parks_page_obj.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{parks_page_obj.number}} of {{parks_page_obj.paginator.num_pages}}.
+                    </span>
+
+                    {% if parks_page_obj.has_next %}
+                        <a href="{% my_url parks_page_obj.next_page_number 'page' request.GET.urlencode %}">Next</a>
+                        <a href="{% my_url parks_page_obj.paginator.num_pages 'page' request.GET.urlencode %}">&laquo; Last</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+{% endblock %}

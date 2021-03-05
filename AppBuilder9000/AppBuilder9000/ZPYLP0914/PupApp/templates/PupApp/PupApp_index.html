@@ -1,0 +1,36 @@
+{% extends 'PupApp/PupApp_base.html' %}
+{% load static %}
+
+{% block appcontent %}
+
+
+<section class="table">
+<div class="table-viewPups" id="Pups">
+    <table>
+        <tr>
+            <th class="col-head">Pup Name</th>
+            <th class="col-head">Age</th>
+            <th class="col-head">Breed</th>
+            <th class="col-head">Owner Email</th>
+            <th class="col-head">Details</th>
+        </tr>
+        {% for PlayTime in PlayTime %} <!-- new row for each pup added-->
+
+        <tr>
+            <td class="col-md">{{PlayTime.dog_name}}</td>
+            <td class="col-md">{{PlayTime.age}}</td>
+            <td class="col-md">{{PlayTime.breed}}</td>
+            <td class="col-md">{{PlayTime.owner}}</td>
+            <td class="col-md"><a href="{{PlayTime.pk}}/pupapp_details"><button class="btn">Details</button></a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+</section>
+
+{% endblock %}
+
+
+

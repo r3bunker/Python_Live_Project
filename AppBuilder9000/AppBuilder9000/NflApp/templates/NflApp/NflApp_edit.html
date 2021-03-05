@@ -1,0 +1,23 @@
+{% extends 'NflApp/NflApp_base.html' %}
+
+{% block title %}NFL{% endblock %}
+
+{% block header %}Edit Player Profile{% endblock %}
+
+{% block content %}
+
+<div class="form_container">
+    <form action="" method="POST" class="form_content">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <div class="">
+            <input type="submit" value="Save Changes" class="btn" name="Save_item">
+
+            <a href="{% url 'NflApp_index' %}"><button type="button" class="btn" value="Cancel">Cancel</button> </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+

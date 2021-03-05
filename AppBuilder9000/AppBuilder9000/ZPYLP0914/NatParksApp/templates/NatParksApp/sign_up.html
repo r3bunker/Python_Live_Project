@@ -1,0 +1,18 @@
+{% extends 'NatParksApp/NatParksApp_base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h3 class="text-center">Sign-Up Now To Receive Monthly Deals, News & Much More!</h3>
+            <form class="email_input" method="POST">{% csrf_token %}
+                <div class="input-group">
+                    {{ form }}
+                    <button class="subscribe" type="submit" value="Press">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'PupApp/PupApp_base.html' %}
+{% load staticfiles %}
+{% block templatecontent %}
+<section>
+    <div class="table-viewPups" id="">
+        <table class="table-viewPups">
+            <tr>
+                <th class="col-head">Dog Name</th>
+                <td class="col-md">{{PlayTime.dog_name}}</td>
+            </tr>
+            <tr>
+                <th class="col-head">Breed</th>
+                <td class="col-md">{{PlayTime.breed}}</td>
+            </tr>
+            <tr>
+                <th class="col-head">Age</th>
+                <td class="col-md">{{PlayTime.age}}</td>
+            </tr>
+            <tr>
+                <th class="col-head">Size</th>
+                <td class="col-md">{{PlayTime.size}}</td>
+            </tr>
+            <tr>
+                <th class="col-head">Play Place</th>
+                <td class="col-md">{{PlayTime.play_place}}</td>
+            </tr>
+            <tr>
+                <th class="col-head">Play Type</th>
+                <td class="col-md">{{PlayTime.play_type}}{{pk}}</td>
+            </tr>
+                <td><a class="btn2" href="{% url 'pupEdit' PlayTime.pk %}">Edit Pup</a>
+                    <a class="btn2" href="{% url 'pupDelete' PlayTime.pk %}">Delete Pup</a>
+                </td>
+            <hr />
+        </table>
+
+        <hr />
+    </div>
+</section>
+
+{% endblock %}

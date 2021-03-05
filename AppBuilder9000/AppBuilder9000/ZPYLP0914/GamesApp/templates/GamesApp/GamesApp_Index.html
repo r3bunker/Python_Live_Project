@@ -1,0 +1,33 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="form_container">
+        <br>
+    <h3>USER INDEX</h3>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Favorite Genre</th>
+            </tr>
+
+{% for user in users %}
+            <tr>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.birthday}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.fav_genre}}</td>
+            </tr>
+
+{% endfor %}
+
+</table>
+</div>
+{% endblock %}

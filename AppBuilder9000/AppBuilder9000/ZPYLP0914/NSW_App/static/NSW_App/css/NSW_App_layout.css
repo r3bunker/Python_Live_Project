@@ -1,0 +1,16 @@
+.bg_home {
+  background-color: black;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/NSW_App_Background.jpg') repeat-y;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  }
+
+  .title {
+	display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    }

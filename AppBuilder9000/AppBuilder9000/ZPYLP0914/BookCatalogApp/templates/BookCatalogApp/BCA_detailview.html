@@ -1,0 +1,22 @@
+{% extends "BookCatalogApp/BCA_base.html" %}
+{% load static %}
+
+{% block title %}Book Catalog Index{% endblock %}
+{% block header %}Book Catalog Detail View{% endblock %}
+
+{% block content %}
+    <div id="list">
+        <h3>Book Title:{{data.bk_title}}</h3><br>
+        <h3>Author:{{data.bk_author}}</h3><br>
+        <h3>Published:{{data.bk_pub_date}}</h3><br>
+        <h3>Type:{{data.bk_type}}</h3><br>
+        <h3>Purchased:{{data.bk_purchase_date}}</h3><br>
+        <h3>:Price:{{data.bk_price}}</h3><br>
+        <hr/>
+    </div>
+    <div class="btn_container">
+        <a href="{% url 'BookCatalogApp:list_index' %}">
+            <button type="button" class="button" value="Return">Return</button></a>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'BigfootApp/Bigfoot_Base.html' %}
+
+{% block title %}Sasquatch Spotter{% endblock %}
+
+{% block header %}Report Index{% endblock %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <th>Report Number</th>
+            <th>Date</th>
+            <th>State/Province</th>
+            <th>Report Link</th>
+        </tr>
+        {% for encounter in encounters %}
+        <tr>
+            <td>{{ encounter.pk }}</td>
+            <td>{{ encounter.enc_date|date:"M j Y" }}</td>
+            <td>{{ encounter.state }}</td>
+            <td><a href="{% url 'encounter_details' pk=encounter.pk %}" class="nav-link">See Report</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+<!-- Things to do -->
+<div class="form">
+    <form action="thingstodo" method="POST">
+        <div class="popular_destination_area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h3>Popular Destination</h3>
+                        <p>Place that you must visite in Bangui</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="{% static 'RcanavApp/images/cathedral.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Notre-Dame of Bangui Cathedral <a href="travel_destination.html">1 place</a> </p>
+                            <a href="RcanavApp_Culture" class="btn btn-primary">Save This City</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="img/destination/2.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Dzanga-Sangha Reserve<a href="travel_destination.html">  2</a> </p>
+                            <a href="RcanavApp_Culture" class="btn btn-primary">Save This City</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="img/destination/3.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Oubangui River<a href="travel_destination.html">  10 Places</a> </p>
+                            <a href="RcanavApp_Culture" class="btn btn-primary">Save This City</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="img/destination/4.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Chutes de Boali<a href="travel_destination.html">  02 Places</a> </p>
+                            <a href="RcanavApp_Culture" class="btn btn-primary">Save This City</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="img/destination/5.png" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Musée de Boganda <a href="travel_destination.html">  02 Places</a> </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     </form>
+</div>
+{% endblock %}
+    <!-- end things to do-->

@@ -1,0 +1,17 @@
+{% extends 'RealEstateApp/RealEstateApp_base.html' %}
+
+{% block header %} Favorite {% endblock %}
+
+{% block content %}
+							<!-- allows the user to save 'favorited' homes -->
+<h3 class="special-h">Add Home</h3>
+	<div class="user-form">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-user-button" type="submit" name="Save_Account">Add Fish</button>
+		</form>
+		<br>
+	</div>
+
+{% endblock %}

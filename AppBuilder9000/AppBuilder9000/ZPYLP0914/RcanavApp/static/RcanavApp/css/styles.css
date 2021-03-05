@@ -1,0 +1,221 @@
+.navbar{
+    position: absolute;
+    background: transparent!important;
+    width: 100%
+    z-index 10;
+
+    font-family: "Rubik", sans-serif;
+}
+.nav-link {
+    color: #fff!important;
+}
+
+.nav-link:hover {
+    color: dark;
+}
+.phone, .email{
+    margin-right:5px;
+}
+.phone{
+    color: #03A9F4;
+}
+.email{
+    color:#E91E63
+}
+.search-bar{
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    width: 100%;
+
+}
+/*header text*/
+.ml15 {
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  position:absolute;
+   top: 50%
+
+}
+
+.ml15 .word {
+  display: inline-block;
+  line-height: 1em;
+  color: white;
+  text-shadow: 2px 2px red;
+  text: center;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  width:100%;
+
+}
+/*carousel*/
+.carousel-item{
+    height:100vh;
+    min-height:300px;
+    background: no-repeat center  center scroll;
+    -webkit-background-size:cover
+    background-size:cover;
+
+}
+
+.where_togo_area {
+  background: #040E27;
+  padding: 50px 0;
+}
+
+/* line 5, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .form_area h3 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  /* line 5, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .form_area h3 {
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 5, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .form_area h3 {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 5, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .form_area h3 {
+    font-size: 18px;
+  }
+}
+
+/* line 22, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .search_form {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+}
+
+@media (max-width: 767px) {
+  /* line 22, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .search_wrap .search_form {
+    display: block !important;
+  }
+}
+
+/* line 29, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field {
+  width: 220px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 29, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .search_wrap .input_field {
+    max-width: 150px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 29, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .search_wrap .input_field {
+    max-width: 170px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* line 29, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .search_wrap .input_field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+/* line 41, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: 1px solid #363E52;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* line 49, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field input::placeholder {
+  font-size: 16px;
+  color: #AAB1B7;
+  font-weight: 300;
+}
+
+/* line 55, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field input:focus {
+  outline: none;
+}
+
+/* line 59, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field .nice-select {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #AAB1B7;
+  font-weight: 300;
+  background: transparent;
+  border: 1px solid #363E52;
+}
+
+@media (max-width: 767px) {
+  /* line 59, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+  .where_togo_area .search_wrap .input_field .nice-select {
+    margin-bottom: 15px;
+  }
+}
+
+/* line 71, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field .nice-select::after {
+  content: '\f0d7 ';
+  right: 21px;
+  top: 5px;
+  font-family: 'fontawesome';
+  color: #AAB1B7;
+  font-size: 16px;
+}
+
+/* line 79, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field .nice-select .option {
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px;
+  list-style: none;
+  min-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 29px;
+  text-align: left;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: #000;
+  font-weight: 400;
+}
+
+/* line 94, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_where_to_go.scss */
+.where_togo_area .search_wrap .input_field .nice-select.open .list {
+  width: 100%;
+}
+

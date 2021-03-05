@@ -1,0 +1,26 @@
+{% extends 'ApproachApp/Base.html' %}
+{% load static %}
+
+<!-- First title but title may change in the future -->
+{% block title %}Approach App{% endblock %}
+
+{% block header %}TickList{% endblock %}
+
+{% block body %}
+
+<div class="Home-slideshow">
+    <img src="{% static 'images/LonePeak_cirque.jpg' %}" alt="lone peak cirque">
+</div>
+
+<div id="Create-Form" style="max-height: 1000px">
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button class="btn draw-border" type="submit" name="SaveNewClimb">Create Climb</button>
+		</form>
+		<br>
+</div>
+
+
+
+{% endblock %}

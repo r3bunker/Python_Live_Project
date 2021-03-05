@@ -1,0 +1,21 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% block title %} GAMES APP | Delete Game {% endblock %}
+
+{% block content %}
+
+<div class="form_container">
+    <br>
+    <h3>DELETE GAME?</h3>
+        <p>Are you sure you want to delete {{game.game_title}}?</p>
+            <form method="POST">
+            {% csrf_token %}
+        <center><button><a style="text-decoration: none;" href="{% url 'GameLibrary' %}">Cancel</a></button></center>
+        <br>
+        <center><button><a style="text-decoration: none;">Yes</a></button></center>
+        <br>
+    </form>
+  <table>
+
+
+{% endblock %}

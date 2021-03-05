@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/breakingbadapp/css/breakingbad.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="bg_img">
+        <nav class="navbar navbar-expand bg-dark">
+          <a class="navbar-brand text-light" href="{% url 'home' %}">App Directory</a>
+          <div id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link text-light" href="{% url 'BreakingBadHome' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'BreakingBadAddEpisode' %}">Episodes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="{% url 'BreakingBadSavedEpisodes' %}">Index</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <h1 class="d-flex justify-content-center text-light" style="width: 100%;">{% block header %}{% endblock %}</h1>
+        <div>
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

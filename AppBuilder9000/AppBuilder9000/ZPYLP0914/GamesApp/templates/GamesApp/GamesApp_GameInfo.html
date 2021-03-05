@@ -1,0 +1,39 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% block title %} GAMES APP | Game Details {% endblock %}
+
+
+{% block content %}
+
+{% if game_details %}
+<div class="form_container">
+  <table>
+      <br>
+<h3>GAME INFO</h3>
+            <tr>
+                <th>Game Title</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Publisher</th>
+                <th>User Rating</th>
+            </tr>
+{% for game in game_details %}
+            <tr>
+                <td>{{game.game_title}}</td>
+                <td>{{game.game_genre}}</td>
+                <td>{{game.game_price}}</td>
+                <td>{{game.game_publisher}}</td>
+                <td style="padding-left: 20px;">{{game.game_user_rating}}</td>
+                <td><button><a style="text-decoration: none;" href="{% url 'EditGame' pk=game.pk %}">Edit</a></button></td>
+                <td><button><a style="text-decoration: none;" href="{% url 'DeleteGame' pk=game.pk %}">Delete</a></button></td>
+            </tr>
+      {% endfor %}
+        </table>
+</div>
+{% else %}
+    <p>There are no games in your library to view details for.</p>
+{% endif %}
+
+{% endblock %}
+
+

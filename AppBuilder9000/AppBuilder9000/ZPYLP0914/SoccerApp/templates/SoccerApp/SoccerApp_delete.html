@@ -1,0 +1,30 @@
+{% extends 'SoccerApp/SoccerApp_base.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} Soccer Players {% endblock %}
+
+
+{% block content %}
+        <div id="id101" class="modal">
+                <span onclick="document.getElementById('id101').style.display='none'" class='close'
+                title="Close Modal">x</span>
+            <form method='POST'>
+                    {% csrf_token %}
+                <div class="container">
+                    <h2>Delete Player?</h2>
+                    <p>Delete "{{ add.Name }} from database?</p>
+
+                    {{ add.as_p }}
+                    <div class="clearfix">
+                        <button type="button"
+                        onclick="document.getElementById('id101').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                        <input type="submit" value="Delete it"
+                        onclick="document.getElementById('id101').style.display='none'"
+                        class="deletebtn">
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock %}

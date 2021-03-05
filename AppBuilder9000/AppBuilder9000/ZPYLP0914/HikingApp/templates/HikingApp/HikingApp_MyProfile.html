@@ -1,0 +1,27 @@
+<!-- extending block tags from base template -->
+{% extends "HikingApp/HikingApp_Base.html" %}
+
+<!-- block tags associated with base template -->
+{% block title %}Happ My Profile{% endblock %}
+
+{% block header %}User Accounts{% endblock %}
+
+{% block headerA %}New User{% endblock %}
+
+{% block contentA %}
+    <div class="contentA_container">
+        <!-- form for adding a new user to the database -->
+        <div class="create_new_user">
+            <h2 class="sub_title-a">Please fill out the new user form below.</h2>
+            <div class="form_container">
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- create_new_happ_user form -->
+                    {{ form.as_ul }}
+                    <!-- submit button -->
+                    <button id="new_user_button" type="submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'SOS_home/SOS_Base.html' %}
+{% load staticfiles %}
+
+{% block title %} Add Star {% endblock %}
+
+
+{% block pagetitle %} Add a Star {% endblock %}
+
+<div class = "maincontent">
+      {% include 'SOS_home/SOS_navbar.html'%}
+        <div class="bg"></div>
+
+            {% block content %}
+                <div class="form-container">
+            <form class="form-content" action = "" method = "post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <input type="submit" value="Submit">
+            </form>
+                </div>
+
+
+
+
+{% endblock %}

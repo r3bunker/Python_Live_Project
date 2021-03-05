@@ -1,0 +1,25 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+<!--header-->
+{% block header %}
+Save your favorite Cities in the list below
+{% endblock %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+
+<!--model form-->
+{% block content %}
+    <div class="form">
+                <form method="POST" action="savecities">
+                    <div>
+                        {% csrf_token %}
+                        {{ form.as_table}}
+                        <input type= "submit" value="Save">
+                    </div>
+                </form>
+    </div>
+{% endblock %}

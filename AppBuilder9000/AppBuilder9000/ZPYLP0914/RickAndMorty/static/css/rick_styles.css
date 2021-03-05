@@ -1,0 +1,265 @@
+/* Reset CSS Begin */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,
+code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,
+form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,
+footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: helvetica;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block;
+}
+body {
+    line-height: 1;
+    font: helvetica;
+}
+ol,ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+/*RESET CSS END*/
+
+
+
+/* Navbar Styling */
+header {
+  background: transparent;
+  width: 100%;
+  position: relative;
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.85);
+  transform: translateY(-200%);
+  transition: 0.2s;
+  z-index: 5;
+}
+body.scroll header.sticky {
+  transform: translateY(0);
+}
+.nav-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding: 1px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav ul li {
+  display: inline-block;
+  padding: 0 10px;
+  margin-bottom: 0;
+}
+nav.nav-wrapper ul li a {
+  font-size: 17px;
+  line-height: 22px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition: 0.3s;
+}
+nav.nav-wrapper ul li a:hover {
+  border-bottom: 1px solid white;
+}
+
+header .logo img {
+  max-width: 70px;
+}
+/* End Navbar Styling */
+
+/* Page Top styling */
+
+.cover-main {
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/rick.jpg') right bottom;
+  background-size: cover;
+  height: 100%;
+}
+
+ul#scene li.name {
+  text-align: center;
+  font-size: 60px;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  width: 100%;
+
+}
+
+ul#scene {
+  text-align: center;
+  font: helvetica;
+  color: white;
+  width: 100%;
+  margin-top: 120px;
+}
+
+/* End Page Top Styling */
+
+
+/* App Content Styling */
+h2.sub-title {
+  position: relative;
+  display: block;
+  margin: 70px auto;
+  text-align: center;
+  font-size: 80px;
+  line-height: 40px;
+  color: #228B22;
+  font: helvetica;
+}
+
+p.sub-title {
+  position: relative;
+  display: block;
+  margin: 70px auto;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  color: #228B22;
+  font: helvetica;
+}
+
+.content {
+  background: black;
+  padding: 50px 10px;
+}
+
+
+/*Form Styling*/
+.formheader {
+  color:black;
+  background-color: #ADFF2F;
+  font-style: helvetica;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+}
+
+label {
+  margin-bottom: auto;
+  font-weight: bold;
+  text-align: left;
+  padding: 5px;
+}
+
+input, select, textarea {
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+textarea {
+  margin: 10px 0px 10px 0px;
+  resize: vertical;
+}
+
+.base_form{
+  background-color: #228B22;
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  font-style: helvetica;
+  text-align: center;
+}
+
+.base_form1{
+  background-color: black;
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  font-style: helvetica;
+  text-align: center;
+}
+
+
+/* End Form Styling */
+
+/* Button Styling */
+.button {
+  background-color: #ADFF2F;
+  border: 1px solid black;
+  border-radius: 8px;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #7FFF00
+}
+
+/* End Button Styling */
+
+/* Footer Styling */
+.footer {
+  position: relative;
+  height: 25px;
+  background-color: #228B22;
+  color: black;
+  text-align: right;
+}
+
+.footer a {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: white;
+}
+/* End footer styling */
+
+/* Card Styling */
+.card {
+  width: 18rem;
+  color: black;
+  background-color: #ADFF2F
+}
+
+.card-header{
+  color: white;
+  background-color: #228B22
+}
+
+.card-body{
+  text: dark;
+}
+
+
+
+/* End Card Styling */
+
+

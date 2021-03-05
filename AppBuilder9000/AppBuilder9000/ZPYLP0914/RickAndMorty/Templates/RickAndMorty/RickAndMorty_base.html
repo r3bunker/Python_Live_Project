@@ -1,0 +1,74 @@
+ {% load staticfiles %}
+
+ <!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>
+    {% block title %}Rick-Tastic Database{% endblock %}
+    </title>
+    {% block tab-icon %}<link rel="icon" href="{% static 'images/robot4.png' %}">{% endblock %}
+    {% block stylesheets %}
+        <!-- External css -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Internal css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/rick_styles.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    <section class="{% block pagetop-css %}cover-main{% endblock%}" id="home">
+    {% block navbar %}
+        <header>
+            <nav class="nav-wrapper">
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        {% block nav-icon %}<img src="{% static 'images/png-icons/robot4.png' %}">{% endblock %}
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li><a href="{% url 'RickAndMorty_home' %}">Home</a></li>
+                    <li><a href="{% url 'rick_index' %}">Index</a></li>
+                    <li><a href="{% url 'add_character' %}">Add</a></li>
+                    <li><a href="{% url 'api_search' %}">Search</a></li>
+                    <li><a href="{% url 'bios' %}">Bios</a></li>
+                </ul>
+            </nav>
+        </header>
+    {% endblock %}
+    {% block removable-pagetop %}
+        <div class="wrapper">
+            <ul id="scene">
+                <li class="layer name" data-depth="0.9">{% block page-title %}{% endblock %}</li>
+                <li class="layer btn btn-main" data-depth="0.3">
+                    {% block button1 %}{% endblock %}
+                    {% block button2 %}{% endblock %}
+                    {% block button3 %}{% endblock %}
+                    {% block button4 %}{% endblock %}
+                </li>
+            </ul>
+        </div>
+    {% endblock %}
+    </section>
+
+    <section class="main_content">
+        {% block appcontent %}{% endblock %}
+    </section>
+
+    <section>
+        {% block footer %}
+        <div class="footer">
+            <h1><a href="http://jonathancooperdevelopment.com" target="_blank">jonathancooperdevelopment.com</a> &nbsp;|&nbsp; &copy; 2020</h1>
+        </div>
+        {% endblock %}
+    </section>
+
+    <!-- Optional JavaScript -->
+    {%  block javascript %}
+
+    {%  endblock %}
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% extends 'NatParksApp/NatParksApp_base.html' %}
+{% load staticfiles %}
+
+<!--header-->
+{% block header %}
+Share your past experience at these national parks with others!
+Let us known about any hidden gems within these parks!
+{% endblock %}
+
+
+
+<!--model form-->
+{% block content %}
+    <div class="submit_park_review">
+                <form method="POST" action=''>
+                    <div>
+                        {% csrf_token %}
+                        {{ form.as_ul }}
+                        <input class="review_input" type= "submit" value="Save">
+                    </div>
+                </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'FestivalApp/FestivalApp_base.html' %}
+{% load static %}
+
+{% block title %} Review Details {% endblock %}
+
+{% block content %}
+<div class="container center_div">
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead class="thead-light">
+                <h3 class="text-white bg-dark rounded-top p-1">Review Details:</h3>
+                <tbody class="table-dark">
+                    <tr>
+                        <th>Review Date:</th>
+                        <td>{{ selected_review.review_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Festival Title:</th>
+                        <td>{{ selected_review.festival_title | title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Comment:</th>
+                        <td>{{ selected_review.comment }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rating:</th>
+                        <td>{{ selected_review.rating }}</td>
+                    </tr>
+                </tbody>
+            </thead>
+        </table>
+        <div class="container">
+            <div class="row bg-dark p-2 justify-content-center">
+                <button class="btn btn-primary" onclick=" location.href='{% url 'FestivalApp:reviews_index' %}'"><strong>Back to all Reviews</strong></button>
+                &nbsp;&nbsp;&nbsp;
+                <a href="{% url 'FestivalApp:edit_review' id=selected_review.id %}"><button class="btn btn-primary"><strong>Edit</strong></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

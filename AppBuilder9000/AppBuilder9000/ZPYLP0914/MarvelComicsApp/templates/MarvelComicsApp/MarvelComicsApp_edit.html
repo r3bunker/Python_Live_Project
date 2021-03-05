@@ -1,0 +1,24 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<br>
+<div class="create_subscriber">
+    <!--form will be submitted with the POST method-->
+    <form class="form-container" method="POST">
+        <!--django required csrf token-->
+        {% csrf_token %}
+        <table>
+        <!--form will be presented as a table using the django "as_table" function-->
+        {{ form.as_table }}
+        </table>
+        <div class="btn_container">
+            <!--form will be submitted to the database-->
+            <button type="submit" class="btn-primary btn-lg">Save</button>
+            <!--user will be redirected to the MarvelComicsAppSubscriberIndex url-->
+            <button type="button" class="btn-secondary btn-lg"><a href="{% url 'MarvelComicsAppSubscriberIndex' %}">Cancel</a></button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

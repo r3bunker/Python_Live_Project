@@ -1,0 +1,29 @@
+
+{% extends "surfApp/surfApp_base.html" %}
+
+{% block class_img %}class="bg2_img"{% endblock %}
+
+{% block title %}Surf Spots Details{% endblock%}
+
+{% block header %}Surf Spot Details{% endblock %}
+
+
+{% block content %}
+
+
+<div class="selected_spot_container" align="center">
+    <h4>Spot: {{ spot.spotName | title }}</h4>
+    <h4>Location: {{ spot.location | title }}</h4>
+    <h4>Rating: {{ spot.rating | title }}</h4>
+    <h4>Description: </h4>
+    <h4><span class="description-text">...{{ spot.description }}...</span></h4>
+    <div class="formBtn_container">
+        <a href="{% url 'UpdateSpot' spot.pk %}"><button type="button" class="btn">Update Spot</button></a>
+        <a href="{% url 'DeleteSpot' spot.pk %}"><button type="button" class="btn">Delete This Spot</button></a>
+        <a href="{% url 'SpotIndex' %}"><button type="button" class="btn">Cancel</button></a>
+    </div>
+</div>
+
+{% endblock %}
+
+

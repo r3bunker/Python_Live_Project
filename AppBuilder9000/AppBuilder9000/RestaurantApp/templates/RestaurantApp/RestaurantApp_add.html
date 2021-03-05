@@ -1,0 +1,140 @@
+{% extends 'RestaurantApp/RestaurantApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<h1 class="text-muted mycontainer">Add your favorite restaurant to <span class="mylisttitle">MyList</span>!</h1>
+<h6 class="text-muted mt-4">We're so sorry we couldn't find your restaurant in our database...</h6>
+<h6 class="text-muted mb-4">Submit this form to store it locally alongside your other favorites!</h6>
+<hr class="my-4 w-75">
+
+
+        <!-- error message if form is submitted but still invalid -->
+        {% for message in messages %}
+                    <div class="alert alert-warning col w-75 mx-auto whoopsmsg">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        <h4>Save unsuccessful</h4>
+                        <h6>{{ message }}</h6>
+                    </div>
+        {% endfor %}
+
+
+<!-- form starts before buttons at top of page so they can be used to submit -->
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-lg btn-outline-secondary submitchange mx-auto mt-4 mb-4 w-50">Submit</button>
+
+
+
+    <!-- displays a list of all restaurants saved locally in database -->
+    <div class="container-fluid footer_buffer">
+        <div class="card w-75 mt-5 mx-auto">
+            <div class="row no-gutters">
+                <!-- TOP SECTION -->
+                <div class="col-md-5">
+                    <img id="editimg" src="{% static 'RestaurantApp/imgs/test_matheus-frade-unsplash.jpg' %}" height="375px" class="card-img cardimgs" alt="Placeholder image (currently not displaying)">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body text-left mylistlabels">
+                            <small class="text-muted">Only required fields are Restaurant Name* and Address*</small><br>
+                            <small class="text-muted">This photo is just a placeholder - we highly encourage you to add your own!</small><br>
+                            <small class="text-muted">To add a photo, use the Link to Restaurant's Image field</small>
+                        <div class="form-group">
+                            <label for="name">Restaurant Name*</label>
+                            <input type="text" class="form-control" name="name" id="name" maxlength="255" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cuisines">Cuisine(s)</label>
+                            <input type="text" class="form-control" name="cuisines" id="cuisines" maxlength="255">
+                            <small class="text-muted">Use commas to separate cuisines, ie: &nbsp;Burgers, American</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="pricerange">Price range</label>
+                            <div id="pricerange">
+                                <div class="form-check form-check-inline ml-3">
+                                    <input class="form-check-input" type="radio" name="pricerange" id="$" value="1">
+                                    <label class="form-check-label" for="$">$</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pricerange" id="$$" value="2">
+                                    <label class="form-check-label" for="$">$$</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pricerange" id="$$$" value="3">
+                                    <label class="form-check-label" for="$">$$$</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="pricerange" id="$$$$" value="4">
+                                    <label class="form-check-label" for="$">$$$$</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN BODY SECTION -->
+                <div class="col-md-12">
+                    <div class="card-body text-left mylistlabels">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="user_rating" style="font-size: 1.3em;">MyRating</label><br>
+                                <small class="text-muted">Add your own rating for this restaurant!</small>
+                                <div class="form-group">
+                                    <input type="range" class="w-75 form-control-range pt-10" name="user_rating" value="{{ restaurant.rating }}" id="user_rating" min="1.0" max="5.0" step=".1">
+                                </div>
+                                <div class="w-75 form-group text-center">
+                                    <small class="text-muted font-weight-bold" id="user_ratingvalue"></small>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="user_comments" style="font-size: 1.3em;">MyComments</label>
+                                <textarea class="form-control" id="user_comments" name="user_comments" rows="3" maxlength="500" placeholder="Add your own comments about the restaurant here! Great food? Bad atmosphere? Use this as your own personal sticky note!"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address*</label>
+                            <input type="text" class="form-control" name="address" id="address" maxlength="255" required>
+                            <small class="text-muted">Only use a comma between city and state/province, ie: &nbsp; 123 Main Street Houston, TX 77002</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone number(s)</label>
+                            <input type="text" class="form-control" name="phone" id="phone" maxlength="100">
+                            <small class="text-muted">Use a comma to separate phone numbers, ie: &nbsp;(713) 555-5555, (713) 555-5556</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="hours">Hours</label>
+                            <input type="text" class="form-control" name="hours" id="hours" maxlength="255">
+                            <small class="text-muted">Store days in parentheses, ie: &nbsp;8 AM to 10 PM (Mon, Sun), 8 AM to 12 Midnight (Tue-Sat)</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="url">Link to Restaurant</label>
+                            <input type="url" class="form-control" name="url" id="url" maxlength="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="img">Link to Restaurant's Image</label>
+                            <input type="url" class="form-control" name="img" id="img" maxlength="200">
+                            <small class="text-muted">Update this image URL to change the restaurant's photo</small>
+                        </div>
+                    </div>
+                    <div class="btn-group mx-auto w-75 mt-3 mb-5" role="group">
+                        <button type="submit" class="btn btn-lg btn-outline-secondary submitchange mx-auto mb-4">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- javascript to display rating value -->
+<script>
+    var slider = document.getElementById("user_rating");
+    var output = document.getElementById("user_ratingvalue");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+</script>
+
+
+{% endblock %}

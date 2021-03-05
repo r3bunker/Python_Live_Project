@@ -1,0 +1,25 @@
+{% extends 'Acu_Insurance/Acu_Insurance_base.html' %}
+
+{% block title %}Acupuncturists Taking Insurance{% endblock %}
+
+{% block header %}Find an Acupuncturist who takes Your Insurance{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="acu_form">
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        <table class="acu_form">
+            {{ form.as_table }}
+        </table>
+        <div class="button_container">
+            <button type="submit">Edit</button>
+            <a href="{% url 'index' %}"><button type="submit">Cancel</button></a>
+        </div>
+    </form>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "CovidUpdateApp/Covidbase.html" %}
+
+
+{% block content %}
+
+<div class="request-container" align="center">
+    <div class="story-requests">
+        <h1>This is the story of {{ covid_view.first_Name }} {{ covid_view.last_Name }} </h1>
+        <br>
+        <h2>The email address to reach them is:{{ covid_view.email_Address }}</h2>
+        <br>
+        <h3>Have you been affected by Covid?</h3>
+            <p>{{ covid_view.covid_Question }}</p>
+        <br>
+        <p>{{ covid_view.story_Questions }}</p>
+    </div>
+</div>
+
+{% endblock %}

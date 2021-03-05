@@ -1,0 +1,25 @@
+<!-- extending block tags from base template -->
+{% extends "HikingApp/HikingApp_Base.html" %}
+
+<!-- block tags associated with base template -->
+{% block title %}Survey{% endblock %}
+
+{% block header %}HAPP Survey{% endblock %}
+
+{% block contentA %}
+    <div class="contentA_container">
+        <div class="survey_container">
+            <h2 class="sub_title-a">Please fill out the survey below.</h2>
+             <!-- container for survey form -->
+            <div class="form_container">
+                <form method="POST">
+                    {% csrf_token %}
+                    <!-- survey form -->
+                    {{ form.as_ul }}
+                    <!-- submit button -->
+                    <button id="submit_poll" type="submit" onclick="">Submit Poll</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'Acu_Insurance/Acu_Insurance_base.html' %}
+
+{% block title %}Acupuncturists Taking Insurance{% endblock %}
+
+{% block header %}THIS IS THA ADD PAGE{% endblock %}
+
+{% block content %}
+
+<h3>Add An Insurance Company</h3>
+<div class="InsuranceForm"></div>
+    <form name="InsuranceForm" method="post" action="{% url 'addInsurance' %}">
+        <table class="Insurance_table"></table>
+            {% csrf_token %}
+            {{ forms.as_table }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+{% endblock %}

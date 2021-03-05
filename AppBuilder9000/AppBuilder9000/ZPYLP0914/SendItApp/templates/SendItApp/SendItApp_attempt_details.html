@@ -1,0 +1,76 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Attempts{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+    <!-- ATTEMPT DETAILS -->
+    <div class="container my-5">
+        <div class="card shadow">
+
+            <!--===== CARD HEADER =====-->
+            <div class="card-header">
+                <h4 class="font-weight-bold py-1"></h4>
+                <!--=== NAV TABS ===-->
+                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                    <!--=== DETAILS ===-->
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Attempt Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="notes-tab" data-toggle="tab" href="#notes" role="tab" aria-controls="home" aria-selected="false">Notes</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--===== CARD BODY / TAB CONTENT =====-->
+            <div class="card-body tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h5 class="card-title mt-2 mb-4">Attempt Details</h5>
+                    <div class="card-text">
+                        <p>
+                            <span class="font-weight-bold">Climb Name</span><br>
+                            <span>{{ attempt.climb }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Date</span><br>
+                            <span>{{ attempt.date }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Light Conditions</span><br>
+                            <span>{{ attempt.light }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Temperature</span><br>
+                            <span>{{ attempt.temp }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Shoes Worn</span><br>
+                            <span>{{ attempt.shoes }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">climb Status</span><br>
+                            <span>{{ attempt.status }}</span>
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Notes</span><br>
+                            <span>{{ attempt.notes }}</span>
+                        </p>
+                    </div>
+
+                    <!-- BUTTON STACK -->
+                    <div class="navbar nav bg-dark nav-fill justify-content">
+                        <a name="AttemptEdit" aria-controls="edit" aria-selected="false" href="{% url 'AttemptEdit' pk=attempt.id %}" role="button" class="btn btn-block btn-secondary shadow">Edit Attempt</a>
+                        <a name="create_attempt" href="{% url 'AttemptCreate' %}" class="btn btn-block btn-secondary shadow">Add Attempt</a>
+                        <a name="my_sends" href="{% url 'MySends' %}" class="btn btn-block btn-secondary shadow ">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

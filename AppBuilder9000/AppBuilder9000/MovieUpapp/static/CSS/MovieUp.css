@@ -1,0 +1,46 @@
+
+body, html {
+    height: 100%;
+}
+
+.homebase {
+    background-image: url('/static/images/home_cinema.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+}
+.title {
+	padding: 2px 16px;
+	text-align: center;
+	color: gold;
+}
+
+h1 {
+    color: DeepSkyBlue;
+    font-family: 'germanic';
+    font-size: 90px;
+    text-shadow: 3px 2px 1px blue;
+    text-align: center;
+}
+
+
+.admin_panel {
+    margin-left: 350;
+    display: block;
+    text-align: center;
+    background: url('/static/images/createbg.jpg');
+}
+
+.fromObject_container {
+    display: inline-block;
+    left-margin: auto;
+    right-margin: auto;
+    text-align: left;
+}
+
+.btn {
+    background-color: DeepSkyBlue;
+}

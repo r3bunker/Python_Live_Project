@@ -1,0 +1,228 @@
+body {
+  scroll-behavior: smooth;
+  background-image: url('../../../static/NatParksApp/images/saint-mary-lake-glacier-national-park.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+navbar{
+top: 0;
+width: 100%;
+transition: top 0.3s;
+}
+
+video{
+position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%;
+min-height: 100%
+width: auto;
+height: auto;
+z-index: -1;
+}
+
+.album{
+margin-top: 75px;
+}
+
+.card{
+height:100%;
+margin-bottom: 50px;
+margin-left: 10px;
+border-color: darkorange;
+}
+
+.card-img-top{
+height:45%;
+}
+
+.submit_park_review{
+    width: 40%;
+    background-color: aliceblue;
+    color: maroon;
+    font-size: 20px;
+    margin-top: 75px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 450px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+    border-color: honeydew;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .75;
+    padding: 20px;
+    border: 1px solid #270644;
+}
+
+.review_input[type=text]{
+    width: 50%;
+    background-color: honeydew;
+    color: black;
+    font-size: 20px;
+    margin: 10px;
+    border-color: honeydew;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.review_input[type=text]:hover{
+    background-color: #F0FFFF;
+}
+
+.review_input[type=submit]{
+    width: 100%;
+    background-color: honeydew;
+    color: black;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-color: lightblue;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.review_input[type=submit]:hover{
+    background-color: #F0FFFF;
+}
+
+.footer{
+	background-color:white;
+	position: fixed;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    left: 0;
+    right: 0;
+}
+
+.header{
+  font-family: "Times New Roman", Times, serif;
+  margin: 0px auto;
+  top: 50px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px black;
+  font-size: 40px;
+  padding: 0px 15px;
+}
+
+h3{
+  width: 200%;
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 75px;
+  margin-right: 25px;
+  margin-left: 25px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px black;
+  font-size: 50px;
+}
+
+.w3-card-4{
+  background-color: #FFFFEE;
+  width: 700px;
+  border: 3px solid black;
+  outline-style: inset;
+  outline-color: #8FBC8F;
+  padding: 0px;
+  margin-top: 25px;
+  margin-left: 400px;
+}
+
+.park_selector{
+    width: 40%;
+    background-color: aliceblue;
+    color: maroon;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 100px;
+    margin-left: 440px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    border-color: honeydew;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .75;
+    padding: 10px;
+    border: 1px solid #270644
+}
+
+.retrieve_reviews[type=submit]{
+    width: 20%;
+    background-color: honeydew;
+    color: blue;
+    padding: -35px -25px;
+    border-color: lightblue;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.retrieve_reviews[type=submit]:hover{
+    background-color: #F0FFFF;
+}
+
+
+.pagination {
+  color: white;
+  margin-bottom: 50px;
+  margin-left: 675px;
+}
+
+.email_input{
+    width: 80%;
+    background-color: aliceblue;
+    color: maroon;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 100px;
+    margin-left: 350px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    border-color: honeydew;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: .75;
+    padding: 10px;
+    border: 5px inset #00CED1
+}
+
+.subscribe[type=text]:hover{
+    background-color: #F0FFFF;
+}
+
+.subscribe[type=submit]{
+    background-color: honeydew;
+    font-size: 20px;
+    color: maroon;
+    margin-left: 150px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-color: lightblue;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.subscribe[type=submit]:hover{
+    background-color: #F0FFFF;
+}
+
+.back{
+    background-color: honeydew;
+    color: black;
+    padding: 5px 5px;
+    margin-left: 300px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: lightblue;
+    border-radius: 8px;
+    cursor: pointer;
+}

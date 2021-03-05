@@ -1,0 +1,210 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+.bg_img {
+    background-image: url('/static/images/FishKeepingApp_Background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    margin: 0 0 40px;
+	padding: 0;
+}
+.text-center {
+    text-align: center;
+}
+
+/* Styling for label in index template (FishKeeping_home.html) */
+.index-label {
+    color: #000025;
+    padding: 100px 16px;
+    text-align: center;
+}
+
+/* Styling for main head of each page */
+.main-h {
+    font-size: 30px;
+    text-align: center;
+    color: #c45f12;
+    margin-top: 100px;
+}
+
+/* Containers for forms */
+.form-container {
+    opacity: 0.8;
+    position: relative;
+    width: 800px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #2a2a5e;
+    box-shadow: 4px 3px #000025;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    background-color: lightsteelblue;
+    text-align: left;
+    line-height: 1.8;
+    color: #c45f12;
+    font-weight: bold;
+}
+.WishList-form-container {
+    opacity: 0.8;
+    position: relative;
+    width: 1000px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #2a2a5e;
+    box-shadow: 4px 3px #000025;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    background-color: lightsteelblue;
+    text-align: left;
+    line-height: 1.8;
+    color: #c45f12;
+    font-weight: bold
+}
+
+/* Display for first name & last name of account
+   on WishList2.html */
+.account-holder {
+    margin: 25px 0px 25px 75px;
+}
+
+
+
+  /******************************/
+ /* CreateUser template button */
+/******************************/
+.new-user-button, .new-fish-button {
+	background-color: darkgray;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.new-user-button:hover, .new-fish-button:hover {
+    background-color: lightgray;
+}
+  /**********************************/
+ /* END CreateUser template button */
+/**********************************/
+
+
+
+  /***********************************/
+ /* JavaScript-Related Classes/ID's */
+/***********************************/
+/* JS selects this div */
+.js-selector-div {
+    display: none;
+}
+
+/* Load More Button */
+#loadMore {
+    padding: 10px;
+    text-align: center;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+    margin-bottom: 50px;
+}
+#loadMore:hover {
+    background-color: #fff;
+    color: #33739E;
+}
+
+/* Link that takes user back
+   to top of screen after using the
+   load more button */
+.totop {
+    position: fixed;
+    bottom: 10%;
+    margin: 10px;
+}
+.totop a {
+    display: none;
+}
+.js-selector-a, .js-selector-a:visited {
+    color: #33739E;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+a:hover {
+    text-decoration: none;
+}
+  /*******************************/
+ /* END JS-Related Classes/ID's */
+/*******************************/
+
+
+
+  /******************/
+ /* Footer Styling */
+/******************/
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #000025;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    z-index: 5;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 14px;
+    line-height: 10px;
+	font-family:'PT Sans', Arial, Helvetica, sans-serif;
+}
+#footer-left {
+    width: 40%;
+    text-align: right;
+}
+#footer-right {
+    width: 40%;
+    text-align: left;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: #CABE96;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+  /**********************/
+ /* END Footer Styling */
+/**********************/
+
+

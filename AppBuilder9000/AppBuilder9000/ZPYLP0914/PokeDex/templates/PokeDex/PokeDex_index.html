@@ -1,0 +1,25 @@
+{% extends 'PokeDex/PokeDex_base.html' %}
+
+{% block content %}
+
+    <h1>Encounter Log</h1>
+        <table class="table table-dark">
+            <tr>
+                <th>Pokemon Name</th>
+                <th>Pokemon Number</th>
+                <th>Date Found</th>
+                <th>Notes</th>
+            </tr>
+{% for report in reports %}
+            <tr>
+                <td>{{report.Pokemon_Name}}</td>
+                <td>{{report.Pokemon_Number}}</td>
+                <td>{{report.Pokemon_Date}}</td>
+                <td><button><a href="{% url 'PokeDex_details' report.pk %}">Info</a></button></td>
+            </tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

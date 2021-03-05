@@ -1,0 +1,47 @@
+<!-- extending block tags from base template -->
+{% extends "HikingApp/HikingApp_Base.html" %}
+
+<!-- block tags associated with base template -->
+{% block title %}Happ{% endblock %}
+
+{% block header %}Survey Results{% endblock %}
+
+{% block contentA %}
+
+<!-- link to bootstrap styling for the container class -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+<div class="contentA_container">
+
+    <!-- container for current and future surveys -->
+    <div class="survey1">
+        <h2>Survey: Hiking Preferences</h2>
+        <h3>Results</h3>
+        <div class="container">
+            <!-- top horizontal row which includes survey topic headers -->
+            <div class="row">
+                    <div class="col-sm-3">Nick name</div>
+                    <div class="col-sm-3">Favorite type of hike</div>
+                    <div class="col-sm-3">Perfect length of hike</div>
+                    <div class="col-sm-3">Avid hiker</div>
+            </div>
+            <br>
+            <!-- inclusion of a border between both instances of row class -->
+            <div class="bottom_border"></div>
+            <br>
+            <!-- for loop to iterate through each result in survey_results -->
+            {% for result in survey_results %}
+            <!-- horizontal row which contain survey result data -->
+                <div class="row">
+                        <!-- columns that includes the all the values of each db field and provide a link to the details page-->
+                        <a href="{% url 'survey_results_details' result.pk %}" class="col-sm-3">{{ result.nick_name }}</a>
+                        <a href="{% url 'survey_results_details' result.pk %}" class="col-sm-3">{{ result.favorite_types_of_hikes }}</a>
+                        <a href="{% url 'survey_results_details' result.pk %}" class="col-sm-3">{{ result.perfect_length_of_hike|linebreaks }}</a>
+                        <a href="{% url 'survey_results_details' result.pk %}" class="col-sm-3">{{ result.avid_hiker|yesno:"Yes,No" }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

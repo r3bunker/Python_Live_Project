@@ -1,0 +1,33 @@
+{% extends "DandDApp/DandD_base.html" %}
+{% load static %}
+{% block title %}D&D | Index{% endblock%}
+
+{% block header %}View Adventurers in your Party! Click on Hero for more information!{% endblock %}
+
+{% block content %}
+
+{% for character in page_obj %}
+    <div class="index_display">
+        <ul class="list-group"><a href="{% url 'd_and_d_details' character.pk %}">{% filter force_escape|upper %}{{character.id}}-{{character.name}}{% endfilter %}-{{character.character_class}}-{{character.race}}</a></ul><<br>
+
+        {% endfor %}
+
+        <div class="paginator">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endblock %}

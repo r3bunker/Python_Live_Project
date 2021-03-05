@@ -1,0 +1,33 @@
+{% extends 'BigfootApp/Bigfoot_Base.html' %}
+
+{% block title %}Sasquatch Spotter{% endblock %}
+
+{% block header %}Delete Report{% endblock %}
+
+{% block content %}
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>
+                    <h3>Confirm Delete</h3>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    Are you sure you would like to delete entry # {{ item.pk }}, the report made by {{ item.username }}?
+                    Doing so will irrevocably remove it from the database.
+                </th>
+            </tr>
+        </table>
+
+        {{ item.as_p }}
+
+        <div class="frmBtn_container">
+            <input type="submit" value="Delete" class="btn">
+            <button class="btn" type="button"><a href="{% url 'encounter_index' %}">Cancel</a></button>
+        </div>
+    </form>
+
+{% endblock %}

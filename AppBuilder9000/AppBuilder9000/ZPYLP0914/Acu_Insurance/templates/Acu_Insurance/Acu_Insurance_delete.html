@@ -1,0 +1,23 @@
+{% extends 'Acu_Insurance/Acu_Insurance_base.html' %}
+
+{% block title %}Acupuncturists Taking Insurance{% endblock %}
+
+{% block header %}Delete Confirmation{% endblock %}
+
+{% block content %}
+
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <center><h3>Confirm Delete</h3></center>
+    <center><p>Are you sure you would like to delete "{{ clinic.clinic_name }}"?</p></center>
+
+<div class="button_container">
+    <center><button><input type="submit" value="Delete it" class="btn"></button></center>
+    <center><a href="{% url 'index' %}"><button>Cancel</button></a></center>
+</div>
+</form>
+
+
+
+{% endblock %}

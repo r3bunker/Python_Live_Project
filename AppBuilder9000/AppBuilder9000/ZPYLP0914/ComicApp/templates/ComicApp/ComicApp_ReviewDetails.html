@@ -1,0 +1,46 @@
+{% extends "ComicApp/ComicApp_Base.html" %}
+
+{% block title %}Details - Comic Database{% endblock %}
+
+{% block header %}Details{% endblock %}
+
+{% block content %}
+    <div class="review-details-container">
+        <div class="top-row">
+            <div class="series-column">Series: {{ user_review.series }}</div>
+            <div class="issue-column">Issue: #{{ user_review.issue }}</div>
+            <div class="user-column">User: {{ user_review.user }}</div>
+        </div>
+        <div class="mid-row-border">
+            <div class="mid-row">
+                <div class="review-header">Review: </div>
+                <div class="review-column">{{ user_review.review }}</div>
+                <div class="review-spacer"></div>
+            </div>
+        </div>
+        <div class="bot-row">
+            <div class="created-column">Date Created: {{ user_review.created }}</div>
+            <div class="modified-column">Date Last Modified: {{ user_review.modified }}</div>
+        </div>
+        <div class="rating-bubble-container">
+            <div class="rating-bubble-outer">
+                <div class="rating-bubble-inner">{{ user_review.rating }}/10</div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <a class="review-button" href="{% url 'ComicReviewEdit' user_review.id  %}">Edit</a>
+        <button id="delete-button">Delete</button>
+    </div>
+    <div id="delete-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to delete {{ user_review.user }}'s review of {{ user_review.series }} issue #{{ user_review.issue }}?</p>
+            <form action="{% url 'ComicReviewDelete' user_review.id %}" method="POST">
+                {% csrf_token %}
+                <input class="confirm-button" type="submit" value="Confirm">
+                <div id="close-button">Cancel</div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>{% block title %}My RecipeApp{% endblock %}</title>
+	        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" type="text/css" href="{% static 'RecipesApp/css/base.css' %}">
+            <script src="{% static 'RecipesApp/js/base.js' %}"></script>
+	</head>
+
+    <body class="background">
+        {% include "RecipesApp/RecipesApp_navabar.html" %}
+
+        <div class="page_container">
+            <header class="page-header">
+                <h1 class="header-txt">{% block header %}{% endblock %}</h1>
+		    </header>
+            {% block content %}{% endblock %}
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        {% include "RecipesApp/RecipesApp_footer.html" %}
+    </body>
+</html>

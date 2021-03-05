@@ -1,0 +1,58 @@
+
+.topnav {
+	overflow: hidden; /* Any content that overflows beyond the boundary of the navbar is not displayed */
+	background-color: #000025;
+	position: fixed; /* The navbar stays at the top of the screen when scrolling */
+	top: 0; /* No space is displayed above the navbar */
+	width: 100%; /* The navbar takes up 100% of the width of the page */
+	z-index: 2;
+	position: fixed;
+	animation: moveNav 3s; /* Time it takes for navbar to fully take up width of page */
+}
+/* Navbar text */
+.topnav a {
+	float: left; /* On the navbar, the text floats left */
+	display: block; /* Other text will be displayed on the same line or row instead of a new line */
+	color: white; /* text color on navbar */
+	padding: .75vw 1vw; /* This adds padding around the text */
+	text-decoration: none; /* Gets rid of the default hypertext underlines in navbar text */
+	font-family: Avant Garde, Helvetica; /* Font family for text on navbar */
+	font-size: 1.5vw;
+	text-align: center; /* Centers text within its container */
+	position: relative;
+	-webkit-animation: movenavText 5.75s; /* Safari 4.0 - 8.0 */
+	animation: movenavText 3s; /* Time it takes for navbar text to set into position on navbar */
+	letter-spacing: .2vw;
+	-webkit-transition-duration: 1s;
+	transition-duration: 1s;
+}
+/* When page loads, move navbar from the left of screen into place */
+@keyframes moveNav {
+	from {
+		left: -100vw;
+	}
+	to {
+		left: 0vw;
+	}
+}
+@keyframes movenavText {
+	from {
+		top: -100vw;
+	}
+	to {
+		top: 0vw;
+	}
+}
+/* Navbar hover effect */
+.topnav a:hover {
+	background-color: #F4F4F4; /* Background color displayed when hovered over */
+	color: #00004d; /* Font color displayed when hovered over */
+	font-weight: 400; /* Font weight displayed when hovered over (400 = normal; bold = bold font) */
+	cursor: pointer; /* Cursor type displayed when hovering over navbar text */
+	-webkit-transition-duration: 1s;
+	transition-duration: 1s;
+}
+/* Navbar home button */
+.topnav a.active { /* The active selector styles a link */
+	background-color: darkgray; /* Background color behind HOME button on navbar */
+}

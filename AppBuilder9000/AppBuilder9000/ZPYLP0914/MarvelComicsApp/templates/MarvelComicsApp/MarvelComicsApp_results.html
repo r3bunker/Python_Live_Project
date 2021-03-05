@@ -1,0 +1,33 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+{% for hero_info in heros_info %}
+
+
+
+<div class="container">
+    <br>
+    <div class="hero-info-container">
+        <div class="col-sm-6">
+            <div class="card" style="width: 35rem;">
+                <img class="card-img-top" src="{{hero_info.paths}}.{{ hero_info.extensions }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ hero_info.names }}</h5>
+                    <p class="card-text">{{ hero_info.descriptions }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+
+{% endfor %}
+
+
+
+{% endblock %}

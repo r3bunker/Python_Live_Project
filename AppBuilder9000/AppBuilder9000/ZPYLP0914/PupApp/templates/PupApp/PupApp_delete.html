@@ -1,0 +1,17 @@
+{% extends 'PupApp/pupapp_base.html' %}
+{% load staticfiles %}
+{% block appcontent %}
+    <section>
+        <div class="frm_container">
+            <form method = "POST">
+                {% csrf_token %}
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you would like to delete {{post.dog_name}} from the database?</p>
+                <div class="frmBtn_container">
+                    <input type="submit" value="Yes, remove {{post.dog_name}}" class="btn">
+                    <button class="btn" type="button" onclick=" location.href='../index'">Oops, no!  I want to stay!</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

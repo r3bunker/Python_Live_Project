@@ -1,0 +1,164 @@
+.Home-slideshow {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    min-width: 100%;
+    z-index: -1;
+}
+
+h1{
+    text-align: center;
+    font-family: "Mountain";
+}
+
+/* From box for creating a User */
+
+#Create-Form {
+	position: relative;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+    border: 2px solid #0d0d0d;
+    border-radius: 5%;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: silver;
+    box-shadow: 5px 10px 10px#0d0d0d;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 450px;
+}
+
+/* lengthen text boxes in the create user forms */
+
+#Create-Form input, #Create-Form select{
+	width: 500px;
+	border-radius: 5px;
+	box-shadow: 4px 2px darkslateblue;
+}
+
+/* Fix input boxes so they're the same */
+
+#id_email {
+    margin-left: 28px;
+}
+
+#id_username {
+    margin-left: 2px;
+}
+
+#id_password {
+    margin-left: 5px;
+}
+
+/* custom buttons */
+
+.draw-border {
+    box-shadow: inset 0 0 0 4px black;
+    color: black;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+.draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+.draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+.draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+.draw-border:hover {
+    color: white;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+    border-color: white;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+    margin-left: 35%;
+    margin-right: 25%;
+}
+
+
+/* table styles */
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+table {
+    width: 650px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+th {
+    text-align: left;
+}
+thead th {
+    background-color: #55608f;
+}
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+    position: relative;
+}
+tbody td:hover:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+td a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Custom Fonts */
+@font-face {
+    font-family: "Mountain";
+    src: url("../Fonts/Wandhen.ttf");
+}

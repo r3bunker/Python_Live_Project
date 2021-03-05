@@ -1,0 +1,23 @@
+
+{% extends "FishKeepingApp/FishKeeping_Base.html" %}
+
+{% block title %}Fish Keeping App{% endblock %}
+
+{% block content %}
+
+    <h3 class="main-h">Fish Keeping App</h3>
+    <hr>
+        <div class="form-container">
+            <form class="text-center" method="POST">
+                <label class="index-label">User:</label>
+                {% csrf_token %}
+                {{ form.account }}
+                <button type="submit">See Wish List</button>
+            </form>
+            <div class="text-center">
+                <h5>Add another account!</h5>
+                <button type="submit" class="new-account-button"><a href="{% url 'create' %}">Create Account</a></button>
+            </div>
+        </div>
+
+{% endblock %}

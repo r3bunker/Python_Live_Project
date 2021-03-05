@@ -1,0 +1,24 @@
+{% extends 'FestivalApp/FestivalApp_base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="Festival_card">
+    <div class="card bg-dark text-white">
+        <div class="card-body">
+            <h1>Welcome Festival Goers!</h1>
+            <p class="card-text">
+                This is a Seattle-based Festival App to look for upcoming local Festivals
+                and leave reviews.
+            </p>
+            <p class="card-text">
+                Attended a recent Festival? Write a review. Or read previous Festival reviews!
+            </p>
+            <a href="{% url 'FestivalApp:create_review' %}"><button class="btn btn-primary"><strong>New Review</strong></button></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="{% url 'FestivalApp:reviews_index' %}"><button class="btn btn-primary"><strong>Read Reviews</strong></button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

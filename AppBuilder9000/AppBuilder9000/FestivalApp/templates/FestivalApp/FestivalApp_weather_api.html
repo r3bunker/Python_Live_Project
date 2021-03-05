@@ -1,0 +1,88 @@
+{% extends 'FestivalApp/FestivalApp_base.html' %}
+{% load static %}
+
+{% block title %} Weather API {% endblock %}
+
+{% block content %}
+
+
+<div class="container center_div">
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead class="thead-light">
+            <!-- If a city is chosen. Final result. -->
+            {% if state_code %}
+                <h3 class="text-white bg-dark rounded-top mb-0 pt-1">{% if city_name %}Current Weather in {{ city_name }}, {{ state_code }}:{% endif %}</h3>
+                <h5 class="text-white bg-dark rounded-bottom pb-2">{{ city_temp_Fahrenheit }} °F &nbsp;{{ city_weather | title }}</h5>
+                <a href="{% url 'FestivalApp:weather_api' %}"><button class="btn btn-danger">Back to Search</button></a>
+                
+            <!-- Search results: multiple cities. -->
+            {% elif city_list %}
+            <h3 class="text-white bg-dark rounded-top mb-2 pt-1 pb-1">Cities Found:</h3>
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th></th>
+            </tr>
+            <!-- Landing page. No search as of yet. -->
+            {% else %}
+            <h3 class="text-white bg-dark rounded-top mb-0 pt-1">Current Weather in Seattle:</h3>
+            <h5 class="text-white bg-dark rounded-bottom pb-3 mb-0">{{ feels_like_in_Fahrenheit }} °F &nbsp;{{ weather_desc | title }}</h5>
+            <h3><span class="text-white bg-dark rounded-bottom mt-0 mb-0 pl-2 pr-2 pb-0">Search current weather for another US city:</span></h3>
+            <form method="GET">
+                <div class="input-field">
+                    <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Portland">
+                    <button class="btn btn-primary" type="submit" name="action"><strong>Search</strong></button>
+                </div>
+            </form>
+        <h5 class="text-white bg-dark rounded mb-0">Your Search results will appear below.</h5>
+        {% endif %}
+        </thead>
+
+        <!-- Search results: multiple cities. -->
+        {% if city_list %}
+            <tbody class="table-dark">
+                {% for c in city_list %}
+                <tr>
+                    <td>{{ c.city }}</td>
+                    <td>{{ c.state }}</td>
+
+                    <td><a href="{% url 'FestivalApp:city_index' c.city c.state %}"><button class="btn btn-primary">Show Weather</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+
+        </table>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col bg-light">
+                <!-- Pagination -->
+                <div class="pagination" style="display: inline-flex">
+                    <span class="step-links">
+                        {% if get_city %}
+                        {% if city_list.has_previous %}
+                            <a href="?q={{ request.GET.q }}&page=1">&laquo; first </a>|
+                            <a href="?q={{ request.GET.q }}&page={{ city_list.previous_page_number }}"> previous</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ city_list.number }} of {{ city_list.paginator.num_pages }}.
+                        </span>
+
+                        {% if city_list.has_next %}
+                            <a href="?q={{ request.GET.q }}&page={{ city_list.next_page_number }}">next </a>|
+                            <a href="?q={{ request.GET.q }}&page={{ city_list.paginator.num_pages }}"> last &raquo;</a>
+                        {% endif %}
+                        {% endif %}
+                    </span>
+                </div>
+             <!-- End Pagination-->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

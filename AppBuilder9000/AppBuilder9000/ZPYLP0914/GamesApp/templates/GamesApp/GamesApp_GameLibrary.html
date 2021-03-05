@@ -1,0 +1,34 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% load staticfiles %}
+
+{% block title %} GAMES APP | Game Library {% endblock %}
+
+{% block content %}
+
+{% if users_games %}
+<div class="form_container">
+  <table>
+      <br>
+      <h3>GAME LIBRARY</h3>
+      <th>Game Title</th>
+      <th>Game Info</th>
+      {% for game in users_games %}
+        <tr>
+            <div id="user_form">
+            <td>{{ game.game_title }}</td>
+                <td style="padding-left: 20px;"><button><a style="text-decoration: none;" href="{% url 'GameDetails' game.pk %}">Info</a></button></td>
+            </div>
+        </tr>
+      {% endfor %}
+
+  </table>
+</div>
+{% else %}
+<div class="form_container">
+    <h3>Your Game Library needs some games! Add a game by clicking the "Add a Game" button at the top of the page.</h3>
+</div>
+{% endif %}
+
+
+{% endblock %}

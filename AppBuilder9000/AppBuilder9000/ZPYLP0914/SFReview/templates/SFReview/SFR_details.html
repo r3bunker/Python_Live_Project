@@ -1,0 +1,37 @@
+{% extends 'SFReview/SFR_base.html' %}
+{% load staticfiles %}
+<title>Review Detail</title>
+
+{% block header %}Previous Reviews: for {{BookReview.Title}}{% endblock %}
+
+{% block appcontent %}
+<!--Detail specific content-->
+<section>
+    <div class="flex-container">
+        <table id="SFR-Details">
+            <tr>
+                <th>Author:</th>
+                <td>{{review.Author}}</td>
+            </tr>
+            <tr>
+                <th>Title:</th>
+                <td>{{review.Title}}</td>
+            </tr>
+            <tr>
+                <th>Review:</th>
+                <td>{{review.Review}}</td>
+            </tr>
+            <tr>
+                <th>Score:</th>
+                <td>{{review.Score}}</td>
+            </tr>
+        </table>
+        <hr />
+
+        <button class="btn_bottom" onclick=" location.href='{% url 'PreviousReview' %}'">Back to all Reviews</button>
+        <button class="btn_bottom"><a href="{{ forms.pk }}../edit">Edit</a></button>
+        <button class="btn_bottom"><a href="{{ forms.pk }}../remove">Remove</a></button>
+    </div>
+</section>
+
+{% endblock %}

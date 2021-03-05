@@ -1,0 +1,21 @@
+{% extends "surfApp/surfApp_base.html" %}
+{% load static from staticfiles%}
+from .models import SurfSpot
+
+
+{% block class_img %}class="bg1_img"{% endblock %}
+
+{% block title %}Surf Spots List{% endblock%}
+
+{% block header %}Your Surf Spots List{% endblock %}
+
+{% block content %}
+
+{% for spot in spots %}
+<!-- passing an argument or variable through url (had a no reverse match error)-->
+<a href="{% url 'SpotDetails' spot.pk %}" ><h3>{{ spot.spotName | upper }} ~ {{ spot.location | title }} ~ Rating: {{ spot.rating }}</h3></a>
+
+{% endfor %}
+
+{% endblock %}
+

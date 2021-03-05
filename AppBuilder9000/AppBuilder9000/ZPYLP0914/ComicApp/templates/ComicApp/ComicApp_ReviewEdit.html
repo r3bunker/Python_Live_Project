@@ -1,0 +1,17 @@
+{% extends "ComicApp/ComicApp_Base.html" %}
+
+{% block title %}Edit - Comic Database{% endblock %}
+
+{% block header %}Edit{% endblock %}
+
+{% block content %}
+
+    <form class="review-form" action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

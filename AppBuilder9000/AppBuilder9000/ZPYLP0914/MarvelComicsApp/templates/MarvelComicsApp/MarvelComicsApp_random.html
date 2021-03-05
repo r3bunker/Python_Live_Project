@@ -1,0 +1,31 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+
+{% for random_hero_info in random_heros_info %}
+
+
+
+<div class="container">
+    <br>
+    <div class="hero-info-container">
+        <div class="col-sm-6">
+            <div class="card" style="width: 35rem;">
+                <img class="card-img-top" src="{{random_hero_info.paths}}.{{ random_hero_info.extensions }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ random_hero_info.names }}</h5>
+                    <p class="card-text">{{ random_hero_info.descriptions }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+{% endfor %}
+
+{% endblock %}

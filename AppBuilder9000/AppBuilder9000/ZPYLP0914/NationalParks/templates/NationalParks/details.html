@@ -1,0 +1,35 @@
+{% extends 'NationalParks/base.html' %}
+
+{% load static from staticfiles %}
+
+
+{% block title %} National Parks {% endblock %}
+
+
+{% block content %}
+    <style>
+        body {
+             background-image: url("../../static/Images/lake-mcdonald-1733308.jpg");
+             opacity: inherit;
+            }
+    </style>
+    <h1>Reviews</h1>
+        <table class="table table-dark">
+            <tr>
+                <th>Date</th>
+                <th>User Name</th>
+                <th>National Park</th>
+                <th>Comments</th>
+            </tr>
+            <tr>
+                <td>{{Parks.TodaysDate|upper}}</td>
+                <td>{{Parks.UsersName|capfirst}}</td>
+                <td>{{Parks.ParkName|capfirst}}</td>
+                <td>{{Parks.Comments|capfirst}}</td>
+                <td><button class="btn"><a href="../../{{Parks.id }}/edit">Edit</a></button></td>
+                <td><button class="btn"><a href="../../{{Parks.id }}/delete">Delete</a></button></td>
+            </tr>
+         </table>
+
+{% endblock %}
+

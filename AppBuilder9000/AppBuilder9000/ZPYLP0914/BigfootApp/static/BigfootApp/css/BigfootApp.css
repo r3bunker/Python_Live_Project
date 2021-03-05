@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-size:17px;
+}
+
+.header-title {
+    text-align: center;
+    text-align-last: center;
+}
+
+h1 {
+    color: black;
+    font-weight: bold;
+}
+
+#forestVideo {
+    position: fixed;
+    background-attachment: scroll;
+    right:0;
+    bottom:0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+p:hover {
+    background-color: rgb(188, 250, 72);
+    border-radius: 500px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: gray;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav nav-pills {
+    z-index: 1;
+}
+
+/*.navbar a {
+    float: left;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    background: rgb(188, 250, 72);
+    border-radius: 500px;
+}
+*/
+
+.image {
+    display: absolute;
+    padding-left: 17%;
+}
+
+h4 {
+    position: absolute;
+    bottom: 0px;
+    right: 16px;
+    width: 52%;
+    color:black;
+}
+
+img {
+    display: block;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    border-radius: 250px;
+}
+
+
+
+table, th, td {
+    border: 1px solid rgb(0,0,0);
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background-color: rgb(60,60,60,.6);
+}
+
+.tbl_home {
+}
+
+.frmBtn_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.btn {
+	flex-grow: 1;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    width: 50px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: white;
+    padding: 10px 0px;
+    background-color: rgb(60,60,60);
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 1px solid rgb(0,0,0);
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: rgb(0,0,0);
+    font-size: large;
+    color: white;
+    font-weight: bold;
+    border: 3px solid rgb(0,0,0);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+a.nav-link:link {
+    color: white;
+}
+
+a.nav-link:visited {
+    color: white;
+}
+
+td.a.nav-link:hover {
+    color: white;
+    font-weight: bold;
+}
+
+a.nav-link:active {
+    color: white;
+}
+
+tr {
+    text-align: center;
+}
+
+footer {
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}

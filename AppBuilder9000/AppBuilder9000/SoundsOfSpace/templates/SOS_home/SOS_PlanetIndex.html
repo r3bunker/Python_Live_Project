@@ -1,0 +1,12 @@
+{% extends 'SOS_home/SOS_Base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="index_list">
+        <h1>Planet</h1>
+        {% for stat in planet %}
+             <h3><a href= "{% url 'SOS_PlanetDetail' stat.id %}">{{ stat.planet_name }}</a></h3>
+        {% endfor %}
+    </div>
+
+{% endblock %}

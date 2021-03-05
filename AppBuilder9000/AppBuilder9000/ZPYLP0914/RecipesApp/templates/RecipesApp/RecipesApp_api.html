@@ -1,0 +1,30 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe Search {% endblock %}
+
+{% block header %}Recipe Search{% endblock %}
+
+{% block content %}
+<br>
+<div class="api-page">
+    <div class="api-form">
+        <form method="get">
+            {{ form.as_p }}
+            <button class="button-book" type="submit">Search</button>
+        </form>
+        <p>Note: if your search is not working, try using singular ingredients.
+            <br>Try "apple" instead of "apples".
+            <br>Also separate ingredients with commas to search for mutiple ingredients.
+            <br>Like this: "chicken, carrot, potato"</p>
+    </div>
+    <div class="api-results">
+        <p>
+            {% if recipes %} <!--if the recipe from form exists-->
+                {% for r in recipes.results %}
+                    <a href="{{ r.href }}" target="_blank">{{ r.title }}</a><br> <!--print the recipes href-->
+                {% endfor %}
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endblock %}

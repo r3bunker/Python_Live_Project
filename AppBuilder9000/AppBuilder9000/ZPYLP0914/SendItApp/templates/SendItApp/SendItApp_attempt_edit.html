@@ -1,0 +1,83 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Edit Climb{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+
+
+<!-- EDIT CLIMB -->
+<div class="container mt-5 mb-5 h-100 align-items-center" style="max-width: 60rem">
+    <div class="card-body tab-content" id="myTabContent">
+        <div class="tab-pane fade active show" id="edit" aria-labelledby="edit-tab">
+            <div class="row mb-5 no-gutters align-items-center">
+                <div class="col align-items-center">
+                    <img src="{% static 'SendItApp/images/redrockscene.jpg' %}" class="card-img rounded-left" style="height: 35.7rem" alt="Your Climb Image Here">
+                </div>
+                <div class="col-md-7">
+                    <div id="climb-form" class="card bg-dark text-light rounded-right">
+                        <div class="card-body content-justify-center">
+                            <h4 class="card-title text-center font-weight-bold">Edit {{ climb.name }}</h4>
+                            <p class="card-text">
+                            <form name="attemptForm" method="POST" action="{% url 'AttemptEdit' pk=attempt.id %}">
+                                <!-- Cross Site Request Forgery (csrf_token) protection -->
+                                {% csrf_token %}
+                                <!-- Render each field  -->
+                                {% for field in attempt_form %}
+                                <div class="fieldWrapper form-group" aria-required="{% if field.field.required %}true{% else %}false{% endif %}">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    <!-- FIELD ERROR message -->
+                                    {% if field.errors %}
+                                    {% for error in field.errors %}
+                                    <small class="form-text text-danger">{{ error }}</small>
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                                <!--===== BUTTONS =====-->
+                                <div class="mt-5">
+                                    <a name="AttemptDetail" href="{% url 'AttemptDetail' pk=attempt.id %}" class="btn btn-secondary shadow">Cancel</a>
+                                    <button name="attemptForm" type="submit" class="btn btn-success shadow">Save Changes</button>
+                                    <button type="button" name="deleteConfirm" class="btn btn-danger shadow mx-2" data-toggle="modal" data-target="#deleteConfirm">Delete</button>
+                                </div>
+                            </form>
+                            <!--===== DELETE CONFIRM MODAL =====-->
+                            <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <!--=== MODAL CONTENT ===-->
+                                    <div class="modal-content">
+                                        <!-- HEADER -->
+                                        <div class="modal-header text-danger">
+                                            <h5 class="modal-title" id="modalLongTitle">Confirm Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <!-- BODY -->
+                                        <div class="modal-body">
+                                            <p><b>ALERT: Deleting this is permanent!.</b></p>
+                                            <p>When you delete an attempt of a climb, you will not get the information back.</p>
+                                            <p>You currently have <b>{{ attempt_count }}</b> dated attempts on this climb.</p>
+                                        </div>
+                                        <!-- FOOTER -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <a name="delete" href="{% url 'AttemptDelete' pk=attempt.id %}" class="btn btn-danger">Delete Attempt</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

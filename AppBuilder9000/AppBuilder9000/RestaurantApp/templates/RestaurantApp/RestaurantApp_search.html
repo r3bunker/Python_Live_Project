@@ -1,0 +1,290 @@
+{% extends 'RestaurantApp/RestaurantApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+<h1 id="scrollbacktotop" class="text-muted mycontainer">Showing Restaurants in <span class="citytitle">{{ city }}</span></h1>
+
+<!-- FILTERS -->
+<form action="{% url 'RestaurantFilter' %}" method="POST">
+    <div class="form-group">
+        {% csrf_token %}
+        <input name="currentlat" value="{{ lat }}" style="display: none;">
+        <input name="currentlon" value="{{ lon }}" style="display: none;">
+        <input type="text" name="q" class="form-control form-control-lg w-50 mx-auto myformfields" placeholder="Search cuisines, dish, or restaurant name in the current city...">
+    </div>
+    <div class="form-group">
+      <div class="form-row w-50 mx-auto">
+        <div class="col">
+          <select class="form-control myformfields" name="radius">
+              <option value="80"><span class="text-black-50">Show restaurants within a radius of...</span></option>
+                <option value="8">5mi / 8km</option>
+                <option value="16">10mi / 16km</option>
+                <option value="32">20mi / 32km</option>
+                <option value="80">50mi / 80km</option>
+                <option value="160">100mi / 160km</option>
+            </select>
+        </div>
+        <div class="col">
+          <select class="form-control myformfields" name="sortby">
+                <option value="blank" class="text-black-50">Sort by...</option>
+                <option value="priceLtoH">Price: Low to High</option>
+                <option value="priceHtoL">Price: High to Low</option>
+                <option value="ratingLtoH">Rating: Low to High</option>
+                <option value="ratingHtoL">Rating: High to Low</option>
+            </select>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary btn-lg w-25">Filter</button>
+</form><br>
+
+
+
+<!-- LIST/MAP VIEW TABS -->
+<div class="w-50" style="margin-left: 25%; margin-top: 2.5%;">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item" onclick="switchList()" onmouseover="this.style.cursor='pointer'">
+          <a id="listswitchbutton" class="nav-link active" style="color: rgb(205,92,92);"><h5>List View</h5></a>
+      </li>
+      <li class="nav-item" onclick="switchMap()" onmouseover="this.style.cursor='pointer'">
+          <a id="mapswitchbutton" class="nav-link" style="color: rgba(0,0,0,.6);"><h5>Map View</h5></a>
+      </li>
+    </ul>
+</div>
+
+
+
+
+<!-- cards of all restaurants -->
+<div id="listswitch" class="footer_buffer" style="">
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-3">
+        {% for key, restaurant in restaurants.items %}
+            <div class="col mb-4 mx-auto">
+                <div class="card mx-auto hover" style="width: 24rem;">
+                    <img src="{{ restaurant.img }}" height="280px" class="card-img-top cardimgs" alt="Restaurant Image (not displayed)">
+                    <div class="card-body">
+                        <!-- CUISINE AND COST -->
+                        <p class="card-text text-left text-black-50"> {% if restaurant.pricerange is 1 %}<span class="text-black-50">$</span><span class="transparentmoney">$$$</span>
+                            {% elif restaurant.pricerange is 2 %}<span class="text-black-50">$$</span><span class="transparentmoney">$$</span>
+                            {% elif restaurant.pricerange is 3 %}<span class="text-black-50">$$$</span><span class="transparentmoney">$</span>
+                            {% else %}<span class="text-black-50">$$$$</span> {% endif %}               <svg width=".4em" height=".4em" viewBox="0 0 16 16" class="bi bi-circle-fill text-black-50" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8"/></svg>
+                            {{ restaurant.cuisines }}                                                   <svg width=".4em" height=".4em" viewBox="0 0 16 16" class="bi bi-circle-fill text-black-50" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8"/></svg>
+                            {% for estab in restaurant.establishment %}{{ estab }}{% endfor %}
+                        </p>
+                        <!-- RESTAURANT NAME -->
+                        <h4 class="card-title text-left mycardspacing"><a class="text-decoration-none mycardtitle" href="{{ restaurant.url }}">{{ restaurant.name }}</a></h4>
+                        <!-- STAR RATING -->
+                        <div class="text-left text-black-50 starspacing"><b><span id="stars{{ restaurant.id }}" title="{{ restaurant.rating }}"></span></b>{{ restaurant.rating }}</div>
+                        <!-- INFO BUTTON -->
+                        <button type="button" class="btn btn-outline-secondary info_button_placement" onclick="getdetails(this)" name="{{ restaurant.id }}">Info</button>
+                        <!-- SAVE TO MY LIST -->
+                        <form action="{% url 'RestaurantSave' %}" method="POST">
+                            {% csrf_token %}
+                            <input name="zomatoID" value="{{ restaurant.id }}" style="display: none;">
+                            <input name="name" value="{{ restaurant.name }}" style="display: none;">
+                            <input name="url" value="{{ restaurant.url }}" style="display: none;">
+                            <input name="img" value="{{ restaurant.img }}" style="display: none;">
+                            <input name="address" value="{{ restaurant.address }}" style="display: none;">
+                            <input name="latitude" value="{{ restaurant.latitude }}" style="display: none;">
+                            <input name="longitude" value="{{ restaurant.longitude }}" style="display: none;">
+                            <input name="cuisines" value="{{ restaurant.cuisines }}" style="display: none;">
+                            <input name="hours" value="{{ restaurant.hours }}" style="display: none;">
+                            <input name="avgfortwo" value="{{ restaurant.avgfortwo }}" style="display: none;">
+                            <input name="pricerange" value="{{ restaurant.pricerange }}" style="display: none;">
+                            <input name="rating" value="{{ restaurant.rating }}" style="display: none;">
+                            <input name="rating_text" value="{{ restaurant.rating_text }}" style="display: none;">
+                            <input name="votes" value="{{ restaurant.votes }}" style="display: none;">
+                            <input name="menu" value="{{ restaurant.menu }}" style="display: none;">
+                            <input name="phone" value="{{ restaurant.phone }}" style="display: none;">
+                            <input name="establishment" value="{{ restaurant.establishment }}" style="display: none;">
+                            {% if 'Takeaway Available' in restaurant.highlights %}<input name="takeaway" value="True" style="display: none;">{% else %}<input name="takeaway" value="False" style="display: none;">{% endif %}
+                            {% if 'Delivery' in restaurant.highlights %}<input name="delivery" value="True" style="display: none;">{% else %}<input name="delivery" value="False" style="display: none;">{% endif %}
+                            {% if 'Vegetarian Friendly' in restaurant.highlights %}<input name="vegetarian" value="True" style="display: none;">{% else %}<input name="vegetarian" value="False" style="display: none;">{% endif %}
+                            {% if 'Vegan Options' in restaurant.highlights %}<input name="vegan" value="True" style="display: none;">{% else %}<input name="vegan" value="False" style="display: none;">{% endif %}
+                            {% if 'Gluten Free Options' in restaurant.highlights %}<input name="gluten_free" value="True" style="display: none;">{% else %}<input name="gluten_free" value="False" style="display: none;">{% endif %}
+                            <button type="submit" class="btn btn-sm btn-outline-danger mylist_button_placement">Save to MyList</button>
+                        </form>
+                    </div>
+                    <!-- details panel -->
+                    <div id="{{ restaurant.id }}" style="visibility: hidden; opacity: 0; transition: opacity .5s, visibility .5s; margin-left: 50%;" class="card-img-overlay text-right w-50">
+                        <h6 class="font-weight-bold" onclick="leavedetails(this.parentElement)" style="font-size: 2em; margin-top: -18%; margin-bottom: -5%;" onmouseover="this.style.cursor='pointer'">&times;</h6>
+                        <!-- ADDRESS -->
+                        <p class="font-weight-bold">{{ restaurant.address }}</p>
+                        <!-- PHONE -->
+                        <p class="font-weight-bold">{{ restaurant.phone }}</p>
+                        <!-- AVG COST -->
+                        <p class="font-weight-bold">Avg. cost for two: <br>${{ restaurant.avgfortwo }}</p>
+                        <!-- RATINGS -->
+                        <p class="font-weight-bold"> "{{ restaurant.rating_text }}"<br>({{ restaurant.votes }} votes)</p>
+                        <!-- HIGHLIGHTS -->
+                        <div class="font-weight-bold myhighlights">
+                            <p>{% if 'Takeaway Available' in restaurant.highlights %}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/></svg>Takeaway {% endif %}</p>
+                            <p>{% if 'Delivery' in restaurant.highlights %}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/></svg>Delivery {% endif %}</p>
+                            <p>{% if 'Vegetarian Friendly' in restaurant.highlights %}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/></svg>Vegetarian {% endif %}</p>
+                            <p>{% if 'Vegan Options' in restaurant.highlights %}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/></svg>Vegan {% endif %}</p>
+                            <p>{% if 'Gluten Free Options' in restaurant.highlights %}<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/></svg>Gluten-Free {% endif %}</p>
+                        </div><br>
+                        <!-- MENU AND HOURS BUTTON -->
+                        <div class="btn-group buttonspacing" role="group">
+                            <button type="button" class="btn btn-light font-weight-bold" onclick="window.location.href='{{ restaurant.menu }}'">Menu</button>
+                            <div class="btn-group dropdown text-right">
+                                <button class="btn btn-light dropdown-toggle font-weight-bold" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hours</button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a id="mycardhours" class="dropdown-item font-weight-bold">{{ restaurant.hours }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- javascript for star rating, unfortunately has to be included in the for loop -->
+            <script>
+                var stars = document.getElementById("stars{{ restaurant.id }}").title
+                document.getElementById("stars{{ restaurant.id }}").innerHTML = getStars(stars);
+                function getStars(rating) {
+                    // Round to nearest half
+                    rating = Math.round(rating * 2) / 2;
+                    let output = [];
+                    // Append all the filled whole stars
+                    for (var i = rating; i >= 1; i--)
+                        output.push('<i class="fa fa-star text-left" aria-hidden="true" style="color: silver;"></i>&nbsp;');
+                    // If there is a half a star, append it
+                    if (i == .5) output.push('<i class="fa fa-star-half-o text-left" aria-hidden="true" style="color: silver;"></i>&nbsp;');
+                    // Fill the empty stars
+                    for (let i = (5 - rating); i >= 1; i--)
+                        output.push('<i class="fa fa-star-o text-left" aria-hidden="true" style="color: silver;"></i>&nbsp;');
+                    return output.join('');
+                }
+            </script>
+        {% endfor %}
+        </div>
+        <h5 class="mt-5 text-muted">Can't find a good restaurant? Narrow down your search using the <a href="#scrollbacktotop" class="text-decoration-none mycardtitle">filters</a> at the top!</h5>
+    </div>
+</div>
+
+
+
+<!-- MAP -->
+<!-- container holding map -->
+<div id="mapswitch" class="footer_buffer" style="">
+    <div style="width: 75%; height: 550px; margin-left: auto; margin-right: auto;" id="mapContainer"></div>
+</div>
+
+<!-- javascript for the map -->
+<!-- these divs were the best I could think of to send django variables into js -->
+<div id="{{ lon }}"></div>
+<div id="{{ lat }}"></div>
+<script>
+    var longitude = document.getElementById("{{ lon }}").id
+    var latitude = document.getElementById("{{ lat }}").id
+    var platform = new H.service.Platform({'apikey': 'j60nGgwPMsbodEqtFTc-Gihp3mQz1bQNDa8HhCPs1gY'});
+
+      // default map types from the platform object
+      var maptypes = platform.createDefaultLayers();
+      // display a map object:
+      var map = new H.Map(
+        document.getElementById('mapContainer'),
+        maptypes.vector.normal.map,
+        {
+          zoom: 10,
+          center: { lng: longitude, lat: latitude },
+          pixelRatio: window.devicePixelRatio || 1
+        });
+        // resize listener to make sure that the map occupies the whole container
+        window.addEventListener('resize', () => map.getViewPort().resize());
+        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+        // Create the default UI components
+        var ui = H.ui.UI.createDefault(map, maptypes);
+        // fuction to kick off map
+        function myMap(map){
+            map.setCenter({lat: latitude, lng: longitude});
+            map.setZoom(14);
+        }
+        window.onload = function () {
+            myMap(map);
+        }
+</script>
+<!-- individual map markers of restaurants -->
+{% for key, restaurant in restaurants.items %}
+<div id="{{ restaurant.latitude }}"></div>
+<div id="{{ restaurant.longitude }}"></div>
+<script>
+    var r_lat = document.getElementById("{{ restaurant.latitude }}").id
+    var r_lon = document.getElementById("{{ restaurant.longitude }}").id
+    var coordinate = { lat: r_lat, lng: r_lon }
+
+
+    function addMarkerToGroup(group, coordinate, html) {
+        // map marker
+        var marker = new H.map.Marker(coordinate);
+        // add marker to map
+        marker.setData(html);
+        group.addObject(marker);
+    }
+    function addInfoBubble(map) {
+        var group = new H.map.Group();
+        map.addObject(group);
+        // event listener for onclick
+        group.addEventListener('tap', function (open) {
+            // info bubble corresponding to marker
+               var bubble = new H.ui.InfoBubble(open.target.getGeometry(), {
+                   content: open.target.getData()
+            });
+        // add bubble into map
+        ui.addBubble(bubble);
+        }, false);
+
+    addMarkerToGroup(group, coordinate,
+        '<a href="{{ restaurant.url }}"><h4>{{ restaurant.name }}</h4></a><p>{{ restaurant.address }}</p>'
+    )}
+    // run function to place on map
+    addInfoBubble(map);
+
+</script>
+{% endfor %}
+
+
+<!-- javascript to show details panel and hide when x clicked -->
+<script>
+    function getdetails(elem) {
+        document.getElementById(elem.name).style.opacity = "1";
+        document.getElementById(elem.name).style.visibility = "visible";
+    }
+    function leavedetails(elem) {
+        document.getElementById(elem.id).style.opacity = "0";
+        document.getElementById(elem.id).style.visibility = "hidden";
+    }
+</script>
+
+
+<!-- javascript to scwitch between list view and map view -->
+<script>
+    function switchList() {
+        document.getElementById("listswitch").style.display='';
+        document.getElementById("mapswitch").style.display='none';
+        document.getElementById("listswitchbutton").className="nav-link active";
+        document.getElementById("mapswitchbutton").className="nav-link";
+        document.getElementById("listswitchbutton").style.color="rgb(205,92,92)";
+        document.getElementById("mapswitchbutton").style.color="rgba(0,0,0,.6)";
+    }
+    function switchMap() {
+        document.getElementById("listswitch").style.display='none';
+        document.getElementById("mapswitch").style.display='';
+        document.getElementById("listswitchbutton").className="nav-link";
+        document.getElementById("mapswitchbutton").className="nav-link active";
+        document.getElementById("listswitchbutton").style.color="rgba(0,0,0,.6)";
+        document.getElementById("mapswitchbutton").style.color="rgb(205,92,92)";
+    }
+</script>
+
+<!-- this js tells the page to hide the map once everything is loaded in -->
+<!-- if map is hidden before fully loaded, it's not rendered correctly -->
+<!-- and without this, the map would be sitting at the bottom of the list section -->
+<script>
+    window.addEventListener("load", switchList());
+</script>
+
+{% endblock %}

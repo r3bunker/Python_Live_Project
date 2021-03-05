@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page-title %}App Builder 9000{% endblock %}
+{% block page-subtitle %}Python Live Project{% endblock %}
+{% block button1 %}<a href="#apps" class="contact-btn">Portfolio</a>{% endblock %}
+{% block button2 %}<a href="#about" class="contact-btn">Contact Us</a>{% endblock %}
+
+{% block appcontent %}
+    <section class="masonry-grid" id="apps">
+        <br><br>
+        <h2 class="sub-title">App Directory</h2>
+          <div class="grid">
+
+              <a href="{% url 'StocksTraderHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/StockTraderApp.jpg' %}" alt="Stocks">
+                  <div class="fadedbox">
+                      <div class="title text"> Stocks Trader </div>
+                  </div>
+              </a>
+
+              <!-- SoundsOfSpace -->
+              <a href = "{% url 'SoundsOfSpace' %}" class="grid-item app-image">
+                  <img src ="{% static 'images/app-images/milkyway.jpg' %}" alt="Milky Way Galaxy">
+                  <div class="fadedbox">
+                      <div class="title text"> The Sounds of Space </div>
+                  </div>
+              </a>
+
+              <!-- SurfSpots -->
+              <a href="{% url 'SurfSpotsHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/busnBoards.jpg' %}" alt="Surf Bus Pic">
+                    <div class="fadedbox">
+                        <div class="title text"> SurfSpots </div>
+                    </div>
+              </a>
+
+              <!-- DandDApp -->
+              <a href="{% url 'DandDHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/DandDimage_1.jpg' %}" alt="Dragons">
+                    <div class="fadedbox">
+                        <div class="title text">Dungeons and Dragons App</div>
+                    </div>
+              </a>
+
+              <!-- NflApp -->
+              <a href="{% url 'NflHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/NflApp_logo.jpg' %}" alt="Nfl">
+                    <div class="fadedbox">
+                        <div class="title text">NFL</div>
+                    </div>
+              </a>
+
+              <!-- BreakingBadApp -->
+              <a href = "{% url 'BreakingBadHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/walterwhite.jpg' %}" alt="Walter White">
+                  <div class="fadedbox">
+                      <div class="title text"> Breaking Bad </div>
+                  </div>
+              </a>
+
+              <!-- MovieApp -->
+              <a href="{% url 'MovieAppHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/movietheaterimage.jpg' %}" alt="Inside Movie Theater">
+                    <div class="fadedbox">
+                        <div class="title text"> MovieApp </div>
+                    </div>
+              </a>
+
+              <!-- MovieUpapp -->
+              <a href="{% url 'MovieUpHome' %}" class="grid-item app-image">
+                  <img src="{% static 'images/app-images/MovieUpapp.jpg' %}" alt="Movie Cinema">
+                    <div class="fadedbox">
+                        <div class="title text">MovieUp</div>
+                    </div>
+              </a>
+
+          </div>
+    </section>
+
+    <section class="beating-heart" id="about">
+        <div class="wrapper">
+            <h2 class="sub-title">About Us</h2>
+            <p>We're creating software designed to help hobbyists keep track of their collections of items <br/>
+                as well as interact with APIs and use DataScraping to get up to date information on things <br/>
+                related to those collections and hobbies. This project is built using Python, Django, SQLite,
+                and HTML/CSS.</p>
+            <span>We</span>
+            <svg class="heart" viewBox="0 0 50 50">
+                <path style="fill:red;" d="M24.85,10.126c2.018-4.783,6.628-8.125,11.99-8.125c7.223,0,12.425,6.179,13.079,13.543
+                	c0,0,0.353,1.828-0.424,5.119c-1.058,4.482-3.545,8.464-6.898,11.503L24.85,48L7.402,32.165c-3.353-3.038-5.84-7.021-6.898-11.503
+                	c-0.777-3.291-0.424-5.119-0.424-5.119C0.734,8.179,5.936,2,13.159,2C18.522,2,22.832,5.343,24.85,10.126z"/>
+            </svg>
+            <span>Python</span>
+        </div>
+    </section>
+{% endblock %}
+

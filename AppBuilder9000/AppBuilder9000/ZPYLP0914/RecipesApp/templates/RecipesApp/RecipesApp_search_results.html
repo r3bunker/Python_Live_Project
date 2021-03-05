@@ -1,0 +1,18 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe Book {% endblock %}
+
+{% block header %}Lets look up a tasty recipe!{% endblock %}
+
+{% block content %}
+<div class="book-form">
+    <!-- searches recipes by words in title -->
+    <form action="{% url 'search' %}" method="get">
+        <input name="q" type="text" placeholder="Search recipe titles...">
+    </form>
+    {% for r in results %} <!-- display recipes by title -->
+    <h2 class="recipe-header"><a href="{% url 'recipe_details' r.pk %}"> {{ r.Title }}</a></h2>
+    {% endfor %}
+</div>
+
+{% endblock %}

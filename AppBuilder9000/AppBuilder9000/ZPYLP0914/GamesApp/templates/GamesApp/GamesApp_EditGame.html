@@ -1,0 +1,19 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% block title %} GAME APP | Edit Game {% endblock %}
+
+{% block content %}
+<div class="form_container">
+    <div id="user_form">
+        <br>
+        <h3>EDIT GAME</h3>
+            <form name="AddGameForm" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button><a style="text-decoration: none;" href="{% url 'GameLibrary' %}">Cancel</a></button>
+                <button type="submit"><a style="text-decoration: none;">Submit Edit</a></button>
+            </form>
+        <br>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "ComicApp/ComicApp_Base.html" %}
+
+{% block title %}Review Index - Comic Database{% endblock %}
+
+{% block header %}Review Index{% endblock %}
+
+{% block content %}
+    <div class="review-index-container">
+        <table>
+            <tr>
+                <th class="series-column">
+                    Series
+                    <a href="?order_by=series&direction=asc"><div class="triangle-up"></div></a>
+                    <a href="?order_by=series&direction=desc"><div class="triangle-down"></div></a>
+                </th>
+                <th class="issue-column">
+                    Issue
+                    <a href="?order_by=issue&direction=asc"><div class="triangle-up"></div></a>
+                    <a href="?order_by=issue&direction=desc"><div class="triangle-down"></div></a>
+                </th>
+                <th class="rating-column">
+                    Rating
+                    <a href="?order_by=rating&direction=asc"><div class="triangle-up"></div></a>
+                    <a href="?order_by=rating&direction=desc"><div class="triangle-down"></div></a>
+                </th>
+                <th class="user-column">
+                    User
+                    <a href="?order_by=user&direction=asc"><div class="triangle-up"></div></a>
+                    <a href="?order_by=user&direction=desc"><div class="triangle-down"></div></a>
+                </th>
+            </tr>
+            {% for review in page_obj %}
+                <tr>
+                    <td>{{ review.series }}</td>
+                    <td>#{{ review.issue }}</td>
+                    <td>{{ review.rating }}/10</td>
+                    <td>{{ review.user }}</td>
+                    <td class="read"><a href="{{ review.id }}">Read</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&order_by={{ order_by }}&direction={{ direction }}">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}&order_by={{ order_by }}&direction={{ direction }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} - {{ reviews|length }} total results found.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&order_by={{ order_by }}&direction={{ direction }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&order_by={{ order_by }}&direction={{ direction }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

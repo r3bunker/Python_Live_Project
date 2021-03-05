@@ -1,0 +1,31 @@
+{% extends 'BigfootApp/Bigfoot_Base.html' %}
+
+{% block title %}Sasquatch Spotter{% endblock %}
+
+{% block header %}Make a Report{% endblock %}
+
+{% block content %}
+
+    <div class="encounter_form">
+        <form name="encounterForm" method="POST" action="">
+            <table class="enc_table">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_table }}
+            </table>
+            <div class="frmBtn_container">
+                <div class="frmBtn_container">
+                    <button class="btn"><a class="nav-link">Submit</a></button>
+                    <button class="btn"><a href="{% url 'BigfootHome' %}" class="nav-link">Cancel</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+{% endblock %}
+
+<!-- <a href="{% url 'encounter_submitted' %}" class="nav-link"> -->

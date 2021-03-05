@@ -1,0 +1,100 @@
+{% extends 'RestaurantApp/RestaurantApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- IMAGE CAROUSEL -->
+<div id="homecarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="{% static 'RestaurantApp/imgs/slide1-melissa-walker-horn-unsplash.jpg' %}" class="d-block w-100" alt="(slide image not displayed; photo credit to Melissa Walker-Horn)">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'RestaurantApp/imgs/slide2-eaters-collective-unsplash.jpg' %}" class="d-block w-100" alt="(slide image not displayed; photo credit to Eaters Collective)">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'RestaurantApp/imgs/slide3-brooke-lark-unsplash.jpg' %}" class="d-block w-100" alt="(slide image not displayed; photo credit to Brooke Lark)">
+    </div>
+      <div class="carousel-item">
+      <img src="{% static 'RestaurantApp/imgs/slide4-davide-cantelli-unsplash.jpg' %}" class="d-block w-100" alt="(slide image not displayed; photo credit to Davide Cantelli)">
+    </div>
+      <div class="carousel-item">
+      <img src="{% static 'RestaurantApp/imgs/slide5-jakub-kapusnak-unsplash.jpg' %}" class="d-block w-100" alt="(slide image not displayed; photo credit to Jakub Kapusnak)">
+    </div>
+  </div>
+</div>
+
+<!-- TITLE CARD/JUMBOTRON -->
+<div id="myjumbotron" class="jumbotron mx-auto">
+  <h1 class="display-2">Dine-List</h1>
+  <h4 class="display-5">Your favorite restaurants conveniently stored.</h4>
+  <hr class="my-4">
+  <form action="{% url 'RestaurantNearMe' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-light btn-lg font-weight-bold">Find Restaurants Near Me</button>
+  </form>
+    <br><h3>OR</h3><br>
+    <form action="{% url 'RestaurantApi' %}" class="form-inline justify-content-center" method="POST">
+    {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control form-control-lg noborders" name="userCity" placeholder="Search by City...">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-light btn-lg font-weight-bold">Go</button>
+            </div>
+        </div>
+    </form>
+
+        <!-- error message if city search returned with nothing -->
+        {% for message in messages %}
+                    <div class="alert alert-warning col w-75 mx-auto whoopsmsg">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        <h4>Whoops!</h4>
+                        <h6 class="w-75 mx-auto">{{ message }}</h6>
+                    </div>
+        {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+<!-- this triggers the "did you mean" modal to give the user options from zomato's database -->
+{% if go %}
+    <script>
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script>
+{% endif %}
+
+
+<!-- DID YOU MEAN modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-secondary" id="deleteModalLabel">Did you mean?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <!-- from our cities dictionary, 'key' is the id, 'value' is the name -->
+              {% for key, value in cities.items %}
+                <a class="mycardtitle text-decoration-none" href="search/{{ key }}" style="font-size: 2.5vh;">{{ value }}</a><br>
+              {% endfor %}
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+

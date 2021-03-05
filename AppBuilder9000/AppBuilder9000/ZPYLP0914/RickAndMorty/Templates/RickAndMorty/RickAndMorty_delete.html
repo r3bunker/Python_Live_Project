@@ -1,0 +1,19 @@
+{% extends "RickAndMorty/RickAndMorty_base.html" %}
+{% block title %} Delete Character {% endblock %}
+{% block page-title %} Delete Character {% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'rick_index' %}"><button class="button" type="submit"><strong>Index</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'api_search' %}"><button class="button" type="submit"><strong>Search</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'bios' %}"><button class="button" type="submit"><strong>Bios</strong></button></a>{% endblock %}
+{% block appcontent %}
+<div class="content">
+    <form method="POST" class="base_form">
+        {% csrf_token %}
+        <label>Are you sure you want to delete this Character?</label>
+        <br>
+        <button type="submit" class="button" value="Yes"><strong>Yes</strong></button>
+        <a href="{% url 'rick_index' %}"}><button class="button" type="button"><strong>Cancel</strong></button></a>
+    </form>
+</div>
+
+{% endblock %}

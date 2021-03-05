@@ -1,0 +1,48 @@
+{% extends "RealEstateApp/RealEstateApp_base.html" %}
+{% load static %}
+
+{% block title %}Welcome to Realty!{% endblock %}
+
+{% block content %}
+
+    <div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark"> <!-- Navbar content -->
+        <a class="navbar-brand" href="#Realty">Realty</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active bg-light">
+                    <a class="nav-link" href="#About">About <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Mission">Mission</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Agents">Agents</a>
+                </li>
+            </ul>
+        <span class="navbar-text">
+          Navbar text with an inline element
+        </span>
+        </div>
+
+    </div>
+    <div class="home page-template">
+        <div id="header_navigation_container" class="header_navigation_container"></div> <!--header from bootstrap-->
+
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to Realty!</h1>
+      <p class="lead">For home buying, selling and investing</p>
+      <hr class="my-4">
+      <p>To learn more about what we offer click below</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+    </div>
+    <a class="btn btn-primary btn-lg" href="{% url 'client_create' %}" role="button">Create Account</a>
+    <a class="btn btn-primary btn-lg" href="{% url 'client_list' %}" role="button">List of Client Accounts</a>
+{% endblock %}
+

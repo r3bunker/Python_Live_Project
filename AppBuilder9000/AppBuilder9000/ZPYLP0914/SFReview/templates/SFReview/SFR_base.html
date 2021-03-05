@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Science Fiction and Fantasy Reviews{% endblock %}
+    {% block stylesheets %}
+{{ block.super }} <!-- parent style sheets + app specific sheets! -->
+    <link rel="stylesheet" type="text/css" href="{% static 'SFstyle.css'  %}">
+{% endblock %}
+<body>
+{% block pagetop-css %}SFcover-main{% endblock %}
+
+{% block page-title %} Science Fiction and Fantasy Book Reviews {% endblock %}
+{% block page-subtitle %}Please submit your review below!{% endblock %}
+
+{% block button1 %}<a href="{% url 'CreateReview' %}" class="contact-btn">New Review</a>{% endblock %}
+{% block button2 %}<a href="{% url 'PreviousReview' %}" class="contact-btn">Read Reviews</a>{% endblock %}
+{% block button3 %}<a href="{% url 'Recommendations' %}" class="contact-btn">GoodRead Recommendations</a>{% endblock %}
+
+{% block appcontent %}{% endblock %}
+
+{% block templatecontent %}{% endblock %}

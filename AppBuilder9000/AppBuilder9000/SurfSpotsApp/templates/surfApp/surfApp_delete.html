@@ -1,0 +1,27 @@
+{% extends "surfApp/surfApp_base.html" %}
+{% load static from staticfiles%}
+from .models import SurfSpot
+
+{% block class_img %}class="bg_img"{% endblock %}
+{% block title %}Surf Spot Updates{% endblock%}
+
+{% block header %}?Delete Your Surf Spot?{% endblock %}
+
+{% block content %}
+
+<div class="confirm_container">
+    <form method="POST" action="{% url 'ConfirmDelete' spot.pk %}">
+        <h4 style="color:red;">Confirm Delete This Surf Spot</h4>
+        <h4 class="description-text">Are You Sure You Want to Delete "{{ spot.spotName }}" From the Database?</h4>
+            <div class="formObject_container">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <div class="formBtn_container">
+                <input type="submit" class="btn" value="! DO IT !">
+                <a href="{% url 'SpotIndex' %}"><button type="button" class="btn">Nope, Go Back</button></a>
+            </div>
+    </form>
+</div>
+
+{% endblock %}

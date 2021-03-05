@@ -1,0 +1,20 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe {% endblock %}
+
+{% block header %}{{ recipe.Type }}{% endblock %}
+{% block content %}
+<div class="recipe-form">
+    <form action="{% url 'new_recipe' %}" method="POST">
+        {% csrf_token %}
+        <table class="recipe-table">
+        {{ form.as_table }}
+        </table>
+        <div class="button-container">
+                <input class="button-book" value="Submit" type="submit">
+                <button class="button-book" type="button"><a href="{% url 'RecipesHome' %}">Cancel</a></button>
+            <br>
+        </div>
+    </form>
+</div>
+{% endblock %}

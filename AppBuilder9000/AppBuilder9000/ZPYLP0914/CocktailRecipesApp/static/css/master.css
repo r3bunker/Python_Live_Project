@@ -1,0 +1,89 @@
+body {
+    background-color: black;
+}
+
+#cocktail-promo {
+    height: 70px;
+    width: auto;
+    border-radius: 10px;
+}
+
+.bgImgContainer img {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.header-title {
+    color: white;
+    text-align: left;
+    margin: auto;
+    padding:30px;
+    padding-left: 100px;
+}
+
+.footer-style {
+    color: #828282;
+    bottom: 5px;
+    position: relative;
+    margin-top: 50%;
+    margin-bottom: 25px;
+}
+
+.addRecipeCard {
+    width: 40rem;
+    margin: 0 auto;
+    background: lightgrey;
+    padding: 20px;
+
+}
+
+.cocktailForm, .submitButton, .addHeader {
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.cocktailForm li {
+    display: none;
+}
+
+label {
+    padding-top: 25px;
+    padding-right: 25px
+}
+
+#id_instructions {
+    width: 350px;
+}
+
+.allCocktailsHeader {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.allCocktailBody {
+    margin: 0 auto;
+}
+
+.allCocktailTitle{
+    padding-top: 40px;
+    text-align: center;
+}
+
+.allCocktailTitle a {
+    color: black;
+    text-decoration: underline;
+}
+
+.eachCocktailAll {
+    padding: 10px;
+    text-align: center;
+    list-style-position: inside;
+}
+

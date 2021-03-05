@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+	font-family: "Arial Black", Gadget, sans-serif;
+	background-image: url('/static/Images/Mount-Rainier.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+.page_container {
+	padding: 150px;
+	text-align: center;
+	margin: auto;
+
+}
+
+.main_title, .contentA_container {
+    color: black;
+    border: solid black;
+    border-radius: 10px;
+    background-color: darkorange;
+    padding: 10px;
+ }
+
+ .form_container, .survey1{
+    text-align: center;
+    list-style-type: none;
+
+ }
+
+ .container {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    border: solid black;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+
+}
+
+.bottom_border {
+ border-bottom:solid black;
+}
+
+.primary_nav ul {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    border: solid black;
+    border-radius: 10px;
+    background-color: darkorange;
+}
+
+.primary_nav li{
+	float: left;
+    display: inline;
+    padding: 7px;
+
+}
+
+.primary_nav a {
+	color: black;
+}
+
+.primary_nav li:hover {
+	background-color: red;
+	border-radius: 10px;
+}
+
+footer {
+    color: black;
+    border: solid black;
+    border-radius: 10px;
+    background-color: darkorange;
+    position:fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+
+}
+
+

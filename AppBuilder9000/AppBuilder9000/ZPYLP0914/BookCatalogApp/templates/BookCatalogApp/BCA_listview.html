@@ -1,0 +1,19 @@
+{% extends "BookCatalogApp/BCA_base.html" %}
+{% load static %}
+
+{% block title %} Book Catalog Index {% endblock %}
+{% block header %} Book Catalog List View {% endblock %}
+
+{% block content %}
+    <div id="list">
+        {% for data in dataset %}
+            {{data}}
+
+                <a href="{% url 'BookCatalogApp:list_detail' data.id %}">
+                    <button type="button" class="button" value="Detail">Go to Detail</button></a>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

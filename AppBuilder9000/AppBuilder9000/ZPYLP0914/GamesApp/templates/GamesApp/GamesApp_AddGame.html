@@ -1,0 +1,21 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% load static %}
+
+{% block title %} GAMES APP | Add Game {% endblock %}
+
+{% block content %}
+<div class="form_container">
+    <div id="user_form">
+        <br>
+        <h3>ADD GAME</h3>
+            <form name="AddGameForm" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button id="cancel_button">Cancel</button>
+                <button id="new_button" type="submit" name="Add_Game">Add</button>
+            </form>
+        <br>
+    </div>
+</div>
+{% endblock %}

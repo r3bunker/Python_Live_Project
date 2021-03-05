@@ -1,0 +1,25 @@
+{% extends 'NSW_App/NSW_App_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Nintendo Switch App | Game Details{% endblock %}
+
+{% block page-title %}Nintendo Switch App{% endblock %}
+{% block page-subtitle %}Selected Game Details{% endblock %}
+
+{% block button1 %}{% endblock %}
+{% block button2 %}{% endblock %}
+{% block button3 %}{% endblock %}
+{% block button4 %}{% endblock %}
+{% block button5 %}{% endblock %}
+
+{% block appcontent %}
+<div>
+    <p>Game Title: <br>{{ game.title }}</p>
+    <p>Publisher: <br>{{ game.publisher|default:'N/A' }}</p>
+    <p>Genre: <br>{{ game.genre|default:'N/A' }}</p>
+    <p>Release Date: <br>{{ game.release_date|default:'N/A' }}</p>
+    <p>ESRB Rating: <br>{{ game.ESRB_rating|default:'N/A' }}</p>
+    <p>Your Rating: <br>{{ game.user_rating }}</p>
+</div>
+{% endblock %}

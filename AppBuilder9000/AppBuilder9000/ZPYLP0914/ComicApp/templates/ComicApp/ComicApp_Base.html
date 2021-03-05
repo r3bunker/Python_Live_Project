@@ -1,0 +1,37 @@
+{% load static %}
+
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+	<head>
+        <title>{% block title %}{% endblock %}</title>
+
+	    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_Base_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_Footer_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_Navbar_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_ReviewCreate_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_ReviewDetails_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_ReviewIndex_Styles.css' %}">
+        <link rel="stylesheet" type=text/css href="{% static 'ComicApp/css/ComicApp_Signup_Styles.css' %}">
+	</head>
+    <body>
+        {% include "ComicApp/ComicApp_navbar.html" %}
+
+        <div class="page-container">
+            <header class="header-title">
+                <h1 class="text-center my-2">{% block header %}{% endblock %}</h1>
+		    </header>
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include "ComicApp/ComicApp_footer.html" %}
+         <script src="{% static 'ComicApp/js/ComicApp_ReviewDelete_DeleteConfirmationModal.js' %}"></script>
+    </body>
+</html>

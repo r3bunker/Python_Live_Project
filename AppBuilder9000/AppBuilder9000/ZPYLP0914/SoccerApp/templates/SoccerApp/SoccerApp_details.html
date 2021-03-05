@@ -1,0 +1,28 @@
+{% extends 'SoccerApp/SoccerApp_base.html' %}
+
+{% block content %}
+    <style>
+        body {
+             background-image: url("../../static/SoccerApp/images/background.jpg");
+            }
+    </style>
+<table>
+    <h1>Player:</h1>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Team</th>
+                <th>Salary</th>
+            </tr>
+
+            <tr>
+                <td>{{Adds.Name}}</td>
+                <td>{{Adds.Position}}</td>
+                <td>{{Adds.Team}}</td>
+                <td>{{Adds.Salary}}</td>
+                <td><button class="btn"><a href="../../{{Adds.id }}/edit">Edit</a></button></td>
+                <td><button class="btn"><a href="../../{{Adds.id }}/delete">Delete</a></button></td>
+            </tr>
+</table>
+
+{% endblock %}

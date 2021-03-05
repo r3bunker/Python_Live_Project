@@ -1,0 +1,91 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}MySends{% endblock %}
+
+{% block header %}{% endblock %}
+
+
+<!-- CONTENT -->
+{% block content %}
+
+    <!-- MY SENDS PAGE -->
+    <div class="container my-5">
+        <div class="card-deck">
+            <!-- CLIMB AND ATTEMPT TABLES IN CARDS -->
+            <div id="climb-form" class="card shadow bg-dark">
+                <!-- CLIMBS TABLE -->
+                <div class="container my-3 pt-3">
+                    <div id="climb-table" class="card shadow">
+                        <div class="card-header text-center bg-dark text-white">
+                            <h4 class="font-weight-bold">Climbs</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text mb-4 mr-4">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-dark table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Climb Name</th>
+                                                <th scope="col">Grade</th>
+                                                <th scope="col">Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for climb in climbs %}
+                                                <tr>
+                                                    <th class="click-row" scope="row"><a href="{% url 'ClimbDetail' pk=climb.id %}">{{ climb.name }}</a></th>
+                                                    <td class="click-row"><a href="{% url 'ClimbDetail' pk=climb.id %}">{{ climb.grade }}</a></td>
+                                                    <td class="click-row"><a href="{% url 'ClimbDetail' pk=climb.id %}">{{ climb.type }}</a></td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- BUTTON TO CREATE NEW CLIMB-->
+                            <a name="ClimbCreate" href="{% url 'ClimbCreate' %}" class="btn btn-secondary shadow">Add Climb</a> <!-- TODO link new route form from create_route url -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ATTEMPT TABLE -->
+                <div class="container my-3 pb-3">
+                    <div id="attempt-table" class="card shadow">
+                        <div class="card-header text-center bg-dark text-white">
+                            <h4 class="font-weight-bold">Attempts</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text mb-4 mr-4">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-dark table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Climb</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for attempt in attempts %}
+                                                <tr>
+                                                    <th class="click-row" scope="row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.date }}</a></th>
+                                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.climb }}</a></td>
+                                                    <td class="click-row"><a href="{% url 'AttemptDetail' pk=attempt.id %}">{{ attempt.status }}</a></td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- BUTTON LINK TO A NEW FORM -->
+                            <a name="AttemptCreate" href="{% url 'AttemptCreate' %}" class="btn btn-secondary shadow">Add Attempt</a> <!-- TODO add 'success' message to view function -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

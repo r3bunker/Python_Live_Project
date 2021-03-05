@@ -1,0 +1,89 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!-- REQUIRED META TAGS -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- BOOTSTRAP 4.5 AND GOOGLE FONTS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&display=swap" rel="stylesheet" type="text/css">
+
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" type=text/css href="{% static 'SendItApp/css/SendItApp_custom.css' %}">
+
+        <!-- BROWSER TAB TITLES -->
+        <title>{% block title%}{% endblock %}</title>
+        <link rel="icon" href="SendItApp/images/SendIt_logo_blue.png">
+    </head>
+
+    <body>
+    <!-- NAVBAR -->
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand ml-5 pr-4 pt-1" href="{% url 'SendItHome' %}">
+                <h3><img src="{% block app-icon %}{% static 'SendItApp/images/SendIt_logo.png' %}{% endblock %}" width="30" height=30" class="d-inline-block align-top" alt="Logo"> SendIt</h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{% url 'MySends' %}">MySends</a>
+                    <a class="nav-link" href="{% url 'Create' %}">Add Climbs</a>
+                    <a class="nav-link" href="#">Locate Routes</a>
+                    <a class="nav-link" href="#">Weather</a>
+                    <a class="nav-link" href="#">Climbing News</a>
+                    <a class="nav-link" href="{% url 'home' %}">AppBuilder9000</a>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            {% block header %}
+            <div class="container">
+                <div class="header-banner jumbotron text-center text-white bg-transparent">
+                    <h1 class="display-4">{% block page-title %}{% endblock %}</h1>
+                    <h5>{% block page-description %}{% endblock %}</h5>
+                    <p class="lead">{% block header-button1 %}{% endblock %}</p>
+                </div>
+            </div>
+            {% endblock %}
+        </header>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- FOOTER -->
+        <footer class="py-3" id="block-footer">
+            <div>
+                <a href="http://ckhilton.github.io/" target=”_blank”>© 2020 Copyright: C. Kirk Hilton</a>
+            </div>
+        </footer>
+
+    <!--========== SCRIPT - jQuery first, then Popper.js, then Bootstrap JS ==========-->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!-- Used for tooltip style -->
+        <script type="text/javascript">
+            $(function() {
+                $( ".datepicker" ).datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "1900:2020"
+                });
+            });
+        </script>
+
+    </body>
+
+</html>
+

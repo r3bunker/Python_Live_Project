@@ -1,0 +1,25 @@
+{% extends "BookCatalogApp/BCA_base.html" %}
+{% load static %}
+
+{% block title %}Book Catalog Index{% endblock %}
+{% block header %}Book Catalog Update View{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+    <div class="form_wrapper">
+        <form method="POST">
+            <div class="formObject_container">
+                <!-- Cross Site Request Forgery (csrf_token) protection -->
+                {% csrf_token %}
+                {{ form.as_p }}
+                form.save()
+            </div>
+            <div class="frmBtn_container">
+                <input type="submit" class="btn" value="Update" name="list_index">
+                <a href="{% url 'BookCatalogApp:list_index' %}">
+                    <button type="button" class="btn" value="Cancel">Cancel</button></a>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,24 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe {% endblock %}
+
+{% block header %}{{ recipe.Type }}{% endblock %}
+{% block content %}
+<div class="recipe-form-details">
+    <div class="details">
+        <h2 class="heading-title">{{ recipe.Title }}</h2>
+        <h3 class="heading-details">Ingredients: </h3>
+            <p class="card-text">{{ recipe.Ingredients }}</p>
+        <h3 class="heading-details">Directions:</h3>
+            <p>{{ recipe.Directions }}</p>
+    </div>
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+        Are you want to delete this item ?
+        <input class="button-book" type="submit" value="Yes" />
+        <button type="button" class="button-book"><a href="{% url 'recipe_details' recipe.pk %}">Cancel</a></button>
+    </form>
+</div>
+{% endblock %}

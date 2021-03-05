@@ -1,0 +1,27 @@
+{% extends "surfApp/surfApp_base.html" %}
+{% load static from staticfiles%}
+from .models import SurfSpot
+
+{% block class_img %}class="bg_img"{% endblock %}
+{% block title %}Surf Spot Updates{% endblock%}
+
+{% block header %}Update Your Surf Spots{% endblock %}
+
+{% block content %}
+
+    <div class="update_container">
+        <form method="POST">
+            <div class="form2Object_container">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_p }}
+            </div>
+            <div class="formBtn_container">
+                <input type="submit" class="btn" value="Make Surf Spot Changes" name="Update_Item">
+                <a href="{% url 'SurfSpotsHome' %}"><button type="button" class="btn">Cancel</button></a>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

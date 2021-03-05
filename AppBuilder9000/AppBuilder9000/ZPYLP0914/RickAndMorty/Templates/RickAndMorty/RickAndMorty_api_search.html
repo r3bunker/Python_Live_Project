@@ -1,0 +1,44 @@
+{% extends "RickAndMorty/RickAndMorty_base.html" %}
+{% block title %} Search Characters {% endblock %}
+{% block page-title %} Search Characters {% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'RickAndMorty_home' %}"><button class="button" type="submit"><strong>Home</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'rick_index' %}"><button class="button" type="submit"><strong>Index</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'bios' %}"><button class="button" type="submit"><strong>Bios</strong></button></a>{% endblock %}
+{% block appcontent %}
+<div class="content">
+    <form method="POST" class="base_form">
+        {% csrf_token %}
+        <table>
+            <label>Search for your favorite character:</label>
+            <br>
+            <input type="text" name="character_search">
+            <br>
+            <button class="button" type="submit"><strong>Submit</strong></button>
+        </table>
+    </form>
+
+{% if character_list %}
+{% for character in character_list %}
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="{{character.image}}" alt="image not found">
+        </div>
+        <div class="card">
+            <div class="card-header">{{character.name}}</div>
+            <div class="card-body text-dark">
+                <h1 class="card-title">Species: {{character.species}}</h1>
+                <h1 class="card-title">Gender: {{character.gender}}</h1>
+                <h1 class="card-title">Status: {{character.status}}</h1>
+                <h1 class="card-title">Origin: {{character.origin}}</h1>
+                <h1 class="card-title">Location: {{character.location}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+
+
+{% endblock %}

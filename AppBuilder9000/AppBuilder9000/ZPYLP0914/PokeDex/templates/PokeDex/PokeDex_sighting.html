@@ -1,0 +1,20 @@
+{% extends 'PokeDex/PokeDex_base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+        <div>
+            <form action="" method="POST" class="" id="">
+                {% csrf_token %}
+                <table class="">
+                    {{ form.as_table }}
+                </table>
+                <div class="btn_container">
+                    <button type="submit" class="btn-primary btn-lg">Submit</button>
+                </div>
+            </form>
+        </div>
+    {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--form will be sent using the POST method-->
+      <form method="post">
+        <!--required csrf token-->
+          {% csrf_token %}
+      <div class="modal-body">
+        <p>Are you sure you would like to delete this entry?</p>
+      </div>
+      <div class="modal-footer">
+        <!--submitting form to database-->
+        <input type="submit" class="btn btn-primary" value="Yes"/>
+        <!--redirecting user to the specific MarvelComicsAppEditSubscriber url using the primary key-->
+          <button type="button" class="btn btn-secondary"><a href="{% url 'MarvelComicsAppEditSubscriber' pk=subscribers.id %}">Cancel</a></button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

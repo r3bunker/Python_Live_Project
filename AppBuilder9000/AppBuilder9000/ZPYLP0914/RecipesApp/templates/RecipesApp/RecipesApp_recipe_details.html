@@ -1,0 +1,21 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe {% endblock %}
+
+{% block header %}{{ recipe.Type }}{% endblock %}
+{% block content %}
+
+<div class="recipe-form-details">
+    <h2>{{ recipe.Title }}</h2>
+    <h3>Ingredients: </h3>
+        <p>{{ recipe.Ingredients }}</p>
+    <h3>Directions:</h3>
+        <p>{{ recipe.Directions }}</p>
+
+    <div class="button-container">
+        <button type="button" class="button-book"><a href="{% url 'recipe_book' %}">Back</a></button>
+        <button type="button" class="button-book"><a href="{% url 'edit_recipe' recipe.pk %}">Edit</a></button>
+        <button type="button" class="button-book"><a href="{% url 'delete_recipe' recipe.pk %}">Delete</a></button>
+    </div>
+</div>
+{% endblock %}

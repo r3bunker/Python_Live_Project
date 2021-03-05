@@ -1,0 +1,23 @@
+{% extends 'CatchIdentificationApp/CatchIdentification_Base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Come Fishing With Us!</h1>
+
+<div >
+    <form class="Contact-Form" action="{% url 'ContactForm' %}" method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <table class="addTable">
+        {{ form.as_table }}
+        </table>
+        <input type="submit">
+        <button type="button" class="btn"><a href="{% url 'CatchIdentificationAppHome' %}">Cancel</a></button>
+    </form>
+    <p></p>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,115 @@
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 100px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+p {
+    font-size: 50px;
+    text-align: center;
+    background: white;
+}
+
+.table-edit {
+    color: white;
+    background: black;
+}
+body {
+  background-image: url('../images/boco1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.btn {
+  transition-duration: 0.4s;
+  padding: 5px;
+}
+
+.btn:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+.btn2 {
+  background-color: #4CAF50;
+  padding: 0px 20px 5px 20px;
+  font-size: 25px;
+}
+
+.frmBtn_container {
+    height: 200px;
+    position: relative;
+    justify-content: center;
+}
+
+.frm_container {
+    justify-content: center;
+    display: flex;
+    align-self: center;
+}
+
+.flex-container {
+    justify-content: center;
+    display: flex;
+    align-self: center;
+
+}
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.navbar a:hover {
+  background-color: #4CAF50;
+}
+
+
+.table-viewPups {
+    padding: 20px;
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    display: flex;
+    align-self: center;
+
+}
+
+.col-head {
+  font-size: 25px;
+  text-align: center;
+  background: #4CAF50;
+  padding: 5px 5px 0px 5px;
+  color: black;
+}
+
+.col-md {
+  font-size: 20px;
+  text-align: center;
+  background: #4CAF50;
+  padding: 5px 5px 0px 5px;
+  color: white;
+}
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}

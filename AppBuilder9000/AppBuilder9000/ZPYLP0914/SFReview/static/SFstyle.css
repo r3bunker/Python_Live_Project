@@ -1,0 +1,38 @@
+/*----
+Science Fiction Book Review CSS
+-----*/
+
+.SFcover-main {
+    background: url('images/spacestation.jpg') right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+
+.SFR-Form {
+
+}
+.SFR_Summary {
+    display: inline-block;
+    padding: 3px;
+    margin-top: 42px;
+    margin-bottom: 84px;
+    text-align: center;
+    background-color: pale yellow;
+}
+
+table, th, td {
+    display: inline-block;
+    padding: 0px
+    border: 1px solid black;
+    margin-top: 53px;
+    margin-bottom: 92px;
+    background-color: blue;
+}
+
+
+
+body {
+    color: black;
+    text: white;
+}

@@ -1,0 +1,53 @@
+.video {
+    filter: grayscale(50%);
+   -webkit-filter: grayscale(50%);
+   -moz-filter: grayscale(50);
+   -ms-filter: grayscale(50%);
+   -o-filter: grayscale(50%);
+
+   position: fixed;
+   z-index: -1;
+   min-width: 100%;
+   min-height: 20%;
+}
+
+.header {
+    color:whitesmoke;
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+.section1 {
+
+    width: 100%;
+    border:1px solid whitesmoke;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    gap: 4px;
+    grid-auto-flow: column;
+}
+
+
+.section2 {
+    width: 100%;
+    border:1px solid whitesmoke;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+
+    gap: 4px;
+    grid-auto-flow: column;
+}
+
+.photo_box {
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 25px;
+    margin: 3em;
+    height: 10em;
+    width: 15em;
+}

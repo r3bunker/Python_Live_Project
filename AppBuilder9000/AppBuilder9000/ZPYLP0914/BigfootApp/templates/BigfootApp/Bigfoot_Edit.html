@@ -1,0 +1,32 @@
+{% extends 'BigfootApp/Bigfoot_Base.html' %}
+
+{% block title %}Sasquatch Spotter{% endblock %}
+
+{% block header %}Edit Report{% endblock %}
+
+{% block content %}
+
+
+        <form method="POST">
+            <table>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.as_table }}
+            </table>
+            <div class="frmBtn_container">
+                <div class="frmBtn_container">
+                    <button class="btn" type="submit"><a class="nav-link">Save Report</a></button>
+                    <button class="btn"><a href="{% url 'encounter_delete' pk %}" class="nav-link">Delete Report</a></button>
+                    <button class="btn"><a href="{% url 'encounter_index' %}" class="nav-link">Report Index</a></button>
+                </div>
+        </div>
+        </form>
+
+
+
+
+{% endblock %}
+
+<!--
+../{{ form.pk }}delete/
+-->

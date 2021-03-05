@@ -1,0 +1,18 @@
+{% extends 'NflApp/NflApp_base.html' %}
+
+{% block title %}NFL{% endblock %}
+
+{% block header %}Player Index{% endblock %}
+
+{% block content %}
+<h2>Player Profiles: </h2>
+
+{% for player in players %} <!--passes player through the players variable from views.-->
+
+<a href="{% url 'NflApp_details' player.pk %}"><h3>{{ player.name | upper }} - {{ player.team | title }} - Position: {{ player.position }}</h3></a>
+
+{% endfor %}
+
+{% endblock %}
+
+

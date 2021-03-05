@@ -1,0 +1,17 @@
+{% load static %}
+
+<!-- Link to style sheet -->
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/HikingApp.css' %}">
+
+<!-- primary nav -->
+<div class="primary_nav">
+    <ul>
+        <!-- nav links to various pages -->
+        <li><a href="{% url 'happ_home' %}" class="active">Home</a></li>
+        <li><a href="">Trail Search</a></li>
+        <li><a href="">Conditions</a></li>
+        <li><a href="{% url 'survey_results' %}" class="active">Survey Results</a></li>
+        <li><a href="{% url 'happ_my_profile' %}" class="active">My Profile</a></li>
+    </ul>
+
+</div>

@@ -1,0 +1,59 @@
+{% extends "CocktailRecipesApp/CocktailRecipes_Base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="addRecipeCard card">
+    <div class="card-body allCocktailBody">
+        <h4 class="eachCocktailAll">{{ cocktail.name|title }}</h4>
+        <h6 class="eachCocktailAll">Ingredients:</h6>
+        <ul class="eachCocktailAll">
+            <li>{{ cocktail.ingredient1 }}</li>
+            <li>{{ cocktail.ingredient2 }}</li>
+            {% if cocktail.ingredient3 is not None %}
+                <li>{{ cocktail.ingredient3 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient4 is not None %}
+                <li>{{ cocktail.ingredient4 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient5 is not None %}
+                <li>{{ cocktail.ingredient5 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient6 is not None %}
+                <li>{{ cocktail.ingredient6 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient7 is not None %}
+                <li>{{ cocktail.ingredient7 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient8 is not None %}
+                <li>{{ cocktail.ingredient8 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient9 is not None %}
+                <li>{{ cocktail.ingredient9 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient10 is not None %}
+                <li>{{ cocktail.ingredient10 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient11 is not None %}
+                <li>{{ cocktail.ingredient11 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient12 is not None %}
+                <li>{{ cocktail.ingredient12 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient13 is not None %}
+                <li>{{ cocktail.ingredient13 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient14 is not None %}
+                <li>{{ cocktail.ingredient14 }}</li>
+            {% endif %}
+            {% if cocktail.ingredient15 is not None %}
+                <li>{{ cocktail.ingredient15 }}</li>
+            {% endif %}
+        </ul>
+        <h6 class="eachCocktailAll">Instructions:</h6>
+        <p>{{ cocktail.instructions }}</p>
+    </div>
+</div>
+
+{% endblock %}

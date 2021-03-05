@@ -1,0 +1,14 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<br><br><br><br><br><br>
+{% endblock %}
+
+
+{% block page-title %}Get Sendy!{% endblock %}
+{% block page-description %}<h3>Tracking your climbs with SendIt puts you on top.</h3>{% endblock %}
+{% block header-button1 %}<a class="mt-3 mx-2 btn btn-primary btn-lg" data-toggle="tooltip" data-placement="bottom" title="Start Tracking" href="{% url 'Create' %}" role="button">Start Tracking</a>{% endblock %}

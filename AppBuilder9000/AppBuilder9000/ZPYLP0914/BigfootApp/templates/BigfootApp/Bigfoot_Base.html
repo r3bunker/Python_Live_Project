@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Browser Title -->
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- Meta Stuff -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- BootStrap Stuff -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- My CSS -->
+        <link rel="stylesheet" href="{% static 'BigfootApp/css/BigfootApp.css' %}">
+
+    </head>
+
+    <body>
+        <div class="page_container">
+
+            <!-- Bootstrap Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand font-weight-bold" href="{% url 'BigfootHome' %}">Sasquatch Spotter</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" href="{% url 'BigfootHome' %}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'new_encounter' %}">Make A Report</a>
+                  <a class="nav-link" href="#">See The Sightings Map</a>
+                  <a class="nav-link" href="{% url 'encounter_index' %}">Report Index</a>
+                </div>
+              </div>
+            </nav>
+
+
+            <!-- Background Video -->
+            <video autoplay muted loop id="forestVideo">
+                <source src="{% static 'BigfootApp/video/mthood-slow.mp4' %}" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+            <br><br><br><br>
+
+            <!-- Bootstrap Container (not sure if I am going to use it yet)-->
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                     <!-- Header Title -->
+                    <header class="header-title">
+                        <h1>{% block header %}{% endblock %}</h1>
+                    </header>
+                    <!-- Bigfoot Image -->
+                     <div class="image">
+                        <img src="{% static 'BigfootApp/images/bigfoot.jpg' %}" alt="Bigfoot";>
+                    </div>
+                </div>
+                <div class="col-sm">
+                  {% block content %}{% endblock %}
+                </div>
+                <div class="col-sm">
+                  <!-- One of three columns -->
+                </div>
+              </div>
+            </div>
+
+            <br><br>
+            <!-- Footer -->
+            <footer>
+                Bigfoot Exists &nbsp;2020
+            </footer>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    </body>
+</html>

@@ -1,0 +1,83 @@
+
+form {
+    width: 50%;
+    background-color: white;
+    color: black;
+    font-size: 30px;
+    padding: 12px 15px;
+    margin: 65px 0;
+    position: fixed;
+    left: 400px;
+    top: 275px;
+    font-family: "Rubik";
+    text-align: justify;
+    border-color: lightblue;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: .75;
+    padding: 20px;
+    border: 1px solid #270644;
+}
+form:hover{
+    background-color: lightblue;
+     border-color: black;
+}
+body{
+    background-image:url("/static/RcanavApp/images/rain-forest.png");
+    background-size: cover;
+
+}
+
+.footer {
+	background-color:white;
+	position: fixed;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    font-family:Rubik;
+    font-weight: italic;
+    left: 0;
+    right: 0;
+}
+input[type=text] {
+    width: 50%;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-color: red;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type=text]:hover {
+    background-color: #F0FFFF;
+}
+
+input[type=submit]  {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-color: red;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+input[type=submit]:hover {
+    background-color: red;
+}
+
+.manage-containers {
+ opacity: .92;
+ width: 92%;
+
+}
+.navbar{
+
+    position: relative;
+}

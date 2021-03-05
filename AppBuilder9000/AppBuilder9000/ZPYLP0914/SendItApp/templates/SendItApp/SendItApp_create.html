@@ -1,0 +1,78 @@
+{% extends 'SendItApp/SendItApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Add Climb{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+<!-- CLIMB AND ATTEMPT CARDS -->
+    <div class="container my-5">
+        <div class="card-deck">
+            <!-- BLANK CLIMB CARD/FORM -->
+            <div id="climb-form" class="card shadow">
+                <img src="{% static 'SendItApp/images/climb-map.jpg' %}" class="card-img-top" alt="Climb Map">
+                <!--===== BODY =====-->
+                <div class="card-body">
+                    <h4 class="card-title text-center font-weight-bold">Climb Tracker</h4>
+                    <p class="card-text">
+
+                        <!-- CLIMB FORM INFO GOES HERE -->
+                        <form name="climbForm" method="POST" action="{% url 'ClimbCreate' %}">
+                            <!-- CROSS-SITE REQUEST SAFETY (csrf_token) -->
+                            {% csrf_token %}
+                            <!-- LOGIC TO GET THE FIELDS -->
+                            {% for field in climb_form %}
+                            <div class="form-group {%if field.errors %}is-invalid{%endif%}">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <!-- FIELD ERROR message -->
+                                <small class="form-text text-danger">{{ field.errors }}</small>
+                            </div>
+                            {% endfor %}
+                            <div class="pt-3 px-5">
+                                <button name="climbForm" type="submit" class="btn btn-secondary btn-block shadow">Save</button> <!-- TODO add "success or fail" message to views function -->
+                            </div>
+                        </form>
+                    </p>
+                </div>
+            </div>
+
+            <!-- BLANK ATTEMPT CARD/FORM -->
+            <div id="attempt-form" class="card shadow">
+                <img src="{% static 'SendItApp/images/try-hard.jpg' %}" class="card-img-top" alt="Try Hard"> <!-- TODO get try hard pic -->
+                <!-- BODY -->
+                <div class="card-body">
+                    <h4 class="card-title text-center font-weight-bold">Attempt Tracker</h4>
+                    <p class="card-text">
+
+                        <!-- ATTEMPT FORM INFO GOES HERE -->
+                        <form name="attemptForm" method="POST" action="{% url 'AttemptCreate' %}">
+                            <!-- CROSS-SITE REQUEST SAFETY (csrf_token) -->
+                            {% csrf_token %}
+                            <!-- LOGIC TO GET THE FIELDS  -->
+                            {% for field in attempt_form %}
+                            <div class="form-group {%if field.errors %}is-invalid{%endif%}">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                <!-- ERROR MESSAGE -->
+                                <small class="form-text text-danger">{{ field.errors }}</small>
+                            </div>
+                            {% endfor %}
+
+                            <!-- SUBMIT BUTTON -->
+                            <div class="pt-3 px-5">
+                                <button name="attemptForm" type="submit" class="btn btn-secondary btn-block shadow">Save</button>
+                            </div>
+                        </form>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

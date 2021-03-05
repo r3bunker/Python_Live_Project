@@ -1,0 +1,54 @@
+{% extends "CovidUpdateApp/Covidbase.html" %}
+
+{% block title %}Covid Updates{% endblock %}
+
+{% block content %}
+<h1>Testimonials</h1>
+
+
+
+{% for cview in covid_view %}
+
+<div class="card" style="width: 25rem;" align="center">
+  <div class="card-body">
+    <h5 class="card-title">{{ cview.first_Name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Affected By Covid?</h6>
+    <p class="card-text">{{ cview.covid_Question }}</p>
+    <a class="index-requestcontainer" href="{% url 'inputDetails' pk=cview.id%}">Learn More!</a>
+  </div>
+</div>
+
+<br>
+
+{% endfor %}
+{% endblock %}
+
+
+<!--This section has now been commented out as using bootstrap has made things a bit easier
+    with better readability.
+
+<table id="test_table" align="center">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+    </tr>
+    <tr>
+        <td>{{ cview.first_Name }}</td>
+        <td>{{ cview.last_Name }}</td>
+        <td>{{ cview.email_Address }}</td>
+    </tr>
+    <tr>
+        <th>Affected by Covid?</th>
+    </tr>
+    <tr>
+        <td>{{ cview.covid_Question }}</td>
+    </tr>
+    <tr>
+        <th>Silver Lining Story</th>
+    </tr>
+    <tr>
+        <td>{{ cview.story_Questions }}</td>
+    </tr>
+</table>-->
+

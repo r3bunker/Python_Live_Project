@@ -1,0 +1,94 @@
+body, html {
+    height: 100%;
+}
+
+.bg {
+    background-image: url('/static/images/observatory.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form-container {
+    display: block;
+    text-align: center;
+}
+
+.form-content {
+    display: inline-block;
+    left-margin: auto;
+    right-margin: auto;
+    text-align: left;
+}
+
+
+.pagetitle {
+    text-align: center;
+    color: white;
+    font-family: 'Major Mono Display', monospace;
+    font-size: 32px;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: lightblue;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-family: 'Major Mono Display', monospace;
+}
+
+input[type=search] {
+    background-color= white;
+    color: white;
+    font-family: 'Major Mono Display', monospace;
+}
+
+button[type=submit] {
+    background-color: lightblue;
+    color: white;S
+    font-family: 'Major Mono Display', monospace;
+}
+
+
+
+h1 {
+    color: #C0FDFF;
+    font-family: 'Major Mono Display', monospace;
+}
+
+a {
+    color: #DEAAFF;
+    font-family: 'Major Mono Display', monospace;
+}
+.printStats {
+    color: white;
+    font-family: 'Major Mono Display', monospace;
+}
+
+.index_form {
+    width: 100%;
+    border: 2px solid white;
+}
+
+.index_form th {
+    background-color: gray;
+    color: pink;
+}
+
+.index_form td {
+    color: lightblue;
+}
+
+tr, th, td, label {
+    color: white;
+    font-family: 'Major Mono Display', monospace;
+}
+
+
+
+
+
+
+

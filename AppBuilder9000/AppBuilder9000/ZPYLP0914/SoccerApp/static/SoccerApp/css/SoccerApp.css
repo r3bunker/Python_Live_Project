@@ -1,0 +1,178 @@
+{
+    margin: 0;
+}
+
+html {
+    background-color: lightblue;
+}
+
+body {
+	position: relative;
+	overflow: hidden;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+	padding: 0;
+}
+p {
+	padding: 2px 16px;
+	font-size: 15px;
+	font-family: 'Lato', Georgia, sans-serif;
+	color: #666666;
+}
+h1 {
+    color: #0404B4;
+    font-family: 'Lobster';
+    text-shadow: 3px 2px 1px rgba(181, 184, 255, 1);
+    margin:0 auto;
+}
+h2 {
+    color: #0404B4;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+h2 span {
+    font-variant: small-caps;
+    padding: 2px 16px;
+}
+.container {
+    padding: 2px 16px;
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+}
+.center-img {
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #213e4a;
+}
+ul.navbar li {
+    float: left;
+}
+
+ul.navbar li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+ul.navbar li a:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+    background-color: #355664;
+}
+ul.navbar li.icon {
+	display: none;
+}
+
+.header-title {
+	padding: 2px 16px;
+	text-align: center;
+
+#block-footer {
+    clear: both;
+    display: flex;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #213e4a;
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+}
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 14px;
+    line-height: 10px;
+	font-family:'PT Sans', Arial, Helvetica, sans-serif;
+}
+#footer-left {
+    width: 40%;
+    text-align: right;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: #CABE96;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.bg_img {
+    background-color: lightblue;
+    background-image: url('static/SoccerApp/images/background.jpg');
+    background-size: cover;
+    background-attachment:fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+
+.frm_container {
+    background: slategrey;
+    opacity: 0.8;
+}
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}

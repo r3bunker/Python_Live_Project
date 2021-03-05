@@ -1,0 +1,29 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+<!--header-->
+{% block header %}
+Your Journey Wish List
+{% endblock %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="manage-containers moise">
+    <div class="list-group">
+      {% for city in city_list %}
+      <a href="citiesDetails/{{ city.id }}/" class="list-group-item list-group-item-action flex-column align-items-start manage-containers ">
+        <div class="d-flex w-100 justify-content-between bg-warning mb-3">
+          <h5 class="mb-1">City name: {{ city.cities_name }}</h5>
+          <!-- A good way to use this could be used for grabbing time last modified) -->
+          <small>Today</small>
+        </div>
+        <p class="mb-1">Date: {{ city.date_saved }}</p>
+
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

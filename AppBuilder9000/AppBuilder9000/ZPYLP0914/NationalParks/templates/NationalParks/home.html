@@ -1,0 +1,40 @@
+{% extends 'NationalParks/base.html' %}
+
+{% load static from staticfiles %}
+
+
+{% block title %} National Parks {% endblock %}
+
+
+{% block content %}
+
+<!--generates automatic slide show, using jquery and the z-depth for an automatic slide show-->
+<div id="carouselExampleControls" class="car-container carousel slide carousel-fade z-depth-1-half" data-ride="carousel">
+      <div class="car-inner carousel-inner">
+            <div class="im-container carousel-item active">
+              <img class=" d-block w-100" src="../../static/Images/adventure-1850178_1280.jpg" alt="First slide">
+            </div>
+            <div class="car-inner carousel-item">
+                 <img class="d-block w-100" src="../../static/Images/nature-1209302.jpg" alt="Second slide">
+            </div>
+            <div class="car-inner carousel-item">
+              <img class="d-block w-100" src="../../static/Images/bald-eagle-5657154.jpg" alt="Third slide">
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+      </div>
+          <script>
+            $('#myCarousel').on('slide.bs.carousel', function () {
+             // do something…
+              })
+          </script>
+</div>
+{% endblock %}
+

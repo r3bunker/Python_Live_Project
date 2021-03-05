@@ -1,0 +1,25 @@
+{% extends 'FestivalApp/FestivalApp_base.html' %}
+{% load static %}
+
+{% block title %} Festivals {% endblock %}
+
+{% block content %}
+<div class="container center_div">
+    <h3 class="text-white bg-dark rounded pt-1 pb-1">Upcoming Festivals in Seattle:</h3>
+    {% if festivals_list %}
+    {% for f in festivals_list %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ f.title }}</h5>
+                <p class="card-text">{{ f.venue }}</p>
+                <p class="card-text">{{ f.dates }}</p>
+                <p class="card-text">
+                    <a class="badge badge-primary" href="{{ f.details }}" target="_blank">Details</a> |
+                    <a class="badge badge-primary" href="{{ f.website }}" target="_blank">Event Website</a>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

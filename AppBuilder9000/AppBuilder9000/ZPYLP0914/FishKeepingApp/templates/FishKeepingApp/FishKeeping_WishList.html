@@ -1,0 +1,21 @@
+
+{% extends 'FishKeepingApp/FishKeeping_Base.html' %}
+
+{% block title %}Add New Fish{% endblock %}
+
+{% block header %}ADD FISH TO WISH LIST{% endblock %}
+
+{% block content %}
+
+<h3 class="main-h">Add Fish</h3>
+<hr>
+	<div class="form-container">
+		<form method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button id="new-fish-button" type="submit">Add Fish</button>
+		</form>
+		<br>
+	</div>
+
+{% endblock %}

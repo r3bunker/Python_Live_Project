@@ -1,0 +1,43 @@
+{% extends "DandDApp/DandD_base.html" %}
+{% load static %}
+{% block title %}D&D | Details{% endblock%}
+
+{% block header %}Inspect an Adventurer in your Party!!{% endblock %}
+
+{% block content %}
+<!-- Table for Characters in DB-->
+    <table class="table" >
+      <thead class="index_display">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Character Name</th>
+          <th scope="col">Race</th>
+          <th scope="col">Character Class</th>
+          <th scope="col">Strength</th>
+          <th scope="col">Dexterity</th>
+          <th scope="col">Constitution</th>
+          <th scope="col">Intelligence</th>
+          <th scope="col">Wisdom</th>
+          <th scope="col">Charisma</th>
+        </tr>
+      </thead>
+      <tbody class="index_display">
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ character.name | title }}</td>
+          <td>{{ character.race | title }}</td>
+          <td>{{ character.character_class | title }}</td>
+          <td>{{ character.strength }}</td>
+          <td>{{ character.dexterity }}</td>
+          <td>{{ character.constitution }}</td>
+          <td>{{ character.intelligence }}</td>
+          <td>{{ character.wisdom }}</td>
+          <td>{{ character.charisma }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+<!--Returns user to index page-->
+<input type=button value="Previous Page" onClick="javascript:history.go(-1);">
+
+{% endblock %}

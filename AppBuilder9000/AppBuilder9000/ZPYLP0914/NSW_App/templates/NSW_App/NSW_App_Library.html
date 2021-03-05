@@ -1,0 +1,38 @@
+{% extends 'NSW_App/NSW_App_base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Nintendo Switch App | User Library{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'NSW_App/css/NSW_App_library.css'  %}">
+{% endblock %}
+
+{% block page-title %}Nintendo Switch App{% endblock %}
+{% block page-subtitle %}User Library{% endblock %}
+
+{% block button1 %}<a href="{% url 'AddGame' %}" class="contact-btn">Add Game</a>{% endblock %}
+
+{% block appcontent %}
+
+{% if user_games %}
+
+<table class="table table-striped">
+        <th>Title</th>
+        <th>Your Rating</th>
+        <th>Details</th>
+    {% for game in user_games %}
+        <tr>
+            <td>{{ game.title }}</td>
+            <td>{{ game.user_rating }}</td>
+            <td><a href="details/{{ game.id }}">Details</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+    <p class="layer title">Your Games Library is currently empty!<br><br>Add a game by clicking "Add Game".</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+<!--header-->
+{% block header %}
+Your Journey Wish List
+{% endblock %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+{% for savecities in citieswish %}
+    <div class="card-container">
+        <div class="card text-white bg-primary mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{savecities.city_name}}</h5>
+            <a href="city-details/{{ savecities.id }}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="'bg_img">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title%} {% endblock %}</title>
+        <meta name="viewpoint" content="width=device-width, initial-scale=1">
+        <!-- Custom fonts  -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+            <!-- Custom styles -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="{% static './CSS/MovieUp.css' %}" rel="stylesheet">
+
+
+    </head>
+<body>
+     <div class="homebase">
+            {% include './MovieUpnavbar.html' %}
+            <div class="title">
+                <h1>{% block header %}{% endblock %}</h1>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+
+</body>
+
+</html>
+
+

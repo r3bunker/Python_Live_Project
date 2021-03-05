@@ -1,0 +1,38 @@
+
+{% extends 'NationalParks/base.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} National Parks {% endblock %}
+
+
+{% block content %}
+<!--this page displays the content that was stored in the database-->
+    <style>
+        body {
+             background-image: url("../../static/Images/lake-mcdonald-1733308.jpg");
+             opacity: inherit;
+            }
+    </style>
+
+    <h1>Reviews</h1>
+        <table class="table table-dark">
+            <tr>
+                <th>Date</th>
+                <th>User Name</th>
+                <th>National Park</th>
+                <th>Comments</th>
+                <th>Details</th>
+            </tr>
+    {% for park in parks %}
+            <tr>
+                <td>{{park.TodaysDate|upper}}</td>
+                <td>{{park.UsersName|capfirst}}</td>
+                <td>{{park.ParkName|capfirst}}</td>
+                <td>{{park.Comments|capfirst}}</td>
+                <td><a href="{{park.id }}/details">Details</a></td>
+
+            </tr>
+    {% endfor %}
+         </table>
+{% endblock %}

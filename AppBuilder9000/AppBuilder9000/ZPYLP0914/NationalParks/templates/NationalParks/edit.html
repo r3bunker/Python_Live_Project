@@ -1,0 +1,22 @@
+{% extends 'NationalParks/base.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} National Parks {% endblock %}
+
+{% block content %}
+    <style>
+        body {
+             background-image: url("../../static/Images/lake-mcdonald-1733308.jpg");
+             opacity: inherit;
+            }
+    </style>
+            <table>
+            <form action="" method="POST">
+            {% csrf_token %}
+
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit">
+            </form>
+{% endblock %}

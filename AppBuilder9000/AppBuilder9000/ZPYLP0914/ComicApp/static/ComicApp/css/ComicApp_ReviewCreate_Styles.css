@@ -1,0 +1,71 @@
+.review-form {
+    text-align: center;
+}
+
+.review-form table {
+    margin: auto;
+}
+
+.review-form table th {
+    padding: 0;
+    margin: 0;
+}
+
+.review-form table td {
+    padding: 0 4.5rem 0 0;
+    margin: 0;
+}
+
+.review-form table li {
+    display: inline-block;
+    list-style: none;
+}
+
+.review-form table ul {
+    margin: auto;
+}
+
+.review-form label {
+    margin: 0 1rem 0.3rem 0;
+    font-weight: normal;
+}
+
+.review-form input {
+    margin: 0.5rem 0;
+}
+
+.review-form textarea {
+    width: 40rem;
+    height: 15rem;
+    resize: none;
+}
+
+.review-form button {
+    padding: 0.6rem 3rem;
+    margin-top: 1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+    color: white;
+    letter-spacing: 0.05rem;
+}
+
+.review-form button:hover {
+    border: 0.1rem solid #1a232b;
+    background-color: #7f0505;
+}
+
+#id_rating {
+    padding: 0;
+}
+
+#id_rating li:first-child {
+    display: none;
+}
+
+#id_series {
+    width: 17rem;
+}
+
+#id_issue {
+    width: 17rem;
+}

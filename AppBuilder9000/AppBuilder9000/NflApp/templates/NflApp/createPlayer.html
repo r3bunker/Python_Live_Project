@@ -1,0 +1,22 @@
+{% extends 'NflApp/NflApp_base.html' %}
+
+{% block title %}NFL{% endblock %}
+
+{% block header %}Create A New Player{% endblock %}
+
+{% block content %}
+
+<div class="form_container">
+    <form action="" method="POST" class="form_content">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <div class="">
+            <input type="submit" value="Create New Player" class="btn" name="Save_item">
+            <a href="{% url 'NflHome' %}"><button type="button" class="btn" value="Cancel">Cancel</button> </a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

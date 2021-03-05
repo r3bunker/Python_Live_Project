@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}Pup App{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{% static 'PupApp/CSS/PupAppstyles.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% endblock %}
+</head>
+
+
+
+<div class="navbar">
+    <a href="{% url 'PupHome' %}"><i class="fa fa-fw fa-home"></i>PupApp Home</a>
+    <a href="{% url 'createOwner' %}"><i class="fa fa-fw fa-user-plus"></i>Register here!</a>
+    <a href="{% url 'createPup' %}"><i class="fa fa-fw fa-heart-o"></i> Add your pup to list!</a>
+    <a href="{% url 'indexPup' %}"><i class="fa fa-fw fa-search"></i>Find a pal for your pup!</a>
+    <a href="{% url 'home' %}"><i class="fa fa-fw fa-android"></i>App Builder 9000</a>
+</div>
+
+
+{% block appcontent %}
+    {% block templatecontent %}{% endblock %}
+{% endblock %}
+{% block content %}{% endblock %}
+
+</html>

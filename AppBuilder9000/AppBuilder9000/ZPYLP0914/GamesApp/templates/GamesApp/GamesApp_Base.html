@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>GAMES APP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/GamesApp.css' %}">
+    </head>
+
+    <body class="pc_img">
+     {% include "GamesApp/GamesApp_Navbar.html" %}
+
+    {% block content %}{% endblock %}
+
+    {% include "GamesApp/GamesApp_Footer.html" %}
+    </body>
+</html>

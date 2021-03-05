@@ -1,0 +1,39 @@
+{% extends "MovieApp/movieapp_base.html" %}
+
+{% block content %}
+<h3 style="margin-left: 5px;">CREATE NEW PROFILE</h3>
+
+<form action="" method="POST">
+{% csrf_token %}
+{% for field in form %}
+  <div class="form-row">
+  	<label class="col-sm-2 col-form-label" style="margin-left: 5px;">{{field.label_tag}}</label>
+  	<div class="col-2">
+		{{field}}
+	</div>
+  </div>
+{% endfor %}
+	<button type="submit">Create Profile</button>
+</form>
+
+
+{% endblock %}
+<!--
+
+
+
+
+
+-->
+<div style="text-align: center;">
+		<form action = "" method="POST">
+			{% csrf_token %}
+			{% for field in form %}
+				<ul>
+					<li><label>{{field.label_tag}}</label>{{field}}</li>
+				</ul>
+			{% endfor %}
+			<button type="submit">Create Profile</button>
+		</form>
+		<br>
+</div>

@@ -1,0 +1,59 @@
+{% extends "CocktailRecipesApp/CocktailRecipes_Base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h3 class="allCocktailsHeader">All Cocktail Recipes</h3>
+    <div class="addRecipeCard card">
+        <div class="card-body allCocktailBody">
+            {% for cocktail in list_of_cocktails %}
+            <h4 class="allCocktailTitle"><a href="details/{{ cocktail.id }}">{{ cocktail.name|title }}</a></h4>
+                <h6 class="eachCocktailAll">Ingredients:</h6>
+                <p class="eachCocktailAll">
+                    {{ cocktail.ingredient1 }}
+                    , {{ cocktail.ingredient2 }}
+                    {% if cocktail.ingredient3 is not None %}
+                        , {{ cocktail.ingredient3 }}
+                    {% endif %}
+                    {% if cocktail.ingredient4 is not None %}
+                        , {{ cocktail.ingredient4 }}
+                    {% endif %}
+                    {% if cocktail.ingredient5 is not None %}
+                        , {{ cocktail.ingredient5 }}
+                    {% endif %}
+                    {% if cocktail.ingredient6 is not None %}
+                        , {{ cocktail.ingredient6 }}
+                    {% endif %}
+                    {% if cocktail.ingredient7 is not None %}
+                        , {{ cocktail.ingredient7 }}
+                    {% endif %}
+                    {% if cocktail.ingredient8 is not None %}
+                        , {{ cocktail.ingredient8 }}
+                    {% endif %}
+                    {% if cocktail.ingredient9 is not None %}
+                        , {{ cocktail.ingredient9 }}
+                    {% endif %}
+                    {% if cocktail.ingredient10 is not None %}
+                        , {{ cocktail.ingredient10 }}
+                    {% endif %}
+                    {% if cocktail.ingredient11 is not None %}
+                        , {{ cocktail.ingredient11 }}
+                    {% endif %}
+                    {% if cocktail.ingredient12 is not None %}
+                        , {{ cocktail.ingredient12 }}
+                    {% endif %}
+                    {% if cocktail.ingredient13 is not None %}
+                        , {{ cocktail.ingredient13 }}
+                    {% endif %}
+                    {% if cocktail.ingredient14 is not None %}
+                        , {{ cocktail.ingredient14 }}
+                    {% endif %}
+                    {% if cocktail.ingredient15 is not None %}
+                        , {{ cocktail.ingredient15 }}
+                    {% endif %}
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

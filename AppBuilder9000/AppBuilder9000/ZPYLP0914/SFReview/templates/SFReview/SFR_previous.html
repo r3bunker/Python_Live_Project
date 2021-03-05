@@ -1,0 +1,34 @@
+{% extends 'SFReview/SFR_base.html' %}
+{% load staticfiles %}
+<title>Previous</title>
+
+{% block header %}Previous Reviews:{% endblock %}
+
+{% block appcontent %}
+<section class="table">
+<div class="table SFReview" id="ReviewPrevPage">
+    <table>
+        <tr>
+            <th class="col-md">Author</th> <!--Make sure same size as other columns when formatting.-->
+            <th class="col-md">Title</th>
+            <th class="col-md">Score</th>
+            <th class="col-md">Details</th>
+            <th class="col-md">Edit Review</th>
+            <th class="col-md">Remove Review</th>
+        </tr>
+        {% for reviews in BookReview %} <!-- new row for each review-->
+        <tr>
+            <td class="col-md">{{reviews.Author}}</td>
+            <td class="col-md">{{reviews.Title}}</td>
+            <td class="col-md">{{reviews.Score}}</td>
+            <td class="col-md"><a href="{{ reviews.pk }}/details">Review</a></td>
+            <td class="col-md"><a href="{{ reviews.pk }}/edit">Edit</a></td>
+            <td class="col-md"><a href="{{ reviews.pk }}/remove">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button class="btn" type="button" onclick=" location.href='{% url 'CreateReview' %}'">Add a Review</button>
+</div>
+</section>
+
+{% endblock %}

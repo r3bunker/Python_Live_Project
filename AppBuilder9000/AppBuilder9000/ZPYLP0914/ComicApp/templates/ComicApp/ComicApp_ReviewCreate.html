@@ -1,0 +1,17 @@
+{% extends "ComicApp/ComicApp_Base.html" %}
+
+{% block title %}Review - Comic Database{% endblock %}
+
+{% block header %}Review{% endblock %}
+
+{% block content %}
+
+    <form class="review-form" action="{% url 'ComicReview' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}

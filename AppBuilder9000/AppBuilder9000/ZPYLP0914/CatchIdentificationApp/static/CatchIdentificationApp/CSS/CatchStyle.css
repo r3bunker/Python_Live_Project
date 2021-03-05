@@ -1,0 +1,129 @@
+* {
+    margin:0;
+}
+
+html {
+    background-color: khaki;
+}
+
+.body {
+    Position: relative;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    paddingL 0;
+}
+
+
+p {
+    padding: 2px 10px;
+    font-size: 20px;
+    font-family: Ariel;
+    color: Black;
+}
+
+h1 {
+    text-align: center;
+    font-family: Ariel;
+    color: olivedrab;
+}
+
+
+#App-Home {
+    height: 70px;
+    width: 70px;
+    border-radius: 10px;
+}
+
+/* This controls the form size and contents */
+.catch_form {
+    margin: 0 auto;
+    width: 50%;
+    height: 80%;
+    background-color: #fffaf4;
+	border: 1px solid #d6d6d6;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	transition: all 0.3s ease-in-out;
+	border-radius: 10px;
+    transition: 0.3s;
+}
+.catch_form:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+
+.frmObjectContainer {
+    display: block;
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    padding: 0;
+    test-align: center;
+}
+
+.frmBtn_container {
+    display: block;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+.btn {
+	flex-grow: 2;
+    justify-content: center;
+    text-align: center;
+    display: center;
+    width: 75px;
+    height: 58px; /* button size */
+    margin: 2% 2% 2% 2%;
+    color: black;
+    background-color: white;
+    padding: 10px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+.btn:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+input[type="submit"] {
+    flex-grow: 0;
+    width: 10%;
+    justify-content: center;
+    text-align: center;
+    display: inline-block;
+    margin: 2% 2% 2% 2%;
+    color: blue;
+    padding: 19px 0px 9px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+input[type="submit"]:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid #b3b3b3;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	transition: opacity 0.3s ease-in-out;
+}
+
+.table {
+    border-radius: 5px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}

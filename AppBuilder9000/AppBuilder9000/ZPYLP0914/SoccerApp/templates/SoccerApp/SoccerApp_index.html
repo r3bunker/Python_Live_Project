@@ -1,0 +1,30 @@
+{% extends 'SoccerApp/SoccerApp_base.html' %}
+
+{% block content %}
+
+    <style>
+        body {
+             background-image: url("../../static/SoccerApp/images/background.jpg");
+            }
+    </style>
+    <h1>Player:</h1>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Team</th>
+                <th>Salary</th>
+            </tr>
+{% for add in adds %}
+            <tr>
+                <td>{{add.Name}}</td>
+                <td>{{add.Position}}</td>
+                <td>{{add.Team}}</td>
+                <td>{{add.Salary}}</td>
+                <td><a href="{{ add.id }}/details">More Info</a></td>
+            </tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% block title %} GAMES APP | Create New Profile {% endblock %}
+
+{% block content %}
+
+    <div class="form_container" id="user_form">
+        <br>
+        <h3>CREATE NEW PROFILE</h3>
+            <form name="NewUserForm" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button id="cancel_button">Cancel</button>
+                <button id="new_button" type="submit" name="Submit_Profile">Submit</button>
+            </form>
+        <br>
+    </div>
+
+{% endblock %}
+
+

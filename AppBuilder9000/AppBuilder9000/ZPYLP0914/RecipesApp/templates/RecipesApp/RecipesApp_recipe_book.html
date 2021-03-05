@@ -1,0 +1,47 @@
+{% extends "RecipesApp/RecipesApp_base.html" %}
+
+{% block title %} Recipe Book {% endblock %}
+
+{% block header %}Lets look up a tasty recipe!{% endblock %}
+
+{% block content %}
+<div class="book-form">
+    <!-- searches recipes by words in title -->
+    <form action="{% url 'search' %}" method="get">
+        <input name="q" type="text" placeholder="Search recipe titles...">
+    </form>
+    <div>
+    {% for r in recipes %} <!-- display recipes by title -->
+        <h2 class="recipe-header">{% filter upper %}{{ r.Title }}{% endfilter %}</h2>
+        <!-- on click go to recipe details/instructions -->
+        <button type="button" class="button-book"><a href="{% url 'recipe_details' r.pk %}">Make this {{ r.Type }}!</a></button>
+        <br>
+        <br>
+    {% endfor %}
+
+    <!-- breaks recipes into 5 per page with arrow keys -->
+    {% if recipes.has_other_pages %}
+    <ul class="pagination">
+        {% if recipes.has_previous %}
+        <li><a href="?page={{ recipes.previous_page_number }}">&laquo;</a> </li>
+        {% else %}
+        <li><a href="disabled"><span>&laquo;</span></a> </li>
+        {% endif %}
+        {% for i in recipes.paginator.page_range %}
+            {% if r.number == 1 %}
+            <li class="active"><span>{{ i }}<span class="sr-only">current</span> </span></li>
+            {% else %}
+            <li><a href="?page={{ i }}"></a> </li>
+            {% endif %}
+        {% endfor %}
+        {% if recipes.has_next %}
+        <li><a href="?page={{ recipes.next_page_number }}">&raquo;</a> </li>
+        {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}

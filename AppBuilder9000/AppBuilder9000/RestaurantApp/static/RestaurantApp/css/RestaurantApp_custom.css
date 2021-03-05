@@ -1,0 +1,248 @@
+body {
+    text-align: center;
+}
+
+
+/* HOME */
+/* image carousel on homepage */
+#homecarousel {
+    position: fixed;
+    z-index: -10;
+}
+
+/* ensure entire background is covered and responsive */
+.carousel-item img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+#myjumbotron {
+    color: white;
+    background-color: rgba(0,0,0,.35);
+    margin-top: 7%;
+    width: 50%;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 775px) {
+    #myjumbotron {
+        width: 75%;
+    }
+}
+
+/* title of jumbotron in home.html */
+.display-2 {
+    font-weight: bold;
+    margin-top: -3%;
+}
+
+/* whoops message */
+.whoopsmsg {
+    border-radius: 5px;
+}
+
+/* removing border around search by city (so it conncts with button better) */
+.noborders {
+    border: none;
+    outline-color: rgba(0,0,0,0);
+}
+
+/*!!!!!AFFECTS ALL FORM FIELDS!!!!!!! changing highlight/focus color to grey*/
+.form-control:focus {
+    border-color: darkgrey;
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0, 0.15);
+}
+
+
+
+/* SEARCH PAGE */
+/* city shown at top of search.html */
+.mycontainer {
+    margin-top: 2.5%;
+}
+
+.citytitle {
+    color: indianred;
+    font-weight: bold;
+}
+
+/* spacing for filters */
+.form-group {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+/* spacing between list/map views and contents */
+#listswitch, #mapswitch {
+    margin-top: 3%;
+}
+
+/* cards in search.html */
+.hover {
+    transition: transform .5s, box-shadow .5s;
+}
+
+.hover:hover {
+    transform: scale(1.03);
+    box-shadow: 2px 2px 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* images of cards in search.html */
+.cardimgs {
+    object-fit: cover;
+}
+
+/* unused money signs of cards in search.html*/
+.transparentmoney {
+    color: rgba(0,0,0,.2);
+}
+
+/* details panel of cards in search.html */
+.card-img-overlay {
+    background-color: rgba(100, 105, 110, .95);
+    background: linear-gradient(to right, transparent 1%, rgb(100, 105, 110));
+    color: white;
+}
+
+/* info button on cards in search.html */
+.info_button_placement {
+    margin-left: 75%;
+    margin-top: -5%;
+}
+
+/* save to MyList button in search.html and Menu buttons in search.html and show.html */
+.btn-outline-danger {
+    color: indianred;
+    border-color: indianred;
+}
+
+.btn-outline-danger:hover {
+    background-color: indianred;
+    border-color: indianred;
+}
+
+.mylist_button_placement {
+    margin-left: -65%;
+    margin-top: -8%;
+}
+
+/* card titles in search.html */
+.mycardspacing {
+    margin-top: -3%;
+    margin-left: 1%;
+}
+
+.mycardtitle {
+    color: indianred;
+    font-weight: bold;
+    transition: color .5s;
+}
+
+.mycardtitle:hover {
+    color: #d58512;
+}
+
+/* checkmark displays underneath menu and hours buttons in search.html*/
+.myhighlights p {
+    font-size: .85em;
+    margin-bottom: -3%;
+}
+
+/* taking away background color on hours */
+#mycardhours:hover {
+    background-color: rgba(0,0,0,0);
+}
+
+/* star rating of cards in search.html */
+.starspacing {
+    margin-top: -2%;
+}
+
+
+/* MYLIST */
+.mylisttitle {
+    color: indianred;
+    font-weight: bold;
+}
+
+/* changes color from bootstraps secondary (grey) to red in show.html, details.html and edit.html */
+.deletechange:hover {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+/* changes color from bootstraps secondary (grey) to gold in edit.html and add.html */
+.submitchange:hover {
+    background-color: #EBA24F;
+    border-color: #EBA24F;
+}
+
+
+/* DELETE MODALS */
+/* delete button in confirmation modals */
+.deletemodalbutton {
+    color: crimson;
+    border-color: crimson;
+}
+
+.deletemodalbutton:hover {
+    color: white;
+    background-color: crimson;
+    border-color: crimson;
+}
+
+.mydeletetitle {
+    color: crimson;
+    font-weight: bold;
+}
+
+
+/* labels on details.html, edit.html, add.html */
+.mylistlabels label {
+    font-weight: bold;
+}
+
+
+/* changing color of MyComments placeholder in add.html */
+#user_comments::placeholder {
+  color: lightgrey;
+  opacity: 1;
+}
+
+#user_comments:-ms-input-placeholder {
+  color: lightgrey;
+}
+
+#user_comments::-ms-input-placeholder {
+  color: lightgrey;
+}
+
+
+/* FOOTER */
+/* this is to push the footer to the bottom */
+.entire_page_container {
+    min-height: 100vh;
+}
+
+.footer_buffer {
+    margin-bottom: 10%;
+}
+
+#footer {
+    color: lightslategrey;
+    font-size: 1em;
+    width: 100%;
+    bottom: 0;
+    margin-top: -2%;
+}
+
+#footer a {
+    color: inherit;
+    text-decoration-color: inherit;
+    transition: color .3s, text-decoration-color .3s;
+}
+
+#footer a:hover {
+    color: #31b0d5;
+    text-decoration-color: #31b0d5;
+}

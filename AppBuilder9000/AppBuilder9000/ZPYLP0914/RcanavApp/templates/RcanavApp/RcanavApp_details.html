@@ -1,0 +1,26 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="manage-containers">
+    <div class="list-group">.
+     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start manage-containers-details">
+       <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">City name: {{ city.cities_name }}</h5>
+          <!-- this could be used for grabbing time last modified (upper right text) -->
+          <small>Today</small>
+        </div>
+        <p class="mb-1">Reason: {{ city.reason }}</p>
+        <p class="mb-1">Date: {{ city.date_saved }}</p>
+        <p class="mb-1">Rate: {{ city.Rate_cities }}</p>
+         <a href="{% url 'deleteCity' city.id %}" class="btn btn-primary btn-lg activate" role="button" aria-disabled="true">Delete</a>
+         <a href="{% url 'editCity' city.id %}" class="btn btn-danger btn-lg activate" role="button" aria-disabled="true">Edit</a>
+      </a>
+    </div>
+  </div>
+{% endblock %}
+

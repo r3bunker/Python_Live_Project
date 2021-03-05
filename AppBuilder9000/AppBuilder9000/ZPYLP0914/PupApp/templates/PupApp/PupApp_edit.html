@@ -1,0 +1,21 @@
+{% extends 'PupApp/PupApp_base.html' %}
+{% load staticfiles %}
+{% block appcontent %}
+    <section>
+        <h2>Edit Pup</h2>
+        <div class="frm_container">
+            <form method="POST">
+                <table class="table-edit">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    {{ form.as_table }}
+                </table>
+                <div class="frmBtn_container">
+                    <input type="submit" class="btn" value="Save edited info">
+                    <button class="btn" type="button" onclick=" location.href='./pupapp_delete'">Delete Pup</button>
+                    <button class="btn" type="button" onclick=" location.href='../index'">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

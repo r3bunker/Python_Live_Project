@@ -1,0 +1,39 @@
+{% extends "SFReview/SFR_base.html" %}
+{% load staticfiles %}
+{% block title %}Reviews from GoodReads{% endblock %}
+
+{% block appcontent %}
+<section class="intro">
+<span class="SFR_Summary">
+    <div class="text">
+        The current top reviewed Science Fiction and Fantasy novels from
+        <a href="https://www.goodreads.com/book/popular_by_date/2020/10?ref=nav_brws_newrels">Good Reads</a>.
+    </div></span>
+</section>
+<section>
+    <span>
+        <div class="flex-container">
+
+<table class="SFR_Table">
+    <tr> <!--Labels for Recommendations table.-->
+        <th>Cover:</th>
+        <th>Author:</th>
+        <th>Title:</th>
+    </tr>
+    <!-- Pull the beautiful soup information into the table as a for loop.!-->
+        {% for item in books %}
+    <tr>
+        <td><img src="{{item.CoverImg}}"></td>
+        <td>{{ item.Author }}
+        </td>
+        <td>{{ item.Title }}
+        </td>
+
+
+    </tr>
+        {% endfor %}
+</table>
+        </div>
+    </span>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "surfApp/surfApp_base.html" %}
+{% load static from staticfiles%}
+from .models import SurfSpot
+
+{% block class_img %}class="bg_img"{% endblock %}
+{% block title %}Surf Spots Home{% endblock%}
+
+{% block header %}Welcome to Your Favorite Surf Spots{% endblock %}
+
+{% block content %}
+
+<!-- Display surf spot list to home page in title form, spotName only-->
+{% for spot in spots %}
+<!-- some  styling for this page only, within the h3 tag, span class home-list-->
+<h3><span class="home-list">{{ spot.spotName | upper }}</span></h3>
+{% endfor %}
+
+
+
+
+{% endblock %}

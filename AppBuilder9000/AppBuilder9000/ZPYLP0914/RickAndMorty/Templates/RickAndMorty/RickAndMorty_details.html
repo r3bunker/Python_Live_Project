@@ -1,0 +1,29 @@
+{% extends "RickAndMorty/RickAndMorty_base.html" %}
+{% block title %} Character Details {% endblock %}
+{% block page-title %} Character Details{% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'rick_index' %}"><button class="button" type="submit"><strong>Index</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'api_search' %}"><button class="button" type="submit"><strong>Search</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'bios' %}"><button class="button" type="submit"><strong>Bios</strong></button></a>{% endblock %}
+{% block appcontent %}
+<div class="content">
+    <div class="base_form">
+        <a href="{% url 'update' pk=character_stats.pk %}"><button class="button"><strong>Edit</strong></button></a>
+        <a href="{% url 'delete' pk=character_stats.pk %}"><button class="button"><strong>Delete</strong></button></a>
+    </div>
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="{{character_stats.image}}" alt="image not found">
+        </div>
+        <div class="card">
+            <div class="card-header">{{character_stats.name}}</div>
+            <div class="card-body text-dark">
+                <h1 class="card-title">Alignment:<br>{{character_stats.alignment}}</h1>
+                <h1 class="card-title">Catch Phrase:<br>{{character_stats.catchPhrase}}</h1>
+                <h1 class="cart-title">Description:<br>{{character_stats.description}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

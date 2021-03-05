@@ -1,0 +1,41 @@
+{% extends 'RickAndMorty/RickAndMorty_base.html' %}
+
+{% block title %} Index of Characters {% endblock %}
+{% block page-title %}Index of Characters{% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'RickAndMorty_home' %}"><button class="button" type="submit"><strong>Home</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'api_search' %}"><button class="button" type="submit"><strong>Search</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'bios' %}"><button class="button" type="submit"><strong>Bios</strong></button></a>{% endblock %}
+{% block appcontent %}
+<div class="content">
+    {% if not stats %}
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="../static/images/oops.png" alt="image not found">
+            </div>
+            <div class="card">
+                <div class="card-header">OOPS!</div>
+                <div class="card-body text-dark">
+                    <h1 class="card-text">No entries Found!</h1>
+                    <br>
+                    <h1 class="cart-text">Please add an entry, for Rick's sake!</h1>
+                </div>
+            </div>
+        </div>
+    {% else %}
+    <form name="CharacterForm" method="POST" action="" class="base_form">
+        {% csrf_token %}
+        <div>
+            <label for="menu_id">Select A Characater</label>
+            <select id="menu_id" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;">
+                <option></option>
+                {% for stat in stats %}
+                <option value="../RickAndMorty/{{ stat.pk }}/RickAndMorty_details">{{ stat.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

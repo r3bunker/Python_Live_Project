@@ -1,0 +1,22 @@
+{% extends 'RickAndMorty/RickAndMorty_base.html' %}
+
+{% block page-title %}Rick-Tastic Database{% endblock %}
+{% block button1 %}<br><br><a href=" {% url 'rick_index' %}"><button class="button" type="submit"><strong>Index</strong></button></a>{% endblock %}
+{% block button2 %}<a href="{% url 'add_character' %}"><button class="button" type="submit"><strong>Add</strong></button></a>{% endblock %}
+{% block button3 %}<a href="{% url 'api_search' %}"><button class="button" type="submit"><strong>Search</strong></button></a>{% endblock %}
+{% block button4 %}<a href="{% url 'bios' %}"><button class="button" type="submit"><strong>Bios</strong></button></a>{% endblock %}
+{% block appcontent %}
+
+    <section class="content">
+        <div>
+            <h2 class="sub-title">Welcome!</h2>
+            <p class="sub-title">Wubba lubba dub dub!  Welcome to the Rick-tastic Database, ohh wee! <br/>
+                Search for any character in the Rick and Morty universe!<br/>
+                Check out biographies of all the main characters!<br/>
+                Search our personal index of Rick and Morty characters! <br/>
+                Don't see your favorite character in our index?  Add an entry!</p>
+        </div>
+    </section>
+{% endblock %}
+
+

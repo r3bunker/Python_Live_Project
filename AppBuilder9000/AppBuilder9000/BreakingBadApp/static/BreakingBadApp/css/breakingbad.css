@@ -1,0 +1,30 @@
+.form_container {
+    background-color: white;
+    padding: 25px;
+    text-align: center;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+form {
+    display: inline-block;
+}
+
+.bg_img {
+    background-image: url('../images/breakingbad_background.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    z-index: -1;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+

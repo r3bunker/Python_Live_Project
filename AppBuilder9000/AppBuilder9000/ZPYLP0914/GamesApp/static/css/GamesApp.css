@@ -1,0 +1,202 @@
+html {
+	height: cover;
+	width: cover;
+}
+
+.pc_img {
+    background-image: url('/static/images/pc-rig.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+p {
+    text-align: center;
+    padding-right: 60px;
+    color: white;
+    font-weight: bold;
+}
+
+label {
+	width: 125px;
+	margin-left: 50px;
+	font-weight: bold;
+	opacity: initial;
+}
+
+
+input, select{
+	width: 400px;
+}
+
+
+input:hover {
+	box-shadow: 0 0 18px rgb(176, 0, 206);
+}
+
+input:focus {
+	box-shadow: 0 0 18px rgb(156, 20, 20);
+}
+
+/* General Table Styling */
+table {
+    border-spacing: 40px;
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+}
+
+th{
+	border: 3px solid rgb(176, 0, 206);
+	color: white;
+}
+
+tr td{
+	height: 25px;
+	border: 2px black;
+	word-wrap: normal;
+	vertical-align: top;
+	width: auto;
+	color: white;
+}
+
+.center {
+	text-align: center;
+	width: 15%;
+}
+
+.left{
+	padding-left: 10px;
+	width: 30%;
+	word-wrap: normal;
+}
+
+.right {
+	padding-right: 5px;
+	width: 20%;
+	text-align: right;
+}
+
+
+.user_form {
+	position: relative;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+}
+
+.form_container{
+	opacity: 0.9;
+	position: relative;
+	width: 1000px;
+	height: auto;
+	border-radius: 8px;
+	border: 2px rgba(176, 0, 206);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	background-color: rgba(0, 72, 144, 1.0);
+}
+
+h3{
+    padding-right: 30px;
+    padding-left: 30px;
+	font-size: 24px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	margin-left: 25px;
+	margin-top: 15px;
+}
+
+#all_forms {
+    position: relative;
+}
+
+.new_button, cancel_button{
+	background-color: darkgray;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.new_button a, new_button a:hover {
+    text-decoration: none;
+    text-align: center;
+    color: rgba(176, 0, 206, 1.0);
+    cursor: pointer;
+}
+
+.block_footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 113.5%;
+   background-color: rgba(176, 0, 206);
+   color: black;
+   font-weight: bold;
+   text-align: left;
+}
+
+#a:hover {
+    background-color: black;
+}
+
+/* Navbar */
+.Navbar {
+    text-align: center; /* centers the text within the navbar */
+	overflow: hidden; /* This ensures that any content that overflows beyond the boundary of our nav bar is not displayed */
+	background-color: rgb(176, 0, 220, 1.0); /* This colors the navbar */
+	position: fixed; /* This keeps the navbar at the top of the screen as we scroll */
+	top: 0; /* This ensures no space is displayed above the navbar */
+	width: 100%; /* This makes the navbar span the entire width of the page */
+    z-index: 1; /*This ensures other elements don't display over the navbar */
+    position: fixed;
+    animation: moveNav 3s;
+}
+
+/* Navbar text */
+.Navbar a {
+	display: inline-block; /* This ensures that other text will be displayed on the same line or row, instead of a new line */
+	color: white; /* This is the font color for text on our navbar */
+	padding: 14px 16px; /* This adds padding around our text */
+	text-decoration: none; /* This gets rid of the underlines under the text on our navbar */
+	font-family: Copperplate; /* This specifies the font family for text on our navbar */
+	font-size: 1.0vw; /* This specifies the font size for text on our navbar */
+    position: relative;
+    -webkit-animation: movenavText 2.0s;  /* Speed in which the text animates into the navbar */
+    animation: movenavText 2.0s;
+}
+
+/* 2 Animation effects for moving Navbar in from above the top of the screen upon loading in */
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+@keyframes movenavText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+
+/* Navbar hover effect */
+.Navbar a:hover {
+	background-color: black; /*  This defines the background color that will display when you hover over the text on the navbar */
+	color: white; /* This defines the font color that will display when you hover over the text on the navbar */
+    cursor: pointer;
+    font-weight: bold;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+/* Navbar home button */
+.Navbar a.active { /* The active selector styles a link */
+  background-color: black;  /* This specifies the background color behind the Home button on the navbar */
+}
+

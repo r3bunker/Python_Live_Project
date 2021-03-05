@@ -1,0 +1,17 @@
+{% extends 'BreakingBadApp/BreakingBadApp_base.html' %}
+    {% block title %}Add an Episode{% endblock %}
+    {% block header %}Add your favorite Episode{% endblock %}
+
+    {% block content %}
+        <div class="form_container">
+            <form method="POST" class="form_episode">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button id="episode-button" type="submit" name="save_episode">Save Episode</button>
+            </form>
+        </div>
+
+
+
+
+    {% endblock %}

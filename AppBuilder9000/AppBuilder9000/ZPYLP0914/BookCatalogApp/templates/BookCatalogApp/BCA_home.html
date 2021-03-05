@@ -1,0 +1,16 @@
+{% extends "BookCatalogApp/BCA_base.html" %}
+
+{% block title %}Book Catalog{% endblock %}
+
+{% block header %}Book Catalog Home{% endblock %}
+
+{% block content %}
+<br><br>
+<h2>Welcome, {{ user }}, to the Book Catalog</h2>
+<br><br><br><br><br>
+<div class="btn_container">
+    <a href="{% url 'BookCatalogApp:list_index' %}">
+        <button class="button" type="button" value="Book List">Book List</button></a>
+</div>
+
+{% endblock %}

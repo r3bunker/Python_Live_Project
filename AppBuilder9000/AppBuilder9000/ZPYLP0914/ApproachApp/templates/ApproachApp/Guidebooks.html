@@ -1,0 +1,41 @@
+{% extends 'ApproachApp/Base.html' %}
+{% load static %}
+
+<!-- First title but title may change in the future -->
+{% block title %}Approach App{% endblock %}
+
+{% block header %}Add Guidebooks{% endblock %}
+
+{% block body %}
+
+<div class="Home-slideshow">
+    <img src="{% static 'images/LonePeak_cirque.jpg' %}" alt="lone peak cirque">
+</div>
+
+<div id="Create-Form">
+
+	<table>
+		<thead>
+			<tr>
+				<th>Guidebook</th>
+				<th>Price</th>
+				<th>Climbing Area</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for g in guides %}
+			<tr>
+				<td><a href="{% url 'ViewGuidebook' pk=g.pk %}">{{ g.name }}</a></td>
+				<td><a href="{% url 'ViewGuidebook' pk=g.pk %}">{{ g.price }}</a></td>
+				<td><a href="{% url 'ViewGuidebook' pk=g.pk %}">{{ g.climb_area }}</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+
+	<a href="{% url 'AddGuidebook' %}"><button class="btn draw-border" type="button">Create GuideBook</button></a>
+</div>
+
+
+{% endblock %}

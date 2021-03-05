@@ -1,0 +1,15 @@
+{% load static %}
+
+<ul class="topnav">
+    <li><a href="{% url 'ApproachHome' %}" class="logobox"><img src="{% static "images/logo_white.png" %}" alt="logo"></a></li>
+    <li><a href="{% url 'TripManager' %}">Trips</a></li>
+    <li><a href="{% url 'Training'%}">Training</a></li>
+    <li><a href="{% url 'GuideBooks' %}">Guidebooks</a></li>
+    <li><a href="{% url 'TickList' %}">TickList</a></li>
+    {% if User is not null %}
+    <li><a href="" class="nav-right">{{ User }}</a></li>
+    {% else %}
+    <li><a href="{% url 'SignIn' %}" class="nav-right">Sign in</a></li>
+    {% endif %}
+    <li><a href="" class="nav-right">Search</a></li>
+</ul>

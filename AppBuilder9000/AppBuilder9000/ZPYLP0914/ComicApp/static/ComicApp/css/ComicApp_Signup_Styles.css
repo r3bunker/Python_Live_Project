@@ -1,0 +1,35 @@
+.sign-up-form {
+    text-align: center;
+}
+
+.sign-up-form table {
+    margin: auto;
+}
+
+.sign-up-form label {
+    margin: 0 1rem 0 0;
+    font-weight: normal;
+}
+
+.sign-up-form input {
+    margin: 0.5rem 0;
+    width: 17rem;
+}
+
+.sign-up-form button {
+    padding: 0.6rem 3rem;
+    margin-top: 1rem;
+    border: 0.1rem solid #1a232b;
+    background-color: firebrick;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+.sign-up-form button:hover {
+    border: 0.1rem solid #1a232b;
+    background-color: #7f0505;
+}
+
+.sign-up-form #id_birth_date {
+    width: 8rem;
+}

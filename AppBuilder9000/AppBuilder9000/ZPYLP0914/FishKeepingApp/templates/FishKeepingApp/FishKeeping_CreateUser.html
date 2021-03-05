@@ -1,0 +1,21 @@
+
+{% extends 'FishKeepingApp/FishKeeping_Base.html' %}
+
+{% block title %}Create New Account{% endblock %}
+
+{% block header %}NEW ACCOUNT{% endblock %}
+
+{% block content %}
+
+	<h3 class="main-h">CREATE NEW USER</h3>
+	<hr>
+		<div class="form-container">
+			<form method="POST">
+				{% csrf_token %}
+				{{form.as_p}}
+				<button id="new-user-button" type="submit">Create Account</button>
+			</form>
+			<br>
+		</div>
+
+{% endblock %}

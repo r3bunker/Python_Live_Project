@@ -1,0 +1,102 @@
+{% load staticfiles %}
+
+/*===================================================
+                    GENERIC
+====================================================*/
+html {
+   margin: 0;
+   min-height: 100%;
+   width: 100%;
+}
+
+body {
+    background-image: url(/static/SendItApp/images/elcap-home.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+table {
+    font-size: calc(0.50em + 0.40vw);
+}
+
+/*===================================================
+                    FOOTER
+====================================================*/
+/* Footer styling */
+#block-footer {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+	-moz-box-sizing: border-box;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: 40px;
+}
+
+#block-footer a, #block-footer p {
+    flex: 1;
+    color: white;
+    padding: 15px 15px;
+	font-size: 15px;
+    line-height: 10px;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+#footer-left {
+    width: 30%;
+    text-align: right;
+}
+#block-footer{
+	float:left;
+	clear:both;
+	width:100%;
+}
+#block-footer a {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	text-decoration: none;
+	outline: medium none;
+}
+#block-footer a:hover {
+    color: steelblue;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/*===============================================
+            MY SENDS
+================================================*/
+
+/*===== CLICKABLE-ROW - MAKES ENTIRE ROW CLICKABLE (USE WITH 'OVERFLOW: HIDDEN') */
+.click-row {
+    overflow: hidden;
+}
+
+.click-row a {
+    display: block;
+    margin: -100px;
+    padding: 100px;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.click-row:hover {
+    cursor: pointer;
+}
+
+/*===============================================
+            UNUSED CSS SNIPPETS
+================================================*/

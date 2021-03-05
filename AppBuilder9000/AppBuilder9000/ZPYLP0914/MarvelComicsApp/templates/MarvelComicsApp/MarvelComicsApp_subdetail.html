@@ -1,0 +1,27 @@
+{% extends 'MarvelComicsApp/MarvelComicsApp_base.html' %}
+
+{% block content %}
+<div class="w3-container w3-center w3-animate-top">
+    <div class= "detail-container">
+        <!--display the specified users username-->
+        <h1>{{ subscribers.sub_username }}</h1>
+        <!--display the specified users first name-->
+        <h3>First Name: {{ subscribers.sub_fname }}</h3>
+        <!--display the specified users last name-->
+        <h3>Last Name: {{ subscribers.sub_lname }}</h3>
+        <!--display the specified users favorite super team-->
+        <h3>Favorite super team: {{ subscribers.sub_team }}</h3>
+        <!--display the specified users date of birth-->
+        <h3>Date of Birth: {{ subscribers.sub_dob }}</h3>
+        <!--display the specified users preference to read comics online-->
+        <h3>Comics online: {{ subscribers.sub_preference }}</h3>
+        <!--redirect user to the specific instance of the MarvelComicsEditSubscriber url using the primary key-->
+        <button type="button" class="btn btn-primary btn-lg"><a href="{% url 'MarvelComicsAppEditSubscriber' pk=subscribers.id %}">Edit</a></button>
+        <!--redirect user to the specific instance of the MarvelComicsDeleteSubscriber url using the primary key-->
+        <button type="button" class="btn btn-danger btn-lg"><a href="{% url 'MarvelComicsAppDeleteSubscriber' pk=subscribers.id %}">Delete</a></button>
+    </div>
+
+</div>
+
+
+{% endblock %}

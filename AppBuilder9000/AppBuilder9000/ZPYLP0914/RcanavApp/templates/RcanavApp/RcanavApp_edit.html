@@ -1,0 +1,24 @@
+{% extends 'RcanavApp/RcanavApp_base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+ <link rel="stylesheet" type="text/css" href="{% static 'RcanavApp/css/form_stylesheet.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="flex-container">
+        <form method="post" class="form-group">
+            {%csrf_token%}
+            <table  class="table table-striped table-dark">
+                {{form.as_table}}
+                </table>
+                {{form.non_field_errors}}
+            <button class="adder-button" type="submit">Save</button>
+            <button class="adder-button" type="button" value="Delete Entry" >Delete</button>
+        </form>
+        <hr/>
+        <button class="adder-button" type="button" onclick="location.href='{% url 'WishList' %}'">Back to List</button>
+    </div>
+</section>
+{% endblock %}

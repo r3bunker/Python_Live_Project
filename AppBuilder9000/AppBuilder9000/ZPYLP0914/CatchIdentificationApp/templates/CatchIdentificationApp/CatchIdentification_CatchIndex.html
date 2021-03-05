@@ -1,0 +1,67 @@
+{% extends 'CatchIdentificationApp/CatchIdentification_Base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'CatchIdentificationApp/CSS/CatchStyle.css' %}">
+
+<h1>Catch Index</h1>
+<table border="2" width="600" class="table table-hover text-centered">
+    <tr>
+        <td>Fishing Name</td>
+        <td>Fish Type</td>
+        <td>Fish Length</td>
+        <td>Fish Weight</td>
+        <td>Body of Water</td>
+        <td>tackle Used</td>
+    </tr>
+
+{% for index in indexes %}
+    <tr>
+        <td>{{ index.fishing_Name }}</td>
+        <td>{{ index.fish_Type }}</td>
+        <td>{{ index.fish_Length }}</td>
+        <td>{{ index.fish_Weight }}</td>
+        <td>{{ index.body_of_Water }}</td>
+        <td>{{ index.tackle_Used }}</td>
+    </tr>
+
+    {% endfor %}
+<br>
+
+
+</table>
+<br>
+<br>
+<h1>Let's See What Everyone Else Is Catching</h1>
+<br>
+<table border="2" width="600" class="table table-hover text-centered">
+    <tr>
+        <td>Fishing Name</td>
+        <td>Fish Type</td>
+        <td>Fish Length</td>
+        <td>Fish Weight</td>
+        <td>Body of Water</td>
+        <td>tackle Used</td>
+    </tr>
+{% for result in results %}
+    <tr>
+        <td>{{ result.fishing_Name }}</td>
+        <td>{{ result.fish_Type }}</td>
+        <td>{{ result.fish_Length }}</td>
+        <td>{{ result.fish_Weight }}</td>
+        <td>{{ result.body_of_Water }}</td>
+        <td>{{ result.tackle_Used }}</td>
+    </tr>
+    {% endfor %}
+<br>
+<center>
+<form action="{% url 'searchlog' %}" method="GET">
+<input type="text" name="q" placeholder="Search Catch Log"/>
+<input type="submit" name="submit" value="Search"/>
+</form>
+</center>
+
+
+{% endblock %}

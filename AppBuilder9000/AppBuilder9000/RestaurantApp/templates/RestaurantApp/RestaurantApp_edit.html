@@ -1,0 +1,360 @@
+{% extends 'RestaurantApp/RestaurantApp_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title mydeletetitle" id="deleteModalLabel">Confirm Delete</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h5 class="w-75 mx-auto">Are you sure you want to remove <br><span class="mylisttitle">{{ restaurant.name|title }}</span> from MyList?</h5>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-outline-danger deletemodalbutton" onclick="deleteForm()">Delete</button>
+      </div>                                            <!-- ^ triggering delete function -->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<h1 class="text-muted mycontainer">Editing <span class="mylisttitle">{{ restaurant.name|title }}</span></h1>
+<h6 class="text-muted mt-3">Please note: all changes are reflected in MyList and do not affect search results</h6>
+<hr class="my-4 w-75">
+
+        <!-- error message if form is submitted but still invalid -->
+        {% for message in messages %}
+                    <div class="alert alert-warning col w-75 mx-auto whoopsmsg">
+                        <a class="close" href="#" data-dismiss="alert">×</a>
+                        <h4>Save unsuccessful</h4>
+                            {{ message }}
+                    </div>
+        {% endfor %}
+
+<!-- form starts before buttons at top of page so they can be used to submit -->
+<form method="POST">
+    {% csrf_token %}
+    <div class="row mt-5 mb-3 w-50 mx-auto">
+        <div class="col mx-auto">
+            <button type="submit" class="btn btn-lg btn-block btn-outline-secondary submitchange">Submit</button>
+        </div>
+        <div class="col mx-auto">
+            <button type="button" class="btn btn-lg btn-block btn-outline-secondary deletechange" data-toggle="modal" data-target="#deleteModal">Remove</button>
+        </div>
+    </div>
+
+
+    <!-- displays a list of all restaurants saved locally in database -->
+    <div class="container-fluid footer_buffer">
+        <div class="card w-75 mt-5 mx-auto">
+            <div class="row no-gutters">
+                <!-- TOP SECTION displaying image and name -->
+                <div class="col-md-5">
+                    {% if restaurant.img is not None %}
+                    <img src="{{ restaurant.img }}" height="225px" class="card-img cardimgs" alt="(Not displaying or link is corrupted)">
+                    {% else %}
+                    <img src="" class="card-img cardimgs" height="200px" alt="No saved image" style="min-height: 100%;">
+                    {% endif %}
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body text-left mylistlabels">
+                            <small class="text-muted">Only required fields are Restaurant Name* and Address*</small><br>
+                            <small class="text-muted">To change the restaurant's photo, update the Link to Restaurant's Image field</small>
+                        <!-- NAME -->
+                        <div class="form-group mt-5">
+                            <label for="name">Restaurant*</label>
+                            <input type="text" class="form-control" name="name" value="{{ restaurant.name|title }}" id="name" maxlength="255" required>
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN BODY SECTION, showing bulk of data -->
+                <div class="col-md-12">
+                    <div class="card-body text-left mylistlabels">
+                        <div class="form-row">
+                            <!-- MYRATING -->
+                            <div class="form-group col-md-6">
+                                <label for="user_rating" style="font-size: 1.3em;">MyRating</label><br>
+                                <small class="text-muted">Add your own rating for this restaurant!</small>
+                                <div class="form-group">
+                                    <input type="range" class="w-75 form-control-range pt-10" name="user_rating" value="{{ restaurant.user_rating }}" id="user_rating" min="1.0" max="5.0" step=".1">
+                                </div>
+                                <div class="w-75 form-group text-center">
+                                    <small class="text-muted font-weight-bold" id="user_ratingvalue"></small>
+                                </div>
+                            </div>
+                            <!-- MYCOMMENTS -->
+                            <div class="form-group col-md-6">
+                                <label for="user_comments" style="font-size: 1.3em;">MyComments</label>
+                                {% if restaurant.user_comments %}
+                                <textarea class="form-control" id="user_comments" name="user_comments" rows="3" maxlength="500" placeholder="Add your own comments about the restaurant here! Great food? Bad atmosphere? Use this as your own personal sticky note!">{{ restaurant.user_comments}}</textarea>
+                                {% else %}
+                                <textarea class="form-control" id="user_comments" name="user_comments" rows="3" maxlength="500" placeholder="Add your own comments about the restaurant here! Great food? Bad atmosphere? Use this as your own personal sticky note!"></textarea>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- ADDRESS -->
+                        <div class="form-group">
+                            <label for="address">Address*</label>
+                            <input type="text" class="form-control" name="address" value="{{ restaurant.address }}" id="address" maxlength="255" required>
+                            <small class="text-muted">Provide street, city, state/province and zip code all on this line, ie: &nbsp; 123 Main Street Houston, TX 77002</small>
+                        </div>
+                        <!-- PHONE -->
+                        <div class="form-group">
+                            <label for="phone">Phone number(s)</label>
+                            <input type="text" class="form-control" name="phone" value="{{ restaurant.phone }}" id="phone" maxlength="100">
+                            <small class="text-muted">Use a comma to separate phone numbers, ie: &nbsp;(713) 555-5555, (713) 555-5556</small>
+                        </div>
+                        <!-- HOURS -->
+                        <div class="form-group">
+                            <label for="hours">Hours</label>
+                            <input type="text" class="form-control" name="hours" value="{{ restaurant.hours }}" id="hours" maxlength="255">
+                            <small class="text-muted">Store days in parentheses, ie: &nbsp;8 AM to 10 PM (Mon, Sun), 8 AM to 12 Midnight (Tue-Sat)</small>
+                        </div>
+                        <!-- URL -->
+                        <div class="form-group">
+                            <label for="url">Link to Restaurant</label>
+                            {% if restaurant.url %}
+                            <input type="url" class="form-control" name="url" value="{{ restaurant.url }}" id="url" maxlength="200">
+                            {% else %}
+                            <input type="url" class="form-control" name="url" value="" id="url" maxlength="200">
+                            {% endif %}
+                        </div>
+                        <!-- IMG -->
+                        <div class="form-group">
+                            <label for="img">Link to Restaurant's Image</label>
+                            {% if restaurant.img %}
+                            <input type="url" class="form-control" name="img" value="{{ restaurant.img }}" id="img" maxlength="200">
+                            {% else %}
+                            <input type="url" class="form-control" name="img" value="" id="img" maxlength="200">
+                            {% endif %}
+                            <small class="text-muted">Update this link to change the restaurant's photo</small>
+                        </div>
+                        <!-- MENU -->
+                        <div class="form-group">
+                            <label for="menu">Link to Restaurant's Menu</label>
+                            {% if restaurant.menu %}
+                            <input type="url" class="form-control" name="menu" value="{{ restaurant.menu }}" id="menu" maxlength="200">
+                            {% else %}
+                            <input type="url" class="form-control" name="menu" value="" id="menu" maxlength="200">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- SUBMIT/REMOVE BUTTONS -->
+                    <div class="row mt-4 mb-5 w-75 mx-auto">
+                        <div class="col mb-4 mx-auto">
+                            <button type="submit" class="btn btn-lg btn-block btn-outline-secondary submitchange">Submit</button>
+                        </div>
+                        <div class="col mb-4 mx-auto">
+                            <button type="button" class="btn btn-lg btn-block btn-outline-secondary deletechange" data-toggle="modal" data-target="#deleteModal">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- alright so this part -->
+    <!-- this is keeping track of any values the form already has that we do NOT want the user interacting with and keeping them consistent -->
+    <!-- the main issue - a lot of fields are null, however after a query, we receive None -->
+    <!-- None does not get reentered as null, thus for all of the ELSE statements, value is left blank -->
+    <!-- essentially:   if none, value is "" -->
+    {% if restaurant.zomatoID %}
+    <input type="text" class="form-control" name="zomatoID" value="{{ restaurant.zomatoID }}" id="zomatoID" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="zomatoID" value="" id="zomatoID" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.cuisines %}
+    <input type="text" class="form-control" name="cuisines" value="{{ restaurant.cuisines }}" id="cuisines" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="cuisines" value="" id="cuisines" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.establishment %}
+    <input type="text" class="form-control" name="establishment" value="{{ restaurant.establishment }}" id="establishment" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="establishment" value="" id="establishment" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.rating %}
+    <input type="text" class="form-control" name="rating" value="{{ restaurant.rating }}" id="rating" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="rating" value="" id="rating" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.votes %}
+    <input type="text" class="form-control" name="votes" value="{{ restaurant.votes }}" id="votes" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="votes" value="" id="votes" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.rating_text %}
+    <input type="text" class="form-control" name="rating_text" value="{{ restaurant.rating_text }}" id="rating_text" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="rating_text" value="" id="rating_text" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.pricerange %}
+    <input type="text" class="form-control" name="pricerange" id="pricerange" value="{{ restaurant.pricerange }}" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="pricerange" value="" id="pricerange" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.avgfortwo %}
+    <input type="text" class="form-control" name="avgfortwo" value="{{ restaurant.avgfortwo }}" id="avgfortwo" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="avgfortwo" value="" id="avgfortwo" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.takeaway %}
+    <input type="text" class="form-control" name="takeaway" value="{{ restaurant.takeaway }}" id="takeaway" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="takeaway" value="" id="takeaway" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.delivery %}
+    <input type="text" class="form-control" name="delivery" value="{{ restaurant.delivery }}" id="delivery" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="delivery" value="" id="delivery" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.vegetarian %}
+    <input type="text" class="form-control" name="vegetarian" value="{{ restaurant.vegetarian }}" id="vegetarian" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="vegetarian" value="" id="vegetarian" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.vegan %}
+    <input type="text" class="form-control" name="vegan" value="{{ restaurant.vegan }}" id="vegan" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="vegan" value="" id="vegan" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.gluten_free %}
+    <input type="text" class="form-control" name="gluten_free" value="{{ restaurant.gluten_free }}" id="gluten_free" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="gluten_free" value="" id="gluten_free" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.latitude %}
+    <input type="text" class="form-control" name="latitude" value="{{ restaurant.latitude }}" id="latitude" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="latitude" value="" id="latitude" readonly style="display: none;">
+    {% endif %}
+
+    {% if restaurant.longitude %}
+    <input type="text" class="form-control" name="longitude" value="{{ restaurant.longitude }}" id="longitude" readonly style="display: none;">
+    {% else %}
+    <input type="text" class="form-control" name="longitude" value="" id="longitude" readonly style="display: none;">
+    {% endif %}
+</form>
+
+<!-- javascript to display rating value -->
+<script>
+    var slider = document.getElementById("user_rating");
+    var output = document.getElementById("user_ratingvalue");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+</script>
+
+<!-- javascript and logic to check the correct pricerange radio -->
+{% if restaurant.pricerange is 1 %}
+<script>
+    document.getElementById('$').checked = true;
+</script>
+{% elif restaurant.pricerange is 2 %}
+<script>
+    document.getElementById('$$').checked = true;
+</script>
+{% elif restaurant.pricerange is 3 %}
+<script>
+    document.getElementById('$$$').checked = true;
+</script>
+{% elif restaurant.pricerange is 4 %}
+<script>
+    document.getElementById('$$$$').checked = true;
+</script>
+{% endif %}
+
+<!-- javascript and logic for all yes/no options -->
+<!-- TAKEAWAY -->
+{% if restaurant.takeaway %}
+<script>
+    document.getElementById('takeawayTrue').checked = true;
+</script>
+{% else %}
+<script>
+    document.getElementById('takeawayFalse').checked = true;
+</script>
+{% endif %}
+
+<!-- DELIVERY -->
+{% if restaurant.delivery %}
+<script>
+    document.getElementById('deliveryTrue').checked = true;
+</script>
+{% else %}
+<script>
+    document.getElementById('deliveryFalse').checked = true;
+</script>
+{% endif %}
+
+<!-- VEGETARIAN -->
+{% if restaurant.vegetarian %}
+<script>
+    document.getElementById('vegetarianTrue').checked = true;
+</script>
+{% else %}
+<script>
+    document.getElementById('vegetarianFalse').checked = true;
+</script>
+{% endif %}
+
+<!-- VEGAN -->
+{% if restaurant.vegan %}
+<script>
+    document.getElementById('veganTrue').checked = true;
+</script>
+{% else %}
+<script>
+    document.getElementById('veganFalse').checked = true;
+</script>
+{% endif %}
+
+<!-- GLUTEN FREE -->
+{% if restaurant.gluten_free %}
+<script>
+    document.getElementById('gluten_freeTrue').checked = true;
+</script>
+{% else %}
+<script>
+    document.getElementById('gluten_freeFalse').checked = true;
+</script>
+{% endif %}
+
+
+<!-- DELETE FUNCTIONALITY -->
+<!-- this additional form is hidden and holds the django url to start the delete function in views.py -->
+<form id="hiddenForm" action="{% url 'RestaurantEditDelete' restaurant.pk %}" method="POST">
+    {% csrf_token %}
+</form>
+<!-- javascript attached to the modal delete button so that the hidden form can actually be submitted -->
+<script type="text/javascript">
+    function deleteForm() {document.getElementById("hiddenForm").submit();}
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'SoccerApp/SoccerApp_base.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} Soccer Players {% endblock %}
+
+{% block content %}
+<section>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</section>
+
+{% endblock %}

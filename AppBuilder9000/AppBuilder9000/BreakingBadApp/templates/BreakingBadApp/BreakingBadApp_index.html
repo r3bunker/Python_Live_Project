@@ -1,0 +1,48 @@
+{% extends 'BreakingBadApp/BreakingBadApp_base.html' %}
+    {% block title %}Saved Episodes{% endblock %}
+    {% block header %}Saved Episodes{% endblock %}
+
+    {% block content %}
+
+        <table class="table form_container">
+          <thead>
+            <tr>
+              <th scope="col">Episode Name</th>
+              <th scope="col">Season</th>
+              <th scope="col">Episode</th>
+              <th scope="col">Air Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for episode in page_obj %}
+            <tr>
+              <th scope="row">{{ episode.episode_title|capfirst }}</th>
+              <td>{{ episode.episode_season }}</td>
+              <td>{{ episode.episode_number }}</td>
+              <td>{{ episode.episode_date }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+            <nav>
+              <ul class="pagination justify-content-center mb-2">
+                <li class="page-item">
+                  <a class="page-link text-dark" href="?page=1" tabindex="-1">First</a>
+                </li>
+                  {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link text-dark" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number}}</a></li>
+                  {% endif %}
+                <li class="page-item page-link bg-dark text-white">{{ page_obj.number }}</li>
+                  {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link text-dark" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+                  {% endif %}
+                <li class="page-item">
+                  <a class="page-link text-dark" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                </li>
+              </ul>
+            </nav>
+
+
+
+
+    {% endblock %}
