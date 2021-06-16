@@ -2,7 +2,7 @@
 This repository contains all code of the AppBuilder website
 
 ## Description
-This website is a portol hub for other hobby applications. I worked with a group of developers using Python in the Django framework to create the various hobby applications
+This website is a portal hub for other hobby applications. I worked with a group of developers using Python in the Django framework to create the various hobby applications
 
 
 ## Visuals
